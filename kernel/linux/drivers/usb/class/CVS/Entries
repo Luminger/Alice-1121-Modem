@@ -1,0 +1,12 @@
+/.cvsignore/1.8/Fri Feb 20 17:35:36 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.9/Sun Oct 19 00:50:10 2003/-ko/Tlinux_2_6_8_1
+/Makefile/1.6/Mon Jun  2 10:48:42 2003/-ko/Tlinux_2_6_8_1
+/audio.c/1.25/Fri Aug 13 07:18:55 2004/-ko/Tlinux_2_6_8_1
+/audio.h/1.2/Sat Jan 10 04:59:54 2004/-ko/Tlinux_2_6_8_1
+/bluetty.c/1.25/Sun Jun  6 02:12:48 2004/-ko/Tlinux_2_6_8_1
+/cdc-acm.c/1.34/Wed Jun 30 17:26:47 2004/-ko/Tlinux_2_6_8_1
+/cdc-acm.h/1.2/Wed Jun 30 17:26:48 2004/-ko/Tlinux_2_6_8_1
+/usb-midi.c/1.21/Fri Aug 13 07:18:55 2004/-ko/Tlinux_2_6_8_1
+/usb-midi.h/1.5/Sat Jan 10 04:59:54 2004/-ko/Tlinux_2_6_8_1
+/usblp.c/1.24/Fri Jul  9 02:16:50 2004/-ko/Tlinux_2_6_8_1
+D

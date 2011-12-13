@@ -1,0 +1,24 @@
+/Makefile/1.3/Tue Aug 26 00:28:50 2003/-ko/Tlinux_2_6_8_1
+/armksyms.c/1.2/Thu Mar 11 16:46:41 2004/-ko/Tlinux_2_6_8_1
+/asm-offsets.c/1.2/Fri Jul 11 02:13:09 2003/-ko/Tlinux_2_6_8_1
+/compat.c/1.2/Fri Jul 11 02:13:09 2003/-ko/Tlinux_2_6_8_1
+/dma.c/1.2/Fri Jul 11 02:13:09 2003/-ko/Tlinux_2_6_8_1
+/ecard.c/1.3/Tue Sep  9 16:40:55 2003/-ko/Tlinux_2_6_8_1
+/entry.S/1.3/Tue Sep 30 14:27:17 2003/-ko/Tlinux_2_6_8_1
+/fiq.c/1.1/Sun Jun 22 23:09:47 2003/-ko/Tlinux_2_6_8_1
+/init_task.c/1.3/Sat Jun 26 15:15:08 2004/-ko/Tlinux_2_6_8_1
+/irq.c/1.6/Sat Jun 26 15:15:08 2004/-ko/Tlinux_2_6_8_1
+/process.c/1.6/Sun Jun  6 02:12:34 2004/-ko/Tlinux_2_6_8_1
+/ptrace.c/1.1/Sun Jun 22 23:09:47 2003/-ko/Tlinux_2_6_8_1
+/ptrace.h/1.1/Sun Jun 22 23:09:47 2003/-ko/Tlinux_2_6_8_1
+/semaphore.c/1.2/Fri Apr 23 15:54:06 2004/-ko/Tlinux_2_6_8_1
+/setup.c/1.6/Sat Jun 26 15:15:08 2004/-ko/Tlinux_2_6_8_1
+/signal.c/1.1/Sun Jun 22 23:09:47 2003/-ko/Tlinux_2_6_8_1
+/sys_arm.c/1.3/Mon Apr 12 20:23:22 2004/-ko/Tlinux_2_6_8_1
+/time-acorn.c/1.1/Sun Jun 22 23:09:47 2003/-ko/Tlinux_2_6_8_1
+/time.c/1.4/Thu Mar 11 16:46:41 2004/-ko/Tlinux_2_6_8_1
+/traps.c/1.4/Wed Apr 28 13:54:52 2004/-ko/Tlinux_2_6_8_1
+/vmlinux-arm26-xip.lds.in/1.2/Fri Apr 23 15:54:06 2004/-ko/Tlinux_2_6_8_1
+/vmlinux-arm26.lds.in/1.2/Fri Apr 23 15:54:06 2004/-ko/Tlinux_2_6_8_1
+/vmlinux.lds.S/1.2/Tue Sep  9 16:40:55 2003/-ko/Tlinux_2_6_8_1
+D

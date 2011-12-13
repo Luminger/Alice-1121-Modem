@@ -1,0 +1,38 @@
+/.cvsignore/1.9/Fri Feb 20 17:35:38 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.20/Sat Aug 14 16:16:44 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.40/Mon Apr 12 20:23:41 2004/-ko/Tlinux_2_6_8_1
+/TUNABLE/1.4/Sun Jun 13 16:37:16 1999/-ko/Tlinux_2_6_8_1
+/compat.c/1.10/Wed Jun  9 14:12:14 2004/-ko/Tlinux_2_6_8_1
+/nonet.c/1.2/Thu Jun  5 18:24:12 2003/-ko/Tlinux_2_6_8_1
+/socket.c/1.89/Fri Aug 13 07:18:56 2004/-ko/Tlinux_2_6_8_1
+/sysctl_net.c/1.11/Thu Mar 11 16:46:59 2004/-ko/Tlinux_2_6_8_1
+D/802////
+D/8021q////
+D/appletalk////
+D/atm////
+D/ax25////
+D/bluetooth////
+D/bridge////
+D/core////
+D/decnet////
+D/econet////
+D/ethernet////
+D/ipv4////
+D/ipv6////
+D/ipx////
+D/irda////
+D/key////
+D/lapb////
+D/llc////
+D/netlink////
+D/netrom////
+D/packet////
+D/rose////
+D/rxrpc////
+D/sched////
+D/sctp////
+D/sunrpc////
+D/unix////
+D/wanrouter////
+D/x25////
+D/xfrm////

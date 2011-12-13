@@ -1,0 +1,12 @@
+/dma.h/1.5/Thu Oct  5 01:19:01 2000/-ko/Tlinux_2_6_8_1
+/hardware.h/1.12/Tue Nov  5 15:18:23 2002/-ko/Tlinux_2_6_8_1
+/io.h/1.15/Thu Feb  5 02:40:07 2004/-ko/Tlinux_2_6_8_1
+/irqs.h/1.8/Mon Apr 12 20:23:38 2004/-ko/Tlinux_2_6_8_1
+/memory.h/1.13/Sun Jun  6 02:12:53 2004/-ko/Tlinux_2_6_8_1
+/param.h/1.5/Tue Oct 29 13:23:53 2002/-ko/Tlinux_2_6_8_1
+/serial.h/1.7/Thu Oct  9 13:09:35 2003/-ko/Tlinux_2_6_8_1
+/system.h/1.16/Tue Sep  3 01:34:17 2002/-ko/Tlinux_2_6_8_1
+/timex.h/1.5/Tue Sep  9 16:41:06 2003/-ko/Tlinux_2_6_8_1
+/uncompress.h/1.6/Thu Oct  5 01:19:01 2000/-ko/Tlinux_2_6_8_1
+/vmalloc.h/1.6/Fri Apr 23 15:54:19 2004/-ko/Tlinux_2_6_8_1
+D

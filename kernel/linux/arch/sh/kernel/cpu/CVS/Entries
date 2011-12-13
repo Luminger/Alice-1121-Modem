@@ -1,0 +1,11 @@
+/Makefile/1.3/Sat Jun 26 15:15:12 2004/-ko/Tlinux_2_6_8_1
+/adc.c/1.1/Sat Jun 26 15:15:12 2004/-ko/Tlinux_2_6_8_1
+/bus.c/1.1/Sat Jun 26 15:15:12 2004/-ko/Tlinux_2_6_8_1
+/init.c/1.3/Sat Jun 26 15:15:12 2004/-ko/Tlinux_2_6_8_1
+/irq_imask.c/1.1/Thu Jul  3 03:41:08 2003/-ko/Tlinux_2_6_8_1
+/irq_ipr.c/1.3/Sat Jun 26 15:15:12 2004/-ko/Tlinux_2_6_8_1
+/rtc.c/1.2/Thu Feb 19 03:06:24 2004/-ko/Tlinux_2_6_8_1
+/ubc.S/1.1/Thu Jul  3 03:41:08 2003/-ko/Tlinux_2_6_8_1
+D/sh2////
+D/sh3////
+D/sh4////

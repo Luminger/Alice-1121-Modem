@@ -1,0 +1,11 @@
+/.cvsignore/1.8/Fri Feb 20 17:35:36 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.11/Fri Apr 23 15:54:17 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.8/Tue Sep 30 14:27:26 2003/-ko/Tlinux_2_6_8_1
+/catc.c/1.15/Wed Jun  9 14:12:11 2004/-ko/Tlinux_2_6_8_1
+/kaweth.c/1.27/Tue Jul 20 20:21:23 2004/-ko/Tlinux_2_6_8_1
+/kawethfw.h/1.1/Mon Aug 19 23:24:58 2002/-ko/Tlinux_2_6_8_1
+/pegasus.c/1.28/Wed Jun 30 17:26:48 2004/-ko/Tlinux_2_6_8_1
+/pegasus.h/1.17/Sat Jun 26 15:15:20 2004/-ko/Tlinux_2_6_8_1
+/rtl8150.c/1.26/Sat Jun 26 15:15:20 2004/-ko/Tlinux_2_6_8_1
+/usbnet.c/1.45/Tue Jul 20 20:21:23 2004/-ko/Tlinux_2_6_8_1
+D

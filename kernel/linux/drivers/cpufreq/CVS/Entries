@@ -1,0 +1,9 @@
+/Kconfig/1.7/Fri Apr 23 15:54:12 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.4/Tue Sep  9 16:40:59 2003/-ko/Tlinux_2_6_8_1
+/cpufreq.c/1.9/Wed Jun 16 12:09:36 2004/-ko/Tlinux_2_6_8_1
+/cpufreq_performance.c/1.1/Tue Sep  9 16:40:59 2003/-ko/Tlinux_2_6_8_1
+/cpufreq_powersave.c/1.1/Tue Sep  9 16:40:59 2003/-ko/Tlinux_2_6_8_1
+/cpufreq_userspace.c/1.7/Fri Aug 13 07:18:53 2004/-ko/Tlinux_2_6_8_1
+/freq_table.c/1.2/Thu Jun  5 00:04:34 2003/-ko/Tlinux_2_6_8_1
+/proc_intf.c/1.7/Wed Jun  9 14:12:08 2004/-ko/Tlinux_2_6_8_1
+D

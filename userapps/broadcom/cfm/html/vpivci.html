@@ -1,0 +1,270 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript">
+<!-- hide
+var auto = '<%ejGet(enblAutoScan)%>';
+var port = '<%ejGet(portId)%>';
+var vpi = '<%ejGet(atmVpi)%>';
+var vci = '<%ejGet(atmVci)%>';
+var mem = '<%ejGetOther(memInfo, checkAutoScanMemory)%>';
+var qos = '<%ejGet(enblQos)%>';
+
+function disableQos() {
+   with ( document.forms[0] ) {
+      enblQos.checked = false;
+      enblQos.disabled = 1;
+   }
+}
+
+function enableQos() {
+   with ( document.forms[0] ) {
+      if ( qos == '1' )
+         enblQos.checked = true;
+      else
+         enblQos.checked = false;
+      enblQos.disabled = 0;
+   }
+}
+
+function hideQosInfo(hide) {
+   var status = 'visible';
+
+   if ( hide == 1 ) {
+      status = 'hidden';
+      disableQos();
+   } else
+      enableQos();
+
+   if (document.getElementById)  // DOM3 = IE5, NS6
+      document.getElementById('qosInfo').style.visibility = status;
+   else {
+      if (document.layers == false) // IE4
+         document.all.qosInfo.style.visibility = status;
+   }
+}
+
+function displayQosInfo() {
+   var chipId = <%ejGetOther(sysInfo, chipId)%>;
+   var serviceCat = '<%ejGet(atmServiceCategory)%>';
+   var serviceId = '<%ejGet(serviceId)%>';
+   var queues = '<%ejGetOther(memInfo, queueNum)%>';
+   var queueNum = parseInt(queues);
+
+   // only allow QoS enabled for ubr, ubrwpcr, ntr_vbr
+   if ( serviceCat == 'UBR' || serviceCat == 'UBRwPCR' || serviceCat == 'NRT_VBR' ) {
+      // if PVC is not QoS enabled
+      if ( qos == '0' ) {
+         // if add new PVC
+         if ( serviceId == '0' ) {
+            if ( queueNum > 5 )   // 5 = 8 - 3
+               hideQosInfo(1);
+            else
+               hideQosInfo(0);
+         } else {   // if edit existed PVC
+            if ( queueNum > 6 )   // 6 = 8 - 3 + 1
+               hideQosInfo(1);
+            else
+               hideQosInfo(0);
+         }
+      } else
+         hideQosInfo(0);
+   } else
+      hideQosInfo(1);
+}
+
+function hideInfo(hide) {
+   var status = 'visible';
+   
+   if ( hide == 1 ) {
+      status = 'hidden';
+      hideQosInfo(1);
+   } else
+      displayQosInfo();
+      
+   if (document.getElementById)  // DOM3 = IE5, NS6
+      document.getElementById('vccInfo').style.visibility = status;
+   else {
+      if (document.layers) { // Netscape 4
+         with ( document.forms[0] ) {
+            if ( hide == 1 ) {
+               portId.value = '';
+               atmVpi.value = '';
+               atmVci.value = '';
+            } else {
+               portId.value = port;
+               atmVpi.value = vpi;
+               atmVci.value = vci;
+            }
+         }
+      } else  // IE 4
+         document.all.vccInfo.style.visibility = status;
+   }
+}
+
+function cbClick(cb) {
+   if ( cb.checked == true )
+      hideInfo(1);
+   else
+      hideInfo(0);
+}
+
+function frmLoad() {
+   with ( document.forms[0] ) {
+      portId.value = port;
+      atmVpi.value = vpi;
+      atmVci.value = vci;
+      if ( auto == '1' ) {
+         enblAutoScan.checked = true;
+         hideInfo(1);
+      } else {
+         enblAutoScan.checked = false;
+         hideInfo(0);
+      }
+   }
+}
+
+function btnNext() {
+   var loc = '';
+
+   with ( document.forms[0] ) {
+      if ( enblAutoScan.checked == true ) {
+         // if there is not enough memory to perform auto scan
+         // or run out of PVCs then display error message.
+         if ( mem != '0' ) {
+            loc = 'autoscanerr.cgi?';
+            loc += 'enblAutoScan=1';
+         } else {
+            loc = 'autoscan.cgi?';
+            loc += 'enblAutoScan=1';
+            loc += '&portId=' + port;
+            loc += '&atmVpi=' + vpi;
+            loc += '&atmVci=' + vci;
+            loc += '&enblQos=0';
+         }
+      } else {
+         if ( isNaN(parseInt(portId.value)) == true ) {
+            msg = 'portId "' + portId.value + '" is invalid.';
+            alert(msg);
+            return;
+         }
+         if ( isNaN(parseInt(atmVpi.value)) == true ) {
+            msg = 'VPI "' + atmVpi.value + '" is invalid.';
+            alert(msg);
+            return;
+         }
+         if ( isNaN(parseInt(atmVci.value)) == true ) {
+            msg = 'VCI "' + atmVci.value + '" is invalid.';
+            alert(msg);
+            return;
+         }
+         port = parseInt(portId.value);
+         if ( port < 0 || port > 3 ) {
+            msg = 'PORT "' + portId.value + '" is out of range [0-3].';
+            alert(msg);
+            return;
+         }
+         vpi = parseInt(atmVpi.value);
+         if ( vpi < 0 || vpi > 255 ) {
+            msg = 'VPI "' + atmVpi.value + '" is out of range [0-255].';
+            alert(msg);
+            return;
+         }
+         vci = parseInt(atmVci.value);
+         if ( vci < 32 || vci > 65535 ) {
+            msg = 'VCI "' + atmVci.value + '" is out of range [32-65535].';
+            alert(msg);
+            return;
+         }
+         // if system is run out of PVCs then display error message
+         if ( mem == '1' ) {
+            loc = 'quicksetuperr.cgi?';
+            loc += 'enblAutoScan=0';
+         } else {
+            loc = 'ntwkprtcl.cgi?';
+            loc += 'enblAutoScan=0';
+            loc += '&portId=' + portId.value;
+            loc += '&atmVpi=' + atmVpi.value;
+            loc += '&atmVci=' + atmVci.value;
+            if ( enblQos.checked == true )
+               loc += '&enblQos=1';
+            else
+               loc += '&enblQos=0';
+         }
+      }
+   }
+
+   loc += '&quickSetup=1&serviceId=0';
+
+   var code = 'location="' + loc + '"';
+
+   eval(code);
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <b>Quick Setup</b>
+            <br><br>
+            This Quick Setup will guide you through the steps necessary to configure your
+            DSL Router.
+            <br><br>
+            <b>ATM PVC Configuration</b>
+            <br><br>
+            Select the check box below to enable DSL Auto-connect process.
+            <br>
+            <table border="0" cellpadding="4" cellspacing="0">
+               <tr>
+                  <td width='30' height="30"><input type='checkbox' name='enblAutoScan' onClick='cbClick(this)'></td>
+                  <td>DSL Auto-connect</td>
+               </tr>
+            </table>
+            <br>
+            <div id='vccInfo'>
+							 The Port Identifier (PORT) Virtual Path Identifier (VPI) and Virtual Channel
+							 Identifier (VCI) are needed for setting up the ATM PVC. Do not change VPI and VCI
+							 numbers unless your ISP instructs you otherwise.
+               <br>
+               <table border="0" cellpadding="4" cellspacing="0">
+                  <tr>
+                     <td>PORT: [0-3]</td>
+                     <td><input type='text' name='portId' size='4'></td>
+                  </tr>
+                  <tr>
+                     <td>VPI: [0-255]</td>
+                     <td><input type='text' name='atmVpi' size='4'></td>
+                  </tr>
+                  <tr>
+                     <td>VCI: [32-65535]</td>
+                     <td><input type='text' name='atmVci' size='4'></td>
+                  </tr>
+               </table>
+               <div id='qosInfo'>
+               <br><b>Enable Quality Of Service</b>
+               <br><br>
+               Enabling QoS for a PVC improves performance for selected classes of applications.
+               However, since QoS also consumes system resources, the number of PVCs will
+               be reduced consequently. Use <b>Advanced Setup/Quality of Service</b> to assign
+               priorities for the applications.
+               <br><br>
+               <table border="0" cellpadding="4" cellspacing="0">
+                  <tr>
+                     <td>Enable Quality Of Service</td>
+                     <td width='30' height="30"><input type='checkbox' name='enblQos'></td>
+                  </tr>
+               </table>
+               </div>
+            </div>
+            <br>
+            <center>
+               <input type='button' onClick='btnNext()' value='Next'>
+            </center>
+         </form>
+      </blockquote>
+   </body>
+</html>

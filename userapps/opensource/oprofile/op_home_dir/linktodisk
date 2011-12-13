@@ -1,0 +1,8 @@
+#!/bin/sh
+
+rm -rf /mnt/opdata
+mkdir /mnt/opdata
+ln -s /mnt/opdata /var/lib
+
+echo "OProfile storage directory linked to USB drive"
+

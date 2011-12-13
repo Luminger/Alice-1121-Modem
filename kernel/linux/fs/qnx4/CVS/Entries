@@ -1,0 +1,11 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:30 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.5/Mon Jun  2 10:48:43 2003/-ko/Tlinux_2_6_8_1
+/README/1.4/Sat Sep 22 12:49:37 2001/-ko/Tlinux_2_6_8_1
+/bitmap.c/1.13/Mon Jun  2 13:54:14 2003/-ko/Tlinux_2_6_8_1
+/dir.c/1.17/Mon Apr 12 20:23:37 2004/-ko/Tlinux_2_6_8_1
+/file.c/1.12/Sat Nov  2 00:38:52 2002/-ko/Tlinux_2_6_8_1
+/fsync.c/1.13/Tue Oct 29 04:20:08 2002/-ko/Tlinux_2_6_8_1
+/inode.c/1.50/Tue Jul 20 20:21:25 2004/-ko/Tlinux_2_6_8_1
+/namei.c/1.16/Fri Jul 11 02:13:14 2003/-ko/Tlinux_2_6_8_1
+/truncate.c/1.5/Tue Sep  3 17:57:33 2002/-ko/Tlinux_2_6_8_1
+D

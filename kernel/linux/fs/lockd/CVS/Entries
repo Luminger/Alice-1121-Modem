@@ -1,0 +1,16 @@
+/.cvsignore/1.8/Fri Feb 20 17:35:30 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.6/Wed Jun  4 14:05:49 2003/-ko/Tlinux_2_6_8_1
+/clntlock.c/1.24/Fri Apr 23 15:54:18 2004/-ko/Tlinux_2_6_8_1
+/clntproc.c/1.29/Fri Apr 23 15:54:18 2004/-ko/Tlinux_2_6_8_1
+/host.c/1.14/Sat Jun 26 15:15:22 2004/-ko/Tlinux_2_6_8_1
+/lockd_syms.c/1.7/Thu Jun  5 10:06:42 2003/-ko/Tlinux_2_6_8_1
+/mon.c/1.14/Mon Apr 12 20:23:37 2004/-ko/Tlinux_2_6_8_1
+/svc.c/1.39/Thu Mar 11 16:46:56 2004/-ko/Tlinux_2_6_8_1
+/svc4proc.c/1.11/Mon Apr 12 20:23:37 2004/-ko/Tlinux_2_6_8_1
+/svclock.c/1.23/Sat Jun 26 15:15:22 2004/-ko/Tlinux_2_6_8_1
+/svcproc.c/1.17/Mon Apr 12 20:23:37 2004/-ko/Tlinux_2_6_8_1
+/svcshare.c/1.6/Sat Jun 26 15:15:22 2004/-ko/Tlinux_2_6_8_1
+/svcsubs.c/1.16/Thu Oct 31 20:59:36 2002/-ko/Tlinux_2_6_8_1
+/xdr.c/1.18/Fri Jul  9 02:16:51 2004/-ko/Tlinux_2_6_8_1
+/xdr4.c/1.13/Tue Jul 20 20:21:25 2004/-ko/Tlinux_2_6_8_1
+D

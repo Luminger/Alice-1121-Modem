@@ -1,0 +1,9 @@
+/Makefile/1.8/Mon Apr 12 20:23:25 2004/-ko/Tlinux_2_6_8_1
+/bootinfo.c/1.1/Thu Feb 19 03:06:23 2004/-ko/Tlinux_2_6_8_1
+/crt0.S/1.6/Tue Sep 30 14:27:18 2003/-ko/Tlinux_2_6_8_1
+/misc-common.c/1.11/Fri Aug  6 00:33:23 2004/-ko/Tlinux_2_6_8_1
+/ns16550.c/1.7/Sun Oct 19 00:50:08 2003/-ko/Tlinux_2_6_8_1
+/serial_stub.c/1.2/Fri Jul 11 02:13:11 2003/-ko/Tlinux_2_6_8_1
+/string.S/1.2/Fri Nov  1 02:32:25 2002/-ko/Tlinux_2_6_8_1
+/util.S/1.9/Mon Apr 12 20:23:25 2004/-ko/Tlinux_2_6_8_1
+D

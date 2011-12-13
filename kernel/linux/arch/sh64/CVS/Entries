@@ -1,0 +1,13 @@
+/Kconfig/1.1/Wed Jun 30 17:26:46 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.2/Wed Jun 30 17:26:46 2004/-ko/Tlinux_2_6_8_1
+/defconfig/1.4/Sat Aug 14 16:16:41 2004/-ko/Tlinux_2_6_8_1
+D/boot////
+D/configs////
+D/kernel////
+D/lib////
+D/mach-cayman////
+D/mach-harp////
+D/mach-romram////
+D/mach-sim////
+D/mm////
+D/oprofile////

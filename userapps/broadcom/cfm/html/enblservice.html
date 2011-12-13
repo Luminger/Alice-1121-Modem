@@ -1,0 +1,191 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+var prtcl = '<%ejGetOther(memInfo, ntwkPrtcl)%>';
+var ipExtension = '<%ejGet(pppIpExtension)%>';
+var service = '<%ejGet(serviceName)%>';
+var port = '<%ejGet(portId)%>';
+var vpi = '<%ejGet(atmVpi)%>';
+var vci = '<%ejGet(atmVci)%>';
+var qs = '<%ejGet(quickSetup)%>';
+var serviceId = '<%ejGet(serviceId)%>';  //dare sunmin add nat option
+
+function btnNext() {
+   var loc = 'ntwksum2.cgi?';
+
+   if ( qs == '1' ) {
+      if ( (ipExtension == '1') &&
+           ((prtcl == 'PPPoE') || (prtcl == 'PPPoA')) )
+         loc = 'lancfgbr.cgi?';
+      else
+         loc = 'lancfg.cgi?';
+   }
+
+   with ( document.forms[0] ) {
+      len = serviceName.value.length;
+      if (len > 32) {
+         alert('The length of service name (' + len + ') is too long [0-32].');
+         return;
+      }
+      if ( enblIgmp.checked == true )
+         loc += 'enblIgmp=1';
+      else
+         loc += 'enblIgmp=0';
+      if ( enblService.checked == true )
+         loc += '&enblService=1';
+      else
+         loc += '&enblService=0';
+
+      // dare sunmin add nat option
+      if ( enblNat.checked == true )
+         loc += '&enblNat=1';
+      else
+         loc += '&enblNat=0';
+      if ( enblFirewall.checked == true )
+         loc += '&enblFirewall=1';
+      else
+         loc += '&enblFirewall=0';
+
+      loc += '&serviceName=' + encodeUrl(serviceName.value);
+   }
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function btnBack() {
+   var loc;
+
+   if ( prtcl == 'PPPoE' || prtcl == 'PPPoA' )
+      loc = 'pppoe.html';
+   else if ( prtcl == 'IPoA' )
+      loc = 'ipoacfg.html';
+   else if ( prtcl == 'MER' )
+      loc = 'wancfg.html';
+   else
+      loc = 'ntwkprtcl.html';
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function frmLoad() {
+   var enableIgmp = '<%ejGet(enblIgmp)%>';
+   var enableService = '<%ejGet(enblService)%>';
+   // dare sunmin add nat option    
+   var nat = '<%ejGet(enblNat)%>';
+   var firewall = '<%ejGet(enblFirewall)%>';
+
+   if ( service == '' ) {
+      switch ( prtcl ) {
+         case 'PPPoE':
+						service = 'pppoe_' + port + '_' + vpi + '_' + vci;
+            break;
+         case 'PPPoA':
+            service = 'pppoa_' + port + '_' + vpi + '_' + vci;
+            break;
+         case 'MER':
+            service = 'mer_' + port + '_' + vpi + '_' + vci;
+            break;
+         case 'IPoA':
+            service = 'ipoa_' + port + '_' + vpi + '_' + vci;
+            break;
+         case 'Bridge':
+            service = 'br_' + port + '_' + vpi + '_' + vci;
+            break;
+         case 'IPoW':
+            service = 'eth_' + vpi;
+            break;
+      }
+   }
+
+   with ( document.forms[0] ) {
+   	  
+      // dare sunmin add nat option
+      if ( ipExtension == '1' ) {
+           enblNat.disabled = true;
+           enblFirewall.disabled = true;
+   	       enblNat.checked = false;
+   	       enblFirewall.checked = false;
+     	}
+   	  else {
+
+         if ( serviceId == '0' ) {
+            enblNat.checked = true;
+            enblFirewall.checked = true;
+         }
+         else {
+           if ( nat == '1' )
+              enblNat.checked = true;
+           else
+              enblNat.checked = false;
+           if ( firewall == '1' )
+              enblFirewall.checked = true;
+           else
+              enblFirewall.checked = false;
+         }
+      }
+     // end of dare sunmin add nat option
+
+      if ( enableIgmp == '1' )
+         enblIgmp.checked = true;
+      else
+         enblIgmp.checked = false;
+      if ( enableService == '1' )
+         enblService.checked = true;
+      else
+         enblService.checked = false;
+      serviceName.value = service;
+   }
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <b>Network Address Translation Settings</b>
+            <br><br>
+            Network Address Translation (NAT) allows you to share one Wide Area Network
+            (WAN) IP address for multiple computers on your Local Area Network (LAN).
+            <br><br>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td>Enable NAT</td>
+                  <td width='30' height="30"><input type='checkbox' name='enblNat'></td>
+               </tr>
+               <tr>
+                  <td>Enable Firewall</td>
+                  <td width='30' height="30"><input type='checkbox' name='enblFirewall'></td>
+               </tr>
+            </table>
+            <br><br>
+            <br><b>Enable IGMP Multicast, and WAN Service</b><br><br>
+            <table border="0" cellpadding="4" cellspacing="0">
+               <tr>
+                  <td>Enable IGMP Multicast</td>
+                  <td width='30' height="30"><input type='checkbox' name='enblIgmp' checked></td>
+               </tr>
+               <tr>
+                  <td>Enable WAN Service</td>
+                  <td width='30' height="30"><input type='checkbox' name='enblService' checked></td>
+               </tr>
+               <tr>
+                  <td>Service Name</td>
+                  <td><input type="text" name="serviceName"></td>
+               </tr>
+            </table>
+            <br><br><br>
+            <center>
+               <input type='button' onClick='btnBack()' value='Back'> <input type='button' onClick='btnNext()' value='Next'>
+            </center>
+         </form>
+      </blockquote>
+   </body>
+</html>

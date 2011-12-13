@@ -1,0 +1,17 @@
+/.cvsignore/1.1/Wed Aug 18 20:07:10 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.2/Fri Aug  6 00:33:29 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.1/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/matrox_w1.c/1.2/Fri Aug  6 00:33:29 2004/-ko/Tlinux_2_6_8_1
+/w1.c/1.2/Fri Aug  6 00:33:29 2004/-ko/Tlinux_2_6_8_1
+/w1.h/1.1/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/w1_family.c/1.1/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/w1_family.h/1.1/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/w1_int.c/1.2/Fri Aug  6 00:33:29 2004/-ko/Tlinux_2_6_8_1
+/w1_int.h/1.1/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/w1_io.c/1.2/Fri Aug  6 00:33:29 2004/-ko/Tlinux_2_6_8_1
+/w1_io.h/1.1/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/w1_log.h/1.1/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/w1_netlink.c/1.1/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/w1_netlink.h/1.1/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/w1_therm.c/1.1/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+D

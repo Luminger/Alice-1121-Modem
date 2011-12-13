@@ -1,0 +1,49 @@
+<html>
+<head>
+<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+<link rel=stylesheet href='stylemain.css' type='text/css'>
+<link rel=stylesheet href='colors.css' type='text/css'>
+<script language="javascript">
+<!-- hide
+function btnBack() {
+   var loc = 'vpivci.cgi?autoScanInProgress=0';
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+</script>
+</head>
+
+<body>
+<blockquote>
+<b>DSL Router Auto-connect Error</b><br><br>
+<script language="javascript">
+<!-- hide
+var mem = '<%ejGetOther(memInfo, checkAutoScanMemory)%>';
+var status = '<%ejGetOther(sysInfo, status)%>';
+// out of memory
+if ( mem == '2' || status == 'ADSL Link Down' ) {
+   document.writeln('The DSL Router Auto-connect process cannot start.');
+   document.writeln('<br><br>');
+   if ( mem == '2' )
+      document.writeln('The DSL Router memory hits its limitation.');
+   else
+      document.writeln('The ADSL connection is down.');
+   document.writeln('<br><br>');
+   document.writeln('Click on "Back" button to assign VPI/VCI manually.');
+   document.writeln('<br><br><br><br>');
+   document.writeln('<center>');
+   document.writeln('<input type="button" onClick="btnBack()" value="Back">');
+   document.writeln('</center>');
+} else {  // out of PVCs
+   document.writeln('The DSL Router Auto-connect process cannot start.');
+   document.writeln('<br><br>');
+   document.writeln('All of available PVCs are already in use.');
+}
+// done hiding -->
+</script>
+</blockquote>
+</body>
+</html>

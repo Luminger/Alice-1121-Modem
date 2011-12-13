@@ -1,0 +1,6 @@
+#!/bin/bash
+# add6510support
+
+cd ${BROADCOM_DIR}
+tar xvfz ${BROADCOM_DIR}/6510refCode/6510support_${PROFILE}.tar.gz
+

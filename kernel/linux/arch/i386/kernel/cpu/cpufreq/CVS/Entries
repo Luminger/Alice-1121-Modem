@@ -1,0 +1,20 @@
+/Kconfig/1.9/Fri Apr 23 15:54:07 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.10/Sun Jun  6 02:12:35 2004/-ko/Tlinux_2_6_8_1
+/acpi.c/1.13/Wed Apr 28 13:54:52 2004/-ko/Tlinux_2_6_8_1
+/elanfreq.c/1.15/Wed Jun 16 12:09:34 2004/-ko/Tlinux_2_6_8_1
+/gx-suspmod.c/1.12/Wed Jun 16 12:09:34 2004/-ko/Tlinux_2_6_8_1
+/longhaul.c/1.23/Wed Jun 16 12:09:34 2004/-ko/Tlinux_2_6_8_1
+/longhaul.h/1.4/Sun Jun  6 02:12:35 2004/-ko/Tlinux_2_6_8_1
+/longrun.c/1.16/Sun Jun  6 02:12:35 2004/-ko/Tlinux_2_6_8_1
+/p4-clockmod.c/1.23/Wed Jun 16 12:09:34 2004/-ko/Tlinux_2_6_8_1
+/powernow-k6.c/1.16/Sun Jun  6 02:12:35 2004/-ko/Tlinux_2_6_8_1
+/powernow-k7.c/1.19/Mon Jun 28 21:04:12 2004/-ko/Tlinux_2_6_8_1
+/powernow-k7.h/1.2/Fri Aug 15 15:14:31 2003/-ko/Tlinux_2_6_8_1
+/powernow-k8.c/1.9/Wed Jun 16 12:09:34 2004/-ko/Tlinux_2_6_8_1
+/powernow-k8.h/1.5/Sun Jun  6 02:12:35 2004/-ko/Tlinux_2_6_8_1
+/speedstep-centrino.c/1.9/Tue Jul 20 20:21:16 2004/-ko/Tlinux_2_6_8_1
+/speedstep-ich.c/1.8/Wed Jun 16 12:09:34 2004/-ko/Tlinux_2_6_8_1
+/speedstep-lib.c/1.7/Wed Jun 16 12:09:34 2004/-ko/Tlinux_2_6_8_1
+/speedstep-lib.h/1.4/Wed Jun 16 12:09:34 2004/-ko/Tlinux_2_6_8_1
+/speedstep-smi.c/1.6/Wed Jun 16 12:09:34 2004/-ko/Tlinux_2_6_8_1
+D

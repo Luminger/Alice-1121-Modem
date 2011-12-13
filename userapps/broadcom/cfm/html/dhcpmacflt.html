@@ -1,0 +1,67 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <meta http-equiv='Content-Type' content='text/html; charset=iso-8859-1'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+
+function btnApply() {
+        var loc = 'viewdhcplist.cmd?action=add';
+
+        with ( document.forms[0] ) {
+        if ( isValidMacAddress(dhcpresmac.value) == false ) {
+                msg = 'MAC address "' + dhcpresmac.value + '" is invalid MAC address.';
+                alert(msg);
+                return;
+        }
+        if ( isValidIpAddress(dhcpresip.value) == false ) {
+                msg = 'IP address "' + dhcpresip.value + '" is invalid IP address.';
+                alert(msg);
+                return;
+        }
+        loc += '&mac=' + dhcpresmac.value + '&ipaddr=' + dhcpresip.value;
+        }
+        //var code = 'location.assign("' + loc + '")';
+        var code = 'window.location.href="/'; // for Mac safari browser compatibility
+        code += loc + '"';
+        eval(code);
+}
+function btnBack(){
+        var loc = 'viewdhcplist.cmd';
+        //var code = 'location.assign("' + loc + '")';
+        var code = 'window.location.href="/'; // for Mac safari browser compatibility
+        code += loc + '"';
+        eval(code);
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body class=pop>
+      <blockquote>
+         <form onSubmit='return false'>
+            <b>Add a new reserved IP address entry</b>
+            <br>
+            <br>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td width="200">PC's MAC Address:<br>(e.g.,00:90:96:01:2A:3B)</td>
+                  <td valign="top"><input type='text' name='dhcpresmac'></td>
+               </tr>
+               <tr>
+                  <td width="200">Assigned IP Address:<br>(e.g.,192.168.1.2)</td>
+                  <td valign="top"><input type='text' name='dhcpresip'></td>
+               </tr>
+            </table>
+            <br>
+            <table border="0" width="80%"><tr>
+            <td align="right" width="90%"><input type='button' onClick='btnBack()' value='< Back'></td>
+            <td align="right"><input type='button' onClick='btnApply()' value='Apply'></td>
+            </tr></table>
+         </form>
+      </blockquote>
+   </body>
+</html>

@@ -1,0 +1,12 @@
+/Makefile/1.10/Wed Jun  4 14:05:41 2003/-ko/Tlinux_2_6_8_1
+/amiga_ksyms.c/1.3/Fri Nov  1 02:32:25 2002/-ko/Tlinux_2_6_8_1
+/amiints.c/1.16/Thu Jun  5 14:43:27 2003/-ko/Tlinux_2_6_8_1
+/amisound.c/1.3/Fri Nov  1 02:32:25 2002/-ko/Tlinux_2_6_8_1
+/bootinfo.c/1.7/Thu Jun  5 18:24:00 2003/-ko/Tlinux_2_6_8_1
+/chipram.c/1.6/Fri Nov  1 02:32:25 2002/-ko/Tlinux_2_6_8_1
+/cia.c/1.8/Tue Nov  5 15:18:20 2002/-ko/Tlinux_2_6_8_1
+/config.c/1.22/Tue Sep 30 14:27:18 2003/-ko/Tlinux_2_6_8_1
+/ints.c/1.9/Tue Sep 30 14:27:18 2003/-ko/Tlinux_2_6_8_1
+/pcmcia.c/1.3/Fri Nov  1 02:32:25 2002/-ko/Tlinux_2_6_8_1
+/time.c/1.6/Fri Nov  1 02:32:25 2002/-ko/Tlinux_2_6_8_1
+D

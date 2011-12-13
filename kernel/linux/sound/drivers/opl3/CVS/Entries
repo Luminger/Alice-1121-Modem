@@ -1,0 +1,10 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:39 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.13/Mon Apr 12 20:23:42 2004/-ko/Tlinux_2_6_8_1
+/opl3_drums.c/1.2/Fri Nov  1 22:08:37 2002/-ko/Tlinux_2_6_8_1
+/opl3_lib.c/1.11/Sat Jun 26 15:15:28 2004/-ko/Tlinux_2_6_8_1
+/opl3_midi.c/1.2/Fri Nov  1 22:08:37 2002/-ko/Tlinux_2_6_8_1
+/opl3_oss.c/1.6/Sun Jun  6 02:12:59 2004/-ko/Tlinux_2_6_8_1
+/opl3_seq.c/1.11/Sun Jun  6 02:12:59 2004/-ko/Tlinux_2_6_8_1
+/opl3_synth.c/1.5/Wed Jun  9 14:12:17 2004/-ko/Tlinux_2_6_8_1
+/opl3_voice.h/1.2/Tue Oct 29 05:07:16 2002/-ko/Tlinux_2_6_8_1
+D

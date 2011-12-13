@@ -1,0 +1,9 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:30 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.4/Wed Jun  4 14:05:49 2003/-ko/Tlinux_2_6_8_1
+/checkpoint.c/1.10/Mon Jul 14 12:23:57 2003/-ko/Tlinux_2_6_8_1
+/commit.c/1.24/Fri Jul  9 02:16:51 2004/-ko/Tlinux_2_6_8_1
+/journal.c/1.35/Fri Jul  9 02:16:51 2004/-ko/Tlinux_2_6_8_1
+/recovery.c/1.9/Mon Apr 12 20:23:37 2004/-ko/Tlinux_2_6_8_1
+/revoke.c/1.14/Fri Jul  9 02:16:51 2004/-ko/Tlinux_2_6_8_1
+/transaction.c/1.29/Fri Aug 13 07:18:55 2004/-ko/Tlinux_2_6_8_1
+D

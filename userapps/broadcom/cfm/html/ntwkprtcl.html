@@ -1,0 +1,426 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+var qs = '<%ejGet(quickSetup)%>';
+var prtcl = '<%ejGetOther(memInfo, ntwkPrtcl)%>';
+var eMode = '<%ejGet(encapMode)%>';
+var srvname = '<%ejGet(serviceName)%>';
+var port = '<%ejGet(portId)%>';
+var vpi = '<%ejGet(atmVpi)%>';
+var vci = '<%ejGet(atmVci)%>';
+var envlm = '<%ejGet(enVlanMux)%>';
+var vlmid = '<%ejGet(vlanMuxId)%>';
+var protorestrict = '<%ejGet(protocolRestrict)%>';
+var existedProtocol = '<%ejGet(existedProtocol)%>';
+var enblEnetWan = '<%ejGet(enblEnetWan)%>';
+var enblVlan = '<%ejGet(enblVlan)%>';
+var vlanId = '<%ejGet(vlanId)%>';
+
+function frmLoad() {
+   with ( document.forms[0] ) {
+      if ( enblEnetWan == '1' ) {
+            document.getElementById('enetWan').style.visibility = 'hidden';
+            eMode = 2;
+            if (prtcl == 'PPPoE')
+               ntwkPrtcl[0].checked = true;
+            else
+               ntwkPrtcl[1].checked = true; 
+/* Code commented to hide multiple protocols MER and PPPoE over single PVC */
+      } else if ( existedProtocol == 'MER' ) {
+         // if MER is existed in this PVC and MER is editting then 
+         // allow PPPoE or MER to be added
+         if ( prtcl == 'PPPoE' )
+            ntwkPrtcl[1].checked = true;
+         else if ( prtcl == 'MER' )
+            ntwkPrtcl[2].checked = true;
+         else if ( prtcl == 'Bridging')
+            ntwkPrtcl[4].checked = true;
+         else
+         // if MER is existed and PPPoE is editting then only allow PPPoE to be added
+            ntwkPrtcl.checked = true;
+      } else if ( existedProtocol == 'PPPoE' ) {
+/* Code commented to hide multiple protocols MER and PPPoE over single PVC
+         // if (PPPoE is existed then only allow PPPoE or MER to be added
+*/
+         if (prtcl == 'PPPoE')
+            ntwkPrtcl[1].checked = true;
+         else if ( prtcl == 'MER' )
+            ntwkPrtcl[2].checked = true;
+         else if(prtcl == 'Bridging' )
+            ntwkPrtcl[4].checked = true;
+         else
+            ntwkPrtcl.checked = true;
+      }
+      else if ( envlm == '1' || protorestrict == '1') {
+         if ( prtcl == 'PPPoE' )
+            ntwkPrtcl[0].checked = true;
+         else if ( prtcl == 'MER' )
+            ntwkPrtcl[1].checked = true;
+         else
+            ntwkPrtcl[2].checked = true;
+      }
+      else {
+         // otherwise no restriction
+         if ( prtcl == 'PPPoA' )
+            ntwkPrtcl[0].checked = true;
+         else if ( prtcl == 'PPPoE' )
+            ntwkPrtcl[1].checked = true;
+         else if ( prtcl == 'MER' )
+            ntwkPrtcl[2].checked = true;
+         else if ( prtcl == 'IPoA' )
+            ntwkPrtcl[3].checked = true;
+         else
+            ntwkPrtcl[4].checked = true;
+      }
+      encDisplay(eMode);
+   }
+}
+
+function btnNext() {
+   var loc = '', service = '';
+   var conId = '<%ejGetOther(wanInterfaceInfo, conId)%>';
+
+   with ( document.forms[0] ) {
+      if ( enblEnetWan == '1' ) {
+         if ( ntwkPrtcl[0].checked == true ) {
+               loc = 'pppoe.cgi?ntwkPrtcl=0';
+               service = 'pppoe_' + 'eth' + '_' + vpi + '_' + conId;
+         } else {
+               loc = 'wancfg.cgi?ntwkPrtcl=6';
+               service = 'eth_' + vpi;
+         }
+/* Code commented to hide multiple protocols MER and PPPoE over single PVC */
+      } else if ( existedProtocol == 'MER' ) {
+         // if MER is existed in this PVC and MER is editting then 
+         // allow PPPoE or MER to be added
+         if ( ntwkPrtcl[0].checked == true ) {
+            loc = 'pppoe.cgi?ntwkPrtcl=0';
+						service = 'pppoe_' + port + '_' + vpi + '_' + vci + '_' + conId;
+         }
+/* Code commented to hide multiple protocols MER and PPPoE over single PVC */
+         else if ( ntwkPrtcl[1].checked == true ) {
+            loc = 'wancfg.cgi?ntwkPrtcl=2';
+            service = 'mer_' + port + '_' + vpi + '_' + vci;
+         }
+         else if( ntwkPrtcl[2].checked == true ) {
+            loc = 'enblbridge.cgi?ntwkPrtcl=3';
+            service = 'br_' + port + '_' + vpi + '_' + vci;
+         }
+
+         } 
+      else if ( existedProtocol == 'PPPoE' ) {
+         // if PPPoE is existed then only allow PPPoE or MER to be added
+         if ( ntwkPrtcl[0].checked == true ) {
+            loc = 'pppoe.cgi?ntwkPrtcl=0';
+            service = 'pppoe_' + port + '_' + vpi + '_' + vci + '_' + conId;
+         }
+/* Code commented to hide multiple protocols MER and PPPoE over single PVC */
+         else if ( ntwkPrtcl[1].checked == true ) {
+            loc = 'wancfg.cgi?ntwkPrtcl=2';
+            service = 'mer_' + port + '_' + vpi + '_' + vci;
+         }
+         else if( ntwkPrtcl[2].checked == true ) {
+            loc = 'enblbridge.cgi?ntwkPrtcl=3';
+            service = 'br_' + port + '_' + vpi + '_' + vci;
+         }
+      } 
+      else if ( envlm == '1' || protorestrict == '1') {
+         if ( ntwkPrtcl[0].checked == true ) {
+            loc = 'pppoe.cgi?ntwkPrtcl=0';
+            service = 'pppoe_' + port + '_' + vpi + '_' + vci + '_' + conId;
+         }
+         else if ( ntwkPrtcl[1].checked == true ) {
+            loc = 'wancfg.cgi?ntwkPrtcl=2';
+            service = 'mer_' + port + '_' + vpi + '_' + vci;
+         }
+         else {
+            loc = 'enblbridge.cgi?ntwkPrtcl=3';
+            service = 'br_' + port + '_' + vpi + '_' + vci;
+         }
+      }
+      else {
+         // otherwise no restriction
+         if ( ntwkPrtcl[0].checked == true ) {
+            loc = 'pppoe.cgi?ntwkPrtcl=1';
+            service = 'pppoa_' + port + '_' + vpi + '_' + vci + '_' + conId;
+         }
+         else if ( ntwkPrtcl[1].checked == true ) {
+            loc = 'pppoe.cgi?ntwkPrtcl=0';
+            service = 'pppoe_' + port + '_' + vpi + '_' + vci + '_' + conId;
+         }
+         else if ( ntwkPrtcl[2].checked == true ) {
+            loc = 'wancfg.cgi?ntwkPrtcl=2';
+            service = 'mer_' + port + '_' + vpi + '_' + vci;
+         }
+         else if ( ntwkPrtcl[3].checked == true ) {
+            loc = 'ipoacfg.cgi?ntwkPrtcl=5';
+            service = 'ipoa_' + port + '_' + vpi + '_' + vci;
+         }
+         else {
+            loc = 'enblbridge.cgi?ntwkPrtcl=3';
+            service = 'br_' + port + '_' + vpi + '_' + vci;
+         }
+      }
+      loc += '&encapMode=' + encSel.options[encSel.selectedIndex].value;
+      if (envlm != '0') {
+            loc += '&vlanId=-1';
+      }
+      else if (enblVlan == '1') {
+         if (cbVlan.checked) {
+            if (vlanIdText.value >= 0 && vlanIdText.value < 4096 && vlanIdText.value != '')
+               loc += '&vlanId=' + vlanIdText.value;
+            else {
+               alert('Invalid vlan id value ' + vlanIdText.value + '.');
+               return;
+            }
+         }
+         else
+            loc += '&vlanId=-1';
+      }   
+   }
+   if ( srvname == '' || qs == '1' ) {
+      if (envlm == '1' && service.indexOf("pppoe") != '0') {
+         service += "." + vlmid;
+      } 
+      loc += '&serviceName=' + encodeUrl(service);
+   }   
+   else
+      loc += '&serviceName=' + encodeUrl(srvname);
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function btnBack() {
+   if (qs == 0)
+      var code = 'location="' + 'pvccfg.html' + '"';
+   else
+      var code = 'location="' + 'vpivci.html' + '"';
+
+   eval(code);
+}
+
+function hidevlanEnblInfo(status) {
+   if (enblEnetWan == '0') {
+      if (document.getElementById)  // DOM3 = IE5, NS6
+         document.getElementById('vlanEnblInfo').style.visibility = status;
+      else {
+         if (document.layers == false) // IE4
+            document.all.vlanEnblInfo.style.visibility = status;
+      }
+   } else {
+      document.getElementById('vlanEnblInfo').style.visibility = 'hidden';
+   }
+}
+
+function hideVlanIdInfo(status) {
+   if (document.getElementById)  // DOM3 = IE5, NS6
+      document.getElementById('vlanIdInfo').style.visibility = status;
+   else {
+      if (document.layers == false) // IE4
+         document.all.vlanIdInfo.style.visibility = status;
+   }
+}
+
+
+function encDisplay(mode)
+{
+   with ( document.forms[0] ) {
+      if ( enblEnetWan == 2 || enblEnetWan == 0 ) {   // ethernet WAN feature is disabled
+         encSel.selectedIndex = 0;
+         if (mode == 1)
+            encSel.selectedIndex = 1;
+         // if MER or PPPoE is existed in this PVC
+         if ( existedProtocol == 'MER' || existedProtocol == 'PPPoE' ) {
+            encSel.options[0].text = "LLC/SNAP-BRIDGING";
+            encSel.options[1].text = "VC/MUX";
+         } 
+         else if ( envlm == '1' || protorestrict == '1') {
+            encSel.options[0].text = "LLC/SNAP-BRIDGING";
+            encSel.options[1].text = "VC/MUX";
+         }
+         else {
+         // otherwise no restriction
+            if ( ntwkPrtcl[0].checked == true ) {
+               encSel.options[0].text = "VC/MUX";
+               encSel.options[1].text = "LLC/ENCAPSULATION";
+            } else if ( ntwkPrtcl[3].checked == true ) {
+               encSel.options[0].text = "LLC/SNAP-ROUTING";
+               encSel.options[1].text = "VC/MUX";
+            } else {
+               encSel.options[0].text = "LLC/SNAP-BRIDGING";
+               encSel.options[1].text = "VC/MUX";
+            }
+         }
+      }
+      if (enblVlan == 1) {
+         if (enblEnetWan == 1) {
+            if (ntwkPrtcl[0].checked || ntwkPrtcl[1].checked) {
+               if (vlanId >= 0 && vlanId < 4096) {
+                  cbVlan.checked = true;
+                  vlanIdText.value = vlanId;
+               } else if (vlanId == -1)
+                  vlanIdText.value = '';
+               hidevlanEnblInfo('visible');
+               vidClick(); 
+            } else {
+               hidevlanEnblInfo('hidden');      
+               hideVlanIdInfo('hidden');
+            }
+         } else {
+            if ( existedProtocol == 'PPPoE' ) {
+               hidevlanEnblInfo('hidden');
+               hideVlanIdInfo('hidden');
+            } else {
+               // noly for PPPoE, MER and BRIDGE
+               if (ntwkPrtcl[1].checked || ntwkPrtcl[2].checked || ntwkPrtcl[4].checked) {
+                  if (vlanId >= 0 && vlanId < 4096) {
+                     cbVlan.checked = true;
+                     vlanIdText.value = vlanId;
+                  } else if (vlanId == -1)
+                     vlanIdText.value = '';
+                  hidevlanEnblInfo('visible');
+                  vidClick(); 
+               } else {
+                  hidevlanEnblInfo('hidden');      
+                  hideVlanIdInfo('hidden');
+               }
+            }
+         }
+      }                    
+   }
+}
+
+function prtClick() {
+   encDisplay(0);
+}
+
+function vidClick()
+{
+   with (document.forms[0]) {
+      if (cbVlan.checked)
+         hideVlanIdInfo('visible');
+      else
+         hideVlanIdInfo('hidden');
+   }
+}
+
+// done hiding -->
+</script>
+            <base target="_self">
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <b>Connection Type</b>
+
+            <script language="javascript">
+<!-- hide
+            if ( enblEnetWan == 0 ) {
+               document.writeln("<p>");
+               document.writeln("Select the type of network protocol and encapsulation mode over the ATM PVC ");
+               document.writeln("that your ISP has instructed you to use.");
+               document.writeln(" Note that 802.1q VLAN tagging is only available ");
+               document.writeln("for PPPoE, MER and Bridging.<br>");
+               document.writeln("</p>");
+            } else {
+               document.writeln("<p>");
+               document.writeln("Select the type of network protocol for IP over Ethernet as WAN interface");
+               document.writeln("</p>");
+            }
+// done hiding -->
+            </script>
+
+
+            <table border="0" cellpadding="0" cellspacing="0">
+<script language="javascript">
+<!-- hide
+if ( enblEnetWan == 1 ) {
+      document.writeln("               <tr><td><input type='radio' name='ntwkPrtcl' onClick='prtClick()'>&nbsp;PPP over Ethernet (PPPoE)</td></tr>");
+      document.writeln("               <tr><td>&nbsp</td></tr>");
+      document.writeln("               <tr><td><input type='radio' name='ntwkPrtcl' onClick='prtClick()'>&nbsp;IP over Ethernet</td></tr>");
+/* Code commented to hide multiple protocols MER & PPPoE over single PVC */
+} else if ( existedProtocol == 'MER' ) {
+   // if MER is existed in this PVC and MER is editting then allow PPPoE or MER to be added
+   document.writeln("               <tr><td><input type='radio' name='ntwkPrtcl' onClick='prtClick()'>&nbsp;PPP over Ethernet (PPPoE)</td></tr>");
+   document.writeln("               <tr><td>&nbsp</td></tr>");
+/* Code commented to hide multiple protocols MER & PPPoE over single PVC */
+   document.writeln("               <tr><td><input type='radio' name='ntwkPrtcl' onClick='prtClick()'>&nbsp;MAC Encapsulation Routing (MER)</td></tr>");
+   document.writeln("               <tr><td>&nbsp</td></tr>");
+   document.writeln("               <tr><td><input type='radio' name='ntwkPrtcl' onClick='prtClick()'>&nbsp;Bridging</td></tr>");
+} else if ( existedProtocol == 'PPPoE' ) {
+// if PPPoE is existed in this PVC then only allow PPPoE or MER to be added
+   document.writeln("               <tr><td><input type='radio' name='ntwkPrtcl' onClick='prtClick()'>&nbsp;PPP over Ethernet (PPPoE)</td></tr>");
+   document.writeln("               <tr><td>&nbsp</td></tr>");
+/* Code commented to hide multiple protocols MER & PPPoE over single PVC */
+   document.writeln("               <tr><td><input type='radio' name='ntwkPrtcl' onClick='prtClick()'>&nbsp;MAC Encapsulation Routing (MER)</td></tr>");
+   document.writeln("               <tr><td>&nbsp</td></tr>");
+   document.writeln("               <tr><td><input type='radio' name='ntwkPrtcl' onClick='prtClick()'>&nbsp;Bridging</td></tr>");
+} else if ( envlm == '1' || protorestrict == '1' ) {
+   document.writeln("               <tr><td><input type='radio' name='ntwkPrtcl' onClick='prtClick()'>&nbsp;PPP over Ethernet (PPPoE)</td></tr>");
+   document.writeln("               <tr><td>&nbsp</td></tr>");
+   document.writeln("               <tr><td><input type='radio' name='ntwkPrtcl' onClick='prtClick()'>&nbsp;MAC Encapsulation Routing (MER)</td></tr>");
+   document.writeln("               <tr><td>&nbsp</td></tr>");
+   document.writeln("               <tr><td><input type='radio' name='ntwkPrtcl' onClick='prtClick()'>&nbsp;Bridging</td></tr>");
+
+} else {
+// otherwise no restriction
+   document.writeln("               <tr><td><input type='radio' name='ntwkPrtcl' onClick='prtClick()'>&nbsp;PPP over ATM (PPPoA)</td></tr>");
+   document.writeln("               <tr><td>&nbsp</td></tr>");
+   document.writeln("               <tr><td><input type='radio' name='ntwkPrtcl' onClick='prtClick()'>&nbsp;PPP over Ethernet (PPPoE)</td></tr>");
+   document.writeln("               <tr><td>&nbsp</td></tr>");
+   document.writeln("               <tr><td><input type='radio' name='ntwkPrtcl' onClick='prtClick()'>&nbsp;MAC Encapsulation Routing (MER)</td></tr>");
+   document.writeln("               <tr><td>&nbsp</td></tr>");
+   document.writeln("               <tr><td><input type='radio' name='ntwkPrtcl' onClick='prtClick()'>&nbsp;IP over ATM (IPoA)</td></tr>");
+   document.writeln("               <tr><td>&nbsp</td></tr>");
+   document.writeln("               <tr><td><input type='radio' name='ntwkPrtcl' onClick='prtClick()'>&nbsp;Bridging</td></tr>");
+}
+
+// done hiding -->
+</script>
+            </table>
+            <div id='enetWan'>
+            <br><br>
+            <b>&nbsp;Encapsulation Mode</b>
+            <br>
+            <div id='encInfo'>
+               <table>
+                  <td><select name='encSel' id='encSel'>
+                        <option value="0">LLC/SNAP-BRIDGING</option>
+                        <option value="1">VC/MUX</option>
+                     </select></td>
+               </table>
+            </div>
+            </div>
+            <script language='javascript'>
+<!-- hide
+{
+   if (enblVlan == 1 && envlm != 1) {
+      document.writeln("<div id='vlanEnblInfo'>");
+      document.writeln("<br>");
+      document.writeln("<td><b>Enable 802.1q&nbsp;&nbsp;&nbsp;</b></td>");
+      document.writeln("<td width='30' height='30'><input type='checkbox' name='cbVlan' onclick='vidClick(this)'></td>");
+      document.writeln("<div id='vlanIdInfo'>");
+      document.writeln("<table>");
+      document.writeln("<tr><td>VLAN ID[0-4095]:</td>");
+      document.writeln("<td><input type='text' name='vlanIdText' size='4'></td></tr>");
+      document.writeln("</table>");
+      document.writeln("</div>");      
+      document.writeln("</div>");
+      document.writeln("</div>");
+   }    
+}
+// done hiding -->
+</script>
+            <br>
+            <p align="center">
+               <input type='button' onClick='btnBack()' value='Back'>&nbsp;<input type='button' onClick='btnNext()' value='Next'>
+         </form>
+         </P> </blockquote>
+   </body>
+</html>

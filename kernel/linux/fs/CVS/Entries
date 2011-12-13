@@ -1,0 +1,108 @@
+/.cvsignore/1.8/Fri Feb 20 17:35:31 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.27/Fri Aug 13 07:18:55 2004/-ko/Tlinux_2_6_8_1
+/Kconfig.binfmt/1.8/Mon Apr 12 20:23:36 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.66/Sun Jun  6 02:12:50 2004/-ko/Tlinux_2_6_8_1
+/aio.c/1.29/Wed Jun 30 17:26:49 2004/-ko/Tlinux_2_6_8_1
+/attr.c/1.31/Fri Jul  9 02:16:51 2004/-ko/Tlinux_2_6_8_1
+/bad_inode.c/1.22/Sat Jun 26 15:15:21 2004/-ko/Tlinux_2_6_8_1
+/binfmt_aout.c/1.49/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/binfmt_elf.c/1.95/Fri Aug  6 00:33:29 2004/-ko/Tlinux_2_6_8_1
+/binfmt_em86.c/1.21/Sun Jun  6 02:12:50 2004/-ko/Tlinux_2_6_8_1
+/binfmt_flat.c/1.8/Sat Jun 26 15:15:21 2004/-ko/Tlinux_2_6_8_1
+/binfmt_misc.c/1.43/Wed Jun 30 17:26:49 2004/-ko/Tlinux_2_6_8_1
+/binfmt_script.c/1.22/Wed Jun 30 17:26:49 2004/-ko/Tlinux_2_6_8_1
+/binfmt_som.c/1.7/Sun Jun  6 02:12:50 2004/-ko/Tlinux_2_6_8_1
+/bio.c/1.34/Fri Aug  6 00:33:29 2004/-ko/Tlinux_2_6_8_1
+/block_dev.c/1.95/Wed Jun 30 17:26:49 2004/-ko/Tlinux_2_6_8_1
+/buffer.c/1.142/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/char_dev.c/1.19/Mon Apr 12 20:23:36 2004/-ko/Tlinux_2_6_8_1
+/compat.c/1.22/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/compat_ioctl.c/1.21/Fri Aug  6 00:33:29 2004/-ko/Tlinux_2_6_8_1
+/dcache.c/1.90/Fri Aug 13 07:18:55 2004/-ko/Tlinux_2_6_8_1
+/dcookies.c/1.6/Fri Jul  9 02:16:51 2004/-ko/Tlinux_2_6_8_1
+/direct-io.c/1.25/Mon Jun 28 21:04:15 2004/-ko/Tlinux_2_6_8_1
+/dnotify.c/1.17/Sat Aug 14 16:16:43 2004/-ko/Tlinux_2_6_8_1
+/dquot.c/1.77/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/eventpoll.c/1.23/Fri Jul  9 02:16:51 2004/-ko/Tlinux_2_6_8_1
+/exec.c/1.118/Fri Aug  6 00:33:29 2004/-ko/Tlinux_2_6_8_1
+/fcntl.c/1.53/Sat Aug 14 16:16:43 2004/-ko/Tlinux_2_6_8_1
+/fifo.c/1.24/Fri Aug 13 07:18:55 2004/-ko/Tlinux_2_6_8_1
+/file.c/1.13/Wed Jun 30 17:26:49 2004/-ko/Tlinux_2_6_8_1
+/file_table.c/1.54/Fri Aug 13 07:18:55 2004/-ko/Tlinux_2_6_8_1
+/filesystems.c/1.38/Thu Oct  9 13:09:33 2003/-ko/Tlinux_2_6_8_1
+/fs-writeback.c/1.34/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/inode.c/1.109/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/ioctl.c/1.27/Sat Jun 26 15:15:21 2004/-ko/Tlinux_2_6_8_1
+/libfs.c/1.27/Fri Aug 13 07:18:55 2004/-ko/Tlinux_2_6_8_1
+/locks.c/1.65/Fri Aug  6 00:33:29 2004/-ko/Tlinux_2_6_8_1
+/mbcache.c/1.5/Thu Jun  5 18:24:08 2003/-ko/Tlinux_2_6_8_1
+/mpage.c/1.26/Fri Aug  6 00:33:29 2004/-ko/Tlinux_2_6_8_1
+/namei.c/1.104/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/namespace.c/1.37/Fri Aug  6 00:33:29 2004/-ko/Tlinux_2_6_8_1
+/nfsctl.c/1.9/Tue Jun 29 20:41:55 2004/-ko/Tlinux_2_6_8_1
+/open.c/1.83/Fri Aug 13 07:18:55 2004/-ko/Tlinux_2_6_8_1
+/pipe.c/1.59/Fri Aug 13 07:18:55 2004/-ko/Tlinux_2_6_8_1
+/posix_acl.c/1.1/Tue Nov  5 15:18:23 2002/-ko/Tlinux_2_6_8_1
+/quota.c/1.13/Sat Jun 26 15:15:21 2004/-ko/Tlinux_2_6_8_1
+/quota_v1.c/1.12/Wed Jun  9 14:12:11 2004/-ko/Tlinux_2_6_8_1
+/quota_v2.c/1.13/Sun Jun  6 02:12:50 2004/-ko/Tlinux_2_6_8_1
+/read_write.c/1.51/Fri Aug 13 07:18:55 2004/-ko/Tlinux_2_6_8_1
+/readdir.c/1.35/Sun Jun  6 02:12:50 2004/-ko/Tlinux_2_6_8_1
+/select.c/1.40/Thu Oct  9 13:09:33 2003/-ko/Tlinux_2_6_8_1
+/seq_file.c/1.11/Fri Aug 13 07:18:55 2004/-ko/Tlinux_2_6_8_1
+/stat.c/1.48/Wed Jun 16 12:09:37 2004/-ko/Tlinux_2_6_8_1
+/super.c/1.105/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/xattr.c/1.13/Thu Feb 19 03:06:32 2004/-ko/Tlinux_2_6_8_1
+/xattr_acl.c/1.2/Fri Apr 23 15:54:17 2004/-ko/Tlinux_2_6_8_1
+D/adfs////
+D/affs////
+D/afs////
+D/autofs////
+D/autofs4////
+D/befs////
+D/bfs////
+D/cifs////
+D/coda////
+D/cramfs////
+D/devfs////
+D/devpts////
+D/driverfs////
+D/efs////
+D/exportfs////
+D/ext2////
+D/ext3////
+D/fat////
+D/freevxfs////
+D/hfs////
+D/hfsplus////
+D/hpfs////
+D/hugetlbfs////
+D/intermezzo////
+D/isofs////
+D/jbd////
+D/jffs////
+D/jffs2////
+D/jfs////
+D/lockd////
+D/minix////
+D/msdos////
+D/ncpfs////
+D/nfs////
+D/nfsd////
+D/nls////
+D/ntfs////
+D/openpromfs////
+D/partitions////
+D/proc////
+D/qnx4////
+D/ramfs////
+D/reiserfs////
+D/romfs////
+D/smbfs////
+D/sysfs////
+D/sysv////
+D/udf////
+D/ufs////
+D/umsdos////
+D/vfat////
+D/xfs////

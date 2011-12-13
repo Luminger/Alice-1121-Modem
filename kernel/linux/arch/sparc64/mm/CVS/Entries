@@ -1,0 +1,9 @@
+/Makefile/1.19/Sat Aug 14 16:16:42 2004/-ko/Tlinux_2_6_8_1
+/extable.c/1.6/Thu Feb  5 02:39:57 2004/-ko/Tlinux_2_6_8_1
+/fault.c/1.36/Sat Aug 14 16:16:42 2004/-ko/Tlinux_2_6_8_1
+/generic.c/1.18/Mon Oct 28 23:48:10 2002/-ko/Tlinux_2_6_8_1
+/hugetlbpage.c/1.14/Sun Jun  6 02:12:41 2004/-ko/Tlinux_2_6_8_1
+/init.c/1.81/Sat Aug 14 16:16:42 2004/-ko/Tlinux_2_6_8_1
+/tlb.c/1.1/Sat Aug 14 16:16:42 2004/-ko/Tlinux_2_6_8_1
+/ultra.S/1.37/Sat Aug 14 16:16:42 2004/-ko/Tlinux_2_6_8_1
+D

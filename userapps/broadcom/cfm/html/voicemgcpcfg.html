@@ -1,0 +1,113 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+var ca = '<%ejGetVoice(caAddr)%>';
+var gw = '<%ejGetVoice(gwName)%>';
+var ifn = '<%ejGetVoice(ifName)%>';
+
+function btnApply() {
+   var loc = 'voicemgcpset.cmd?';
+
+   with ( document.forms[0] ) {
+      if ( isValidIpAddress(caAddr.value) == false ) {
+         msg = 'Address "' + caAddr.value + '" is invalid IP address.';
+         alert(msg);
+         return;
+      }
+
+      loc += 'caAddr=' + caAddr.value;
+      loc += '&gwName=' + gwName.value;
+      loc += '&ifName=' + ifName.value;
+   }
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function btnStartMgcp() {
+   var loc = 'voicemgcpstart.cmd?';
+
+   with ( document.forms[0] ) {
+      if ( isValidIpAddress(caAddr.value) == false ) {
+         msg = 'Address "' + caAddr.value + '" is invalid IP address.';
+         alert(msg);
+         return;
+      }
+
+      loc += 'caAddr=' + caAddr.value;
+      loc += '&gwName=' + gwName.value;
+      loc += '&ifName=' + ifName.value;
+   }
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function frmLoad() {
+   with ( document.forms[0] ) {
+      caAddr.value = ca;
+      gwName.value = gw;
+      ifName.value = ifn;
+   }
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <b>Voice -- MGCP configuration</b><br>
+            <br>
+            Enter the IP address of the Call Agent and the gateway name and click "Apply" to save the MGCP parameters..<br>
+            <br>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td width="150">Call Agent IP Address:</td>
+                  <td><input type='text' name='caAddr'></td>
+               </tr>
+               <tr>
+                  <td>MGCP gateway name:</td>
+                  <td><input type='text' name='gwName'></td>
+               </tr>
+               <tr>
+                  <td>Interface name:</td>
+                  <td><select name="ifName" size="1" onClick='cbClick(this)'>
+                        <option value="br0" selected>br0-Bridge
+<script language="javascript">
+<!-- hide
+{
+   var i = 0;
+   var interfaceInfo = '<%ejGetOther(wanInterfaceInfo, voice)%>';
+   var interfaces = interfaceInfo.split('|');
+   
+   for ( i = 0; i < interfaces.length; i++ ) {
+      var names = interfaces[i].split('-');
+      document.write("  <option value='" + names[0] + "'>");
+      document.writeln(interfaces[i]);
+   }
+}
+// done hiding -->
+</script>
+                     </select></td>
+               </tr>
+            </table>
+            <br>
+            <center>
+               <input type='button' onClick='btnApply()' value='Change MGCP parameters'>
+               <br>
+               <br>
+               <input type='button' onClick='btnStartMgcp()' value='Start MGCP gateway'>
+            </center>
+         </form>
+      </blockquote>
+   </body>
+</html>
+
+
+

@@ -1,0 +1,123 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+
+function btnClear() {
+   with ( document.forms[0] ) {
+      dstAddr.value = '';
+      dstMask.value = '';
+      dstGtwy.value = '';
+      dstWanIf.value = '';
+   }
+}
+
+function btnApply() {
+   var loc = 'rtroute6cfg.cmd?action=add';
+   with ( document.forms[0] ) {
+      if ( isValidIpAddress6(dstAddr.value) == false ) {
+         alert('Destination "' + dstAddr.value + '" has invalid IPv6 address.');
+         return;
+      }
+      if ( isValidPrefixLength(dstMask.value) == false) {
+         alert('Prefix length"' + dstMask.value + '" is invalid.');
+         return;
+      }
+      loc += '&dstAddr=' + dstAddr.value;
+      loc += '&dstMask=' + dstMask.value;
+      if (gwStr.checked == false && ifStr.checked == false) {
+         alert('Need to select "Use Gateway IP Address" and/or "Use Interface".');
+         return;
+      }
+      if (gwStr.checked == true) {         
+         if ( isValidIpAddress6(dstGtwy.value) == false ) {
+            alert('Default gateway "' + dstGtwy.value + '" has invalid IPv6 address.');
+            return;
+         }
+         loc += '&dstGtwy=' + dstGtwy.value;
+      } else
+         loc += '&dstGtwy=' + '';
+      if (ifStr.checked == true) {
+         var idx = dstWanIf.selectedIndex;
+         var ifc = dstWanIf.options[idx].value;
+         // if chosen interface is MER but does not specify static IP address then display error
+         if ( ifc.indexOf('nas_') != -1 && gwStr.checked == false ) {
+            alert('Gateway IP address should be specified since MER interface is selected.');
+            return;
+         }
+         loc += '&dstWanIf=' + ifc;
+      }
+      else
+         loc += '&dstWanIf=' + '';
+//         if ( isValidIpAddress6(dstGtwy.value) == false ) {
+//            alert('Default gateway "' + dstGtwy.value + '" has invalid IPv6 address.');
+//            return;
+//         }
+//         loc += '&dstGtwy=' + dstGtwy.value;
+//         var idx = dstWanIf.selectedIndex;
+//         var ifc = dstWanIf.options[idx].value;
+//         loc += '&dstWanIf=' + ifc;
+   }
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body>
+      <blockquote>
+         <form>
+            <b>Routing -- IPv6 Static Route Add</b><br>
+            <br>
+            Enter the destination IPv6 address, prefix length, gateway AND/OR available 
+            WAN interface then click "Save/Apply" to add the entry to the routing table.<br>
+            <br>
+            <br>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td width="160">Destination IPv6 Address:</td>
+                  <td><input type='text' name='dstAddr'></td>
+               </tr>
+               <tr>
+                  <td>Prefix Length:</td>
+                  <td><input type='text' name='dstMask'></td>
+               </tr>
+               <tr>
+                  <td><input type="checkbox" name='gwStr'>&nbsp;Use Gateway IPv6 Address&nbsp;&nbsp;</td>
+                  <td><input type='text' name='dstGtwy'></td>
+               </tr>
+               <tr>
+                  <td><input type="checkbox" name='ifStr'>&nbsp;Use Interface</td>
+                  <td><select name='dstWanIf'>
+<script language="javascript">
+<!-- hide
+{
+   var i = 0;
+   var interfaceInfo = '<%ejGetOther(wanInterfaceInfo, route)%>';
+   var interfaces = interfaceInfo.split('|');
+
+   for ( i = 0; i < interfaces.length; i++ ) {
+      var names = interfaces[i].split('/');
+      document.write("  <option value='" + names[1] + "'>");
+      document.writeln(interfaces[i]);
+   } 
+   document.writeln("  <option value='br0'> LAN/br0");
+}
+// done hiding -->
+</script>
+                     </select></td>
+               </tr>
+            </table>
+            <br>
+            <center>
+               <input type='button' onClick='btnApply()' value='Save/Apply'>
+            </center>
+         </form>
+      </blockquote>
+   </body>
+</html>

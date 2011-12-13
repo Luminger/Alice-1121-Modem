@@ -1,0 +1,10 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:38 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.6/Mon Jun  2 10:48:45 2003/-ko/Tlinux_2_6_8_1
+/hwdep32.c/1.5/Tue Jul 20 20:21:28 2004/-ko/Tlinux_2_6_8_1
+/ioctl32.c/1.13/Tue Jul 20 20:21:28 2004/-ko/Tlinux_2_6_8_1
+/ioctl32.h/1.6/Tue Jul 20 20:21:28 2004/-ko/Tlinux_2_6_8_1
+/pcm32.c/1.9/Tue Jul 20 20:21:28 2004/-ko/Tlinux_2_6_8_1
+/rawmidi32.c/1.7/Thu Jun  5 10:06:45 2003/-ko/Tlinux_2_6_8_1
+/seq32.c/1.5/Wed Jun  4 14:05:52 2003/-ko/Tlinux_2_6_8_1
+/timer32.c/1.8/Mon Apr 12 20:23:42 2004/-ko/Tlinux_2_6_8_1
+D

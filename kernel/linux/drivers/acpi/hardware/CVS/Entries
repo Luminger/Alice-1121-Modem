@@ -1,0 +1,8 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:31 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.7/Mon Jun  2 10:48:39 2003/-ko/Tlinux_2_6_8_1
+/hwacpi.c/1.18/Thu Feb  5 02:39:58 2004/-ko/Tlinux_2_6_8_1
+/hwgpe.c/1.22/Mon Apr 12 20:23:28 2004/-ko/Tlinux_2_6_8_1
+/hwregs.c/1.26/Thu Mar 11 16:46:47 2004/-ko/Tlinux_2_6_8_1
+/hwsleep.c/1.21/Mon Apr 12 20:23:28 2004/-ko/Tlinux_2_6_8_1
+/hwtimer.c/1.16/Thu Feb  5 02:39:58 2004/-ko/Tlinux_2_6_8_1
+D

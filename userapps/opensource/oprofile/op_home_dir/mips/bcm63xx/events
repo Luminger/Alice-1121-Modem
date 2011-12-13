@@ -1,0 +1,7 @@
+#
+# Bcm63xx events
+#
+# General purpose cycles count using timer interrupt
+#
+
+event:0 counters:0 um:zero minimum:500 name:CYCLES : using timer interrupt

@@ -1,0 +1,34 @@
+<html>
+<head>
+<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+<link rel=stylesheet href='stylemain.css' type='text/css'>
+<link rel=stylesheet href='colors.css' type='text/css'>
+<script language="javascript">
+<!-- hide
+
+function btnBack() {
+   var loc = 'wancfg.cmd';
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+</script>
+</head>
+
+<body>
+<blockquote>
+<b>PVC Configuration Error</b><br><br>
+Cannot add new connection using specified VPI/VCI/VLAN Mux as it's incompatiable with existing connections with the same VPI/VCI.
+Note PPPoA or IPoA cannot co-exist with other protocols on the same VPI/VCI even with VLAN Mux.
+Currently, a PVC can support 4 PPPoE, 1 MER and 1 Bridge services.
+<br><br>
+Click on "Back" button to configure the new VPI/VCI.
+<br><br><br>
+<center>
+<input type='button' onClick='btnBack()' value='Back'>
+</center>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,155 @@
+<html>
+   <head>
+      <meta http-equiv='Pragma' content='no-cache'>
+      <meta http-equiv="refresh" content="15">
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+          <script language="javascript" src="portName.js"></script>
+            <script language="javascript">
+<!-- hide
+
+function frmLoad() {
+   var updateIfc = '<%ejFncCmd(stsifcupdate)%>';
+}
+
+function resetClick() {
+   var loc = 'statsifcreset.html';
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <b>Statistics -- LAN</b><br>
+            <br>
+            <table border="1" cellpadding="2" cellspacing="0">
+               <tr>
+                  <td class='hd'>Interface</td>
+                  <td class='hd' colspan="4"><center>Received</center>
+                  </td>
+                  <td class='hd' colspan="4"><center>Transmitted</center>
+                  </td>
+               </tr>
+               <tr>
+                  <td class='hd'>&nbsp</td>
+                  <td class='hd'>Bytes</td>
+                  <td class='hd'>Pkts</td>
+                  <td class='hd'>Errs</td>
+                  <td class='hd'>Drops</td>
+                  <td class='hd'>Bytes</td>
+                  <td class='hd'>Pkts</td>
+                  <td class='hd'>Errs</td>
+                  <td class='hd'>Drops</td>
+               </tr>
+<script language="javascript">
+<!-- hide
+
+var numEnet = '<%ejGet(numEnet)%>';
+var brdId = '<%ejGet(boardID)%>';
+var dispName = ' ';
+
+if ( numEnet == '2' ) {
+   dispName = getUNameByLName(brdId + '|eth1');
+   document.writeln("               <tr>");
+   document.writeln("                  <td class='hd'>Ethernet " + dispName + "</td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 3, 0)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 3, 1)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 3, 2)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 3, 3)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 3, 4)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 3, 5)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 3, 6)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 3, 7)%></td>");
+   document.writeln("               </tr>");
+   dispName = getUNameByLName(brdId + '|eth0');
+   document.writeln("               <tr>");
+   document.writeln("                  <td class='hd'>Ethernet " + dispName + "</td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 0, 0)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 0, 1)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 0, 2)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 0, 3)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 0, 4)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 0, 5)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 0, 6)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 0, 7)%></td>");
+   document.writeln("              </tr>");
+}
+else {
+   document.writeln("               <tr>");
+   document.writeln("                  <td class='hd'>Ethernet</td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 0, 0)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 0, 1)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 0, 2)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 0, 3)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 0, 4)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 0, 5)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 0, 6)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 0, 7)%></td>");
+   document.writeln("               </tr>");
+}
+
+var enblUsb = '<%ejGet(enblUsb)%>';
+
+if ( enblUsb == '1' ) {
+   document.writeln("               <tr>");
+   document.writeln("                  <td class='hd'>USB</td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 1, 0)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 1, 1)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 1, 2)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 1, 3)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 1, 4)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 1, 5)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 1, 6)%></td>");
+   document.writeln("                  <td><%ejGetOther(stsifcget, 1, 7)%></td>");
+   document.writeln("               </tr>");
+}
+
+var ifc = '<%ejGetWl(wlInterface)%>';
+
+if ( ifc == '1' ) {
+   document.writeln("  <tr>");
+   document.writeln("    <td class='hd'>Wireless</td>");
+   document.writeln("    <td><%ejGetOther(stsifcget, 2, 0)%></td>");
+   document.writeln("    <td><%ejGetOther(stsifcget, 2, 1)%></td>");
+   document.writeln("    <td><%ejGetOther(stsifcget, 2, 2)%></td>");
+   document.writeln("    <td><%ejGetOther(stsifcget, 2, 3)%></td>");
+   document.writeln("    <td><%ejGetOther(stsifcget, 2, 4)%></td>");
+   document.writeln("    <td><%ejGetOther(stsifcget, 2, 5)%></td>");
+   document.writeln("    <td><%ejGetOther(stsifcget, 2, 6)%></td>");
+   document.writeln("    <td><%ejGetOther(stsifcget, 2, 7)%></td>");
+   document.writeln("  </tr>");
+}
+
+ var wlnum = '<%ejGetOther(sysInfo, numWlAdaptor)%>';
+
+ if ( wlnum == '2' ) {
+   document.writeln("  <tr>");
+   document.writeln("    <td class='hd'>Wireless1</td>");
+   document.writeln("    <td><%ejGetOther(stsifcget, 4, 0)%></td>");
+   document.writeln("    <td><%ejGetOther(stsifcget, 4, 1)%></td>");
+   document.writeln("    <td><%ejGetOther(stsifcget, 4, 2)%></td>");
+   document.writeln("    <td><%ejGetOther(stsifcget, 4, 3)%></td>");
+   document.writeln("    <td><%ejGetOther(stsifcget, 4, 4)%></td>");
+   document.writeln("    <td><%ejGetOther(stsifcget, 4, 5)%></td>");
+   document.writeln("    <td><%ejGetOther(stsifcget, 4, 6)%></td>");
+   document.writeln("    <td><%ejGetOther(stsifcget, 4, 7)%></td>");
+   document.writeln("  </tr>");
+}
+
+
+ 
+// done hiding -->
+</script>
+            </table>
+            <br>
+            <br>
+            <input type='button' onClick='resetClick()' value='Reset Statistics'>
+         </form>
+      </blockquote>
+   </body>
+</html>

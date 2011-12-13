@@ -1,0 +1,4 @@
+#!/bin/sh
+
+/mnt/op/opreport -l --image-path=/mnt/op/bin_symbols/modules/2.6.8.1/extra,/mnt/op/bin_symbols/modules/2.6.8.1/kernel/net/ipv4/netfilter
+

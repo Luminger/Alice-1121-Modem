@@ -1,0 +1,247 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+var ses_enable = '<%ejGetWl(wlSesEnable)%>';
+var ses_event = '<%ejGetWl(wlSesEvent)%>';
+var ses_wds_mode = '<%ejGetWl(wlSesWdsMode)%>';
+var ses_cl_enable = '<%ejGetWl(wlSesClEnable)%>';
+var ses_cl_event = '<%ejGetWl(wlSesClEvent)%>';
+var wlRefresh = '<%ejGetWl(wlRefresh)%>';
+var wlInfo = '<%ejGetWl(wlInfo)%>';
+var ssid = '<%ejGetWl(wlSsid)%>';
+
+if ( wlRefresh == '1' ) {
+   var code = 'location="wlsesrefresh.wl?wlRefresh=0"';
+   eval(code);   
+}
+
+function updateCurSSID() {
+   if (document.getElementById)  // DOM3 = IE5, NS6
+      document.getElementById("CurSSID").innerHTML = "  Current SSID: " + ssid;
+   else {
+      if (document.layers == false) // IE4
+         document.all.CurSSID.innerHTML = "  Current SSID: " + ssid;
+   }
+}
+
+function wlSesInfoChange(enabled)
+{
+   with ( document.forms[0] ) {
+      if(enabled == "1" ) {
+         if( sesWdsMode.selectedIndex != 4 || ses_enable == '0' ) {
+            showhide("wlSesInfo", 1);
+            showhide("wlSesWdsInfo", 1);
+            showhide("wlSesClInfo", 0);  
+         } else {
+            showhide("wlSesInfo", 0);
+            showhide("wlSesWdsInfo", 1);
+            showhide("wlSesClInfo", 1);  
+         }
+      } else {
+            showhide("wlSesInfo", 0);
+            showhide("wlSesWdsInfo", 0);
+            showhide("wlSesClInfo", 0);           
+      }
+   }      
+}
+
+function wlSesCbChange() {
+   with ( document.forms[0] ) {
+         wlSesInfoChange(wlSesEnbl.value);       
+   }      
+   btnApply(0);
+}
+
+function frmLoad() {  
+   with ( document.forms[0] ) {
+      if ( ses_enable == '1' ) {
+         wlSesEnbl.value = "1";
+      } else {
+         wlSesEnbl.value = "0";
+      }
+      
+      sesWdsMode.selectedIndex = ses_wds_mode;
+      wlSesInfoChange(wlSesEnbl.value);
+      updateCurSSID();
+   }
+}
+
+function btnApply(mode) {
+   var loc = 'wlses.wl?';
+   with ( document.forms[0] ) {                      
+      if ( wlSesEnbl.value == "0" ) {
+         loc += 'wlSesEnable=0';
+         loc += '&wlSesEvent=0';
+      } else {
+         loc += 'wlSesEnable=1';
+         loc += '&wlSesEvent='+mode; 
+         loc += '&wlSesWdsMode='+ sesWdsMode.selectedIndex;           
+      }
+
+      if( sesWdsMode.selectedIndex == 0 || sesWdsMode.selectedIndex == 2 || sesWdsMode.selectedIndex == 3 || wlSesEnbl.value == "0") {
+         loc += '&wlSesClEnable=0';
+      } else {
+         loc += '&wlSesClEnable=1'; 
+      }                            
+   }
+   //alert('loc= "' + loc+ '" (EOM).');            
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function btnSesWdsApply(mode) {
+   var loc = 'wlses.wl?'; 
+   var pattern = /sta/i;      
+   with ( document.forms[0] ) {         
+      if(!pattern.test(wlInfo) && sesWdsMode.selectedIndex == 4) {
+         sesWdsMode.selectedIndex = 2;
+         return;
+      } 
+   }
+   btnApply(0);
+}
+
+function btnClApply(mode) {
+   var loc = 'wlses.wl?'; 
+   with ( document.forms[0] ) {      
+      if( sesWdsMode.selectedIndex != 4 ) {
+         loc += '&wlSesClEnable=0';
+         loc += '&wlSesClEvent=0';
+      } else {
+         loc += '&wlSesClEnable=1'; 
+         loc += '&wlSesClEvent='+mode;
+      }         
+   }
+   //alert('loc= "' + loc+ '" (EOM).');   
+         
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+      </script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form onSubmit='return false'>
+            <b>Wireless -- SecureEasySetup(SES)</b><br>
+            <br>
+            This page allows you to configure wireless security by SecureEasySetup technology. 
+            You may create a secured wireless (SES) network and add wireless clients to the secured network 
+            one at a time after SecureEasySetup is enabled.<br>
+            <br>
+            <div id='wlSesMain'>
+               <table border="0" cellpadding="4" cellspacing="0">
+                  <tr>                                        
+                     <td width="180">SES:</td>
+                     <td valign="middle" align="center" width="30" height="30" >
+                     <select name='wlSesEnbl' size="1" onChange='wlSesCbChange()'>
+                        <option value="0">
+                        Disabled
+                        <option value="1">
+                        Enabled                                      
+                     </select></td>
+                     <td>
+                        <div id="CurSSID">
+                         Current SSID:
+                        </div>
+                     </td>
+                  </tr>               
+               </table>
+            <br>    
+            </div>  
+            <div id='wlSesInfo'>
+               <table border="0" cellpadding="4" cellspacing="0">
+                  <tr>
+                     <td  width="180">Create SES network, add clients later:</td>                  
+                     <td><input type=button value='        NewSESNW       ' onClick='btnApply(3)'></td>
+
+                  </tr>
+               </table>
+               <table border="0" cellpadding="4" cellspacing="0">
+                  <tr>
+                     <td width="180" >Create SES network and add a client:</td>                    
+                     <td><input type=button value='NewSesNWAndOW(Short-Push)' onClick='btnApply(6)'></td>
+                                                            
+                  </tr>
+               </table>
+               <table border="0" cellpadding="4" cellspacing="0">
+                  <tr>
+                     <td width="180" >Add a client to the current SES network:</td>                  
+                     <td><input type=button value='        OpenWindow       ' onClick='btnApply(4)'></td>                       
+
+                  </tr>
+               </table>
+               <table border="0" cellpadding="4" cellspacing="0">
+                  <tr>
+                     <td width="180" >Reset to unsecured open network or abort the current registration:</td>                  
+                     <td><input type=button value='ResetNWToDefault(Long-Push)' onClick='btnApply(7)'></td>
+                  </tr>
+               </table>
+               <br>
+            </div>            
+            <div id='wlSesWdsInfo'>
+            <br>
+            SES has the following modes available:
+            <br>
+            Configurator mode: allow SES AP or SES client to retrieve security parameters from this device.
+            <br>
+            Configurator for SES Client: similar to Configurator mode, but allow only SES client.            
+            <br>            
+            Configurator for WDS only: similar to Configurator mode, but allow only SES AP.
+            <br>
+            Client mode: retrieve security parameters from an already configured SES AP to form a SES+WDS network.
+            <br>
+            Auto mode: automatically act as Configurator or Client.            
+            <br>
+             
+            <br>
+            To create WDS connection between 2 APs:
+            <br>           
+            Long-Push on both APs to clean up their SES settings. Choose an AP to be the main AP, Short-Push on the main AP. 
+            Wait 2 minutes for the registration period to end. Another alternative is to use the "NewSESNW" button above.
+            Now, short push on the main AP and the other AP in any order. This will create the secure WDS link between them.            
+            <br>             
+               <table border="0" cellpadding="4" cellspacing="0">  
+                  <tr>                                        
+                     <td width="180">SES Mode:</td>
+                     <td><select name='sesWdsMode' size="1" onChange='btnSesWdsApply(0)'>
+                        <option value="0">
+                        Configurator for SES Client
+                        <option value="1">
+                        Auto                                      
+                        <option value="2">
+                        Configurator
+                        <option value="3">
+                        Configurator for WDS only
+                        <option value="4">
+                        Client
+                        </select></td>                                      
+                  </tr>
+               </table>
+            </div>  
+            <div id='wlSesClInfo'>
+               <table border="0" cellpadding="4" cellspacing="0">
+                  <tr>
+                     <td width="180" >Join existing SES WDS network:</td>                    
+                     <td><input type=button value='SesClGo(Short-Push)' onClick='btnClApply(1)'></td>
+                                                            
+                  </tr>
+               </table>
+               <table border="0" cellpadding="4" cellspacing="0">
+                  <tr>
+                     <td width="180" >Reset to unsecured open network:</td>                  
+                     <td><input type=button value='ResetNWToDefault(Long-Push)' onClick='btnClApply(4)'></td>                       
+                  </tr>
+               </table>
+               <br>
+            </div>                                                                              
+         </form>
+      </blockquote>
+   </body>
+</html>

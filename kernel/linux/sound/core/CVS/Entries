@@ -1,0 +1,29 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:38 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.6/Sun Jun  6 02:12:58 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.21/Mon Apr 12 20:23:42 2004/-ko/Tlinux_2_6_8_1
+/control.c/1.20/Fri Jul  9 02:16:53 2004/-ko/Tlinux_2_6_8_1
+/device.c/1.9/Wed Jun  4 18:14:34 2003/-ko/Tlinux_2_6_8_1
+/hwdep.c/1.13/Wed Jun  9 14:12:16 2004/-ko/Tlinux_2_6_8_1
+/info.c/1.20/Fri Aug 13 07:18:56 2004/-ko/Tlinux_2_6_8_1
+/info_oss.c/1.5/Thu Feb 19 03:06:37 2004/-ko/Tlinux_2_6_8_1
+/init.c/1.16/Sun Jun  6 02:12:58 2004/-ko/Tlinux_2_6_8_1
+/isadma.c/1.5/Thu Jun  5 10:06:44 2003/-ko/Tlinux_2_6_8_1
+/memalloc.c/1.10/Fri Jul  9 02:16:53 2004/-ko/Tlinux_2_6_8_1
+/memory.c/1.15/Wed Jun  9 14:12:16 2004/-ko/Tlinux_2_6_8_1
+/misc.c/1.8/Thu Feb 19 03:06:37 2004/-ko/Tlinux_2_6_8_1
+/pcm.c/1.14/Fri Aug  6 00:33:33 2004/-ko/Tlinux_2_6_8_1
+/pcm_lib.c/1.19/Fri Jul  9 02:16:53 2004/-ko/Tlinux_2_6_8_1
+/pcm_memory.c/1.11/Sun Jun  6 02:12:58 2004/-ko/Tlinux_2_6_8_1
+/pcm_misc.c/1.8/Sun Jun  6 02:12:58 2004/-ko/Tlinux_2_6_8_1
+/pcm_native.c/1.28/Fri Jul  9 02:16:53 2004/-ko/Tlinux_2_6_8_1
+/pcm_timer.c/1.3/Mon Apr 12 20:23:42 2004/-ko/Tlinux_2_6_8_1
+/rawmidi.c/1.23/Wed Jun  9 14:12:16 2004/-ko/Tlinux_2_6_8_1
+/rtctimer.c/1.12/Sun Jun  6 02:12:58 2004/-ko/Tlinux_2_6_8_1
+/sgbuf.c/1.5/Mon Apr 12 20:23:42 2004/-ko/Tlinux_2_6_8_1
+/sound.c/1.24/Sun Jun  6 02:12:58 2004/-ko/Tlinux_2_6_8_1
+/sound_oss.c/1.7/Thu Feb 19 03:06:37 2004/-ko/Tlinux_2_6_8_1
+/timer.c/1.20/Wed Jun  9 14:12:16 2004/-ko/Tlinux_2_6_8_1
+/wrappers.c/1.5/Thu Jun  5 12:25:54 2003/-ko/Tlinux_2_6_8_1
+D/ioctl32////
+D/oss////
+D/seq////

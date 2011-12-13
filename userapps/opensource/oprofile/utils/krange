@@ -1,0 +1,18 @@
+#!/bin/bash
+#set -o xtrace
+# start at the start of .text and then continue to the end 
+range_info=`/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/mips-linux-objdump -h $1 2>/dev/null | grep " .text "`
+tmp1=`echo $range_info | awk '{print $4}'`	
+tmp_length=`echo $range_info | awk  '{print $3}'`
+tmp2=`objdump -h $1 --adjust-vma=0x$tmp_length 2>/dev/null | grep " .text " | awk  '{print $4}'`
+
+if test -z "$tmp1" -o -z "$tmp2"; then
+	echo "The specified file $1 does not seem to be valid" >&2
+	echo "Make sure you are using vmlinux not vmlinuz" >&2
+	echo "found start as \"$tmp1\", end as \"$tmp2\"" >&2
+	exit 1
+fi
+
+KERNEL_RANGE="`echo $tmp1`,`echo $tmp2`"
+echo "KERNEL_RANGE $KERNEL_RANGE"
+

@@ -1,0 +1,10 @@
+/.cvsignore/1.4/Sat Nov  2 20:01:53 2002/-ko/Tlinux_2_6_8_1
+/Makefile/1.23/Thu Mar 11 16:46:41 2004/-ko/Tlinux_2_6_8_1
+/bootsect.S/1.18/Thu Jun  5 00:04:30 2003/-ko/Tlinux_2_6_8_1
+/edd.S/1.2/Wed Jun 30 17:26:45 2004/-ko/Tlinux_2_6_8_1
+/install.sh/1.2/Fri Oct 19 01:23:33 2001/-ko/Tlinux_2_6_8_1
+/mtools.conf.in/1.1/Thu Jun  5 00:04:30 2003/-ko/Tlinux_2_6_8_1
+/setup.S/1.42/Sun Jun  6 02:12:35 2004/-ko/Tlinux_2_6_8_1
+/video.S/1.12/Thu Jun  5 12:25:45 2003/-ko/Tlinux_2_6_8_1
+D/compressed////
+D/tools////

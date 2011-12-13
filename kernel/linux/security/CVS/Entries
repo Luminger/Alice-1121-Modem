@@ -1,0 +1,9 @@
+/.cvsignore/1.6/Fri Feb 20 17:35:38 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.7/Fri Aug 15 15:14:41 2003/-ko/Tlinux_2_6_8_1
+/Makefile/1.9/Sun Jun  6 02:12:58 2004/-ko/Tlinux_2_6_8_1
+/capability.c/1.19/Sun Jun  6 02:12:58 2004/-ko/Tlinux_2_6_8_1
+/commoncap.c/1.6/Sun Jun  6 02:12:58 2004/-ko/Tlinux_2_6_8_1
+/dummy.c/1.26/Sat Jun 26 15:15:28 2004/-ko/Tlinux_2_6_8_1
+/root_plug.c/1.5/Tue Jul 20 20:21:28 2004/-ko/Tlinux_2_6_8_1
+/security.c/1.8/Tue Sep 30 14:27:32 2003/-ko/Tlinux_2_6_8_1
+D/selinux////

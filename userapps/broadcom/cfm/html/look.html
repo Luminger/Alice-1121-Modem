@@ -1,0 +1,56 @@
+<html>
+   <head>
+      <meta http-equiv="Pragma" content="no-cache">
+      <meta http-equiv="refresh" content="30">
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <title></title>
+            <base target="_self">       
+   </head>
+   <body>
+      <blockquote>
+	   <b>系统信息</b><br><br>
+            <table border="1" cellpadding="3" cellspacing="0">
+               <tr>
+                  <td width="100" class='hd'>软件版本</td>
+                  <td><%ejGetOther(glbInfo, basicVersion)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>软件编号</td>
+                  <td><%ejGetOther(glbInfo, softwareVersion)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>SVN版本</td>
+                  <td><%ejGetOther(glbInfo, svnVersion)%>&nbsp;</td>
+               </tr>   
+               <tr>
+                  <td class='hd'>编译日期</td>
+                  <td><%ejGetOther(glbInfo, buildTime)%>&nbsp;</td>
+               </tr>   
+               <tr>
+                  <td class='hd'>固件版本</td>
+                  <td><%ejGet(sysVersion)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>CFE 版本</td>
+                  <td><%ejGet(cfeVersion)%>&nbsp;</td>
+               <tr>
+                  <td class='hd'>IP 地址</td>
+                  <td><%ejGetOther(sysInfo, lanAddr)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>MAC 地址</td>
+                  <td><%ejGetOther(glbInfo,macAddr)%>&nbsp;</td>
+               </tr>           
+               <tr>
+                  <td class='hd'>上行速率 (Kbps)</td>
+                  <td><%ejGetOther(lineRate, 0)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>下行速率 (Kbps)</td>
+                  <td><%ejGetOther(lineRate, 1)%>&nbsp;</td>
+               </tr>               
+           </table>
+      </blockquote>
+   </body>
+</html>

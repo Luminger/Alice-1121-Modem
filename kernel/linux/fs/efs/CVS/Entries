@@ -1,0 +1,9 @@
+/.cvsignore/1.8/Fri Feb 20 17:35:29 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.9/Mon Jun  2 10:48:43 2003/-ko/Tlinux_2_6_8_1
+/dir.c/1.24/Fri Nov  1 19:20:34 2002/-ko/Tlinux_2_6_8_1
+/file.c/1.17/Wed Sep  4 00:57:52 2002/-ko/Tlinux_2_6_8_1
+/inode.c/1.29/Tue Sep 30 14:27:27 2003/-ko/Tlinux_2_6_8_1
+/namei.c/1.17/Fri Jul 11 02:13:13 2003/-ko/Tlinux_2_6_8_1
+/super.c/1.30/Fri Apr 23 15:54:18 2004/-ko/Tlinux_2_6_8_1
+/symlink.c/1.24/Fri Nov  1 19:20:34 2002/-ko/Tlinux_2_6_8_1
+D

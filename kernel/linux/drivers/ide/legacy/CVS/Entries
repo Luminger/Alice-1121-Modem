@@ -1,0 +1,18 @@
+/.cvsignore/1.4/Fri Feb 20 17:35:33 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.7/Thu Feb  5 02:39:59 2004/-ko/Tlinux_2_6_8_1
+/ali14xx.c/1.8/Wed Apr 28 13:54:55 2004/-ko/Tlinux_2_6_8_1
+/buddha.c/1.3/Thu Feb  5 02:39:59 2004/-ko/Tlinux_2_6_8_1
+/dtc2278.c/1.8/Wed Apr 28 13:54:55 2004/-ko/Tlinux_2_6_8_1
+/falconide.c/1.3/Wed Jun  4 16:08:04 2003/-ko/Tlinux_2_6_8_1
+/gayle.c/1.4/Thu Feb  5 02:39:59 2004/-ko/Tlinux_2_6_8_1
+/hd.c/1.17/Sat Jun 26 15:15:14 2004/-ko/Tlinux_2_6_8_1
+/ht6560b.c/1.8/Wed Apr 28 13:54:55 2004/-ko/Tlinux_2_6_8_1
+/ide-cs.c/1.15/Tue Jul 20 20:21:19 2004/-ko/Tlinux_2_6_8_1
+/macide.c/1.4/Mon Apr 12 20:23:30 2004/-ko/Tlinux_2_6_8_1
+/pdc4030.c/1.19/Sat Jun 26 15:15:14 2004/-ko/Tlinux_2_6_8_1
+/pdc4030.h/1.2/Wed Jun  4 16:08:04 2003/-ko/Tlinux_2_6_8_1
+/q40ide.c/1.3/Thu Jun  5 18:24:03 2003/-ko/Tlinux_2_6_8_1
+/qd65xx.c/1.9/Wed Apr 28 13:54:55 2004/-ko/Tlinux_2_6_8_1
+/qd65xx.h/1.2/Wed Jun  4 16:08:04 2003/-ko/Tlinux_2_6_8_1
+/umc8672.c/1.9/Wed Apr 28 13:54:55 2004/-ko/Tlinux_2_6_8_1
+D

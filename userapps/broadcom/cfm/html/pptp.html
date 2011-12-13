@@ -1,0 +1,184 @@
+<html><head>
+<link rel=stylesheet href='stylemain.css' type='text/css'>
+<link rel=stylesheet href='colors.css' type='text/css'>
+<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+<script language="javascript" src="util.js"></script>
+<script language='javascript'>
+<!-- hide
+var state = '<%ejGet(pptpRefresh)%>';
+if ( state == '1' ) {
+   var code = 'location.assign("pptp.cgi?pptpRefresh=0")';
+   eval(code);
+}
+
+pptpenbl = '<%ejGet(pptpenbl)%>';
+pptpdftrt = '<%ejGet(pptpdftrt)%>';
+pptpusername = '<%ejGet(pptpusername)%>';
+pptppassword = '<%ejGet(pptppassword)%>';
+pptpname = '<%ejGet(pptpname)%>';
+pptpsrvip = '<%ejGet(pptpsrvip)%>';
+peerip = '<%ejGet(peerip)%>';
+peermask = '<%ejGet(peermask)%>';
+authmode =  '<%ejGet(pptpauth)%>';
+compmode =  '<%ejGet(pptpcomp)%>';
+
+function frmLoad() {
+   with ( document.forms[0] ) {
+       if(pptpenbl=='1')
+          enable.checked = true;
+          else
+          enable.checked = false;
+          tunnelName.value = pptpname;
+          serverIP.value = pptpsrvip;
+          userName.value = pptpusername;
+          password.value = pptppassword;
+          AuthMethod.selectedIndex = authmode;
+          CompMethod.selectedIndex = compmode;
+       if(pptpdftrt == '1')
+       {
+          defaultRoute.checked = true;
+          showhide("peerInfo", 0);
+       }
+       else
+       {
+          defaultRoute.checked = false;
+          peeripaddr.value = peerip;
+          peersubmask.value = peermask;
+       }
+   }
+}
+
+function RouteChange()
+{
+    with ( document.forms[0] )
+    {
+        if(defaultRoute.checked == true)
+        {
+            showhide("peerInfo", 0);
+        }
+        else
+        {
+            showhide("peerInfo", 1);
+        }
+    }
+}
+
+function saveClick() {
+	with ( document.forms[0] ) {
+ 		var loc = 'pptp.cgi?pptpRefresh=1'
+ 		if(enable.checked == true)
+ 		    loc+='&pptpenbl=1';
+ 		else
+ 			loc+='&pptpenbl=0';
+ 		
+ 		if (isValidIpAddress(serverIP.value)==false)
+ 		{
+ 		    alert('IP address "' + serverIP.value + '" is invalid IP address.');
+ 		    return;
+ 		}
+ 		loc+='&pptpname=' + tunnelName.value + '&pptpsrvip=' + serverIP.value + '&pptpusername=' + userName.value + '&pptppassword=' + password.value;
+
+  		if(defaultRoute.checked == true)
+  		{		    
+ 		    loc+='&pptpdftrt=1';
+ 		}
+  		else
+  		{
+ 			loc+='&pptpdftrt=0';
+ 			if((isValidIpAddress(peeripaddr.value)==false)||(isValidIpAddress(peersubmask.value)==false))
+ 			{
+ 			    alert('IP address is invalid IP address.');
+ 		        return;
+            }
+ 	    }
+ 	    loc+='&peerip='+peeripaddr.value+'&peermask='+peersubmask.value;
+ 	    
+ 	    var authidx = AuthMethod.selectedIndex;
+      loc += '&pptpauth=' + AuthMethod.options[authidx].value; 	    
+ 	    var compidx = CompMethod.selectedIndex;
+      loc += '&pptpcomp=' + CompMethod.options[compidx].value;
+	}
+	var code = 'location="' + loc + '"';
+	eval(code);
+}
+
+
+// done hiding -->
+</script>
+</head>
+<body onLoad='frmLoad()'>
+<blockquote>
+<form>
+<b>PPTP Setting</b><br><br>
+Set Point to Point Tunnel Protocol (VPN)<br><br>
+<table border='0' cellpadding='0' cellspacing='0'>
+    <tr>
+       <td width=150>Enable</td>
+       <td><input type='checkbox' name='enable'</td>
+    </tr>
+    <tr>
+       <td>Tunnel Name</td>
+       <td><input type='text' name='tunnelName'</td>
+    </tr>
+    <tr>
+       <td>PPTP Server IP Address</td>
+       <td><input type='text' name='serverIP'</td>
+    </tr>
+    <tr>
+       <td>User Name</td>
+       <td><input type='text' name='userName'</td>
+    </tr>
+    <tr>
+       <td>Password</td>
+       <td><input type='password' name='password'</td>
+    </tr>
+        <tr>
+        <td>Authentication Method:&nbsp;&nbsp;</td>
+        <td><select name='AuthMethod' size="1">
+              <option value="0">AUTO
+              <option value="1">PAP
+              <option value="2">CHAP
+              <option value="3">MSCHAP
+              <option value="4">MSCHAPv2             	
+           </select></td>
+     </tr>    
+
+       <tr>
+        <td>Compression Method:&nbsp;&nbsp;</td>
+        <td><select name='CompMethod' size="1">
+              <option value="0">AUTO
+              <option value="1">MPPE-40
+              <option value="2">MPPE-56
+              <option value="3">MPPE-128
+              <option value="4">Disable             	
+           </select></td>
+     </tr> 
+
+
+    <tr>
+       <td width=150>Default Route</td>
+       <td><input type='checkbox' name='defaultRoute' onClick='RouteChange()'></td>
+    </tr>
+</table>
+
+<div id='peerInfo'>
+<table border='0' cellpadding='0' cellspacing='0'>
+    <tr>
+       <td width=150>Peer IP Address</td>
+       <td><input type='text' name='peeripaddr'></td>
+    </tr>
+    <tr>
+       <td width=150>Peer Subnet Mask</td>
+       <td><input type='text' name='peersubmask'></td>
+    </tr>
+</table>
+</div>
+
+<center>
+	<p align=center>
+		<input type='button' onClick='saveClick()' value='Save/Apply'</td>
+</center>
+</form>
+</blockquote>
+</body>
+</html>

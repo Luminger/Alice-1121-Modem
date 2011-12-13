@@ -1,0 +1,25 @@
+/.cvsignore/1.8/Fri Feb 20 17:35:36 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.14/Sat Jun 26 15:15:19 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.12/Sun Jun  6 02:12:49 2004/-ko/Tlinux_2_6_8_1
+/aiptek.c/1.19/Tue Jul 20 20:21:23 2004/-ko/Tlinux_2_6_8_1
+/ati_remote.c/1.3/Sat Jun 26 15:15:19 2004/-ko/Tlinux_2_6_8_1
+/fixp-arith.h/1.3/Wed Jun  4 15:00:12 2003/-ko/Tlinux_2_6_8_1
+/hid-core.c/1.33/Tue Jul 20 20:21:23 2004/-ko/Tlinux_2_6_8_1
+/hid-debug.h/1.3/Sun Jun  1 00:39:13 2003/-ko/Tlinux_2_6_8_1
+/hid-ff.c/1.6/Mon Apr 12 20:23:35 2004/-ko/Tlinux_2_6_8_1
+/hid-input.c/1.13/Mon Apr 12 20:23:35 2004/-ko/Tlinux_2_6_8_1
+/hid-lgff.c/1.6/Thu Feb  5 02:40:04 2004/-ko/Tlinux_2_6_8_1
+/hid-tmff.c/1.4/Wed Jun 30 17:26:48 2004/-ko/Tlinux_2_6_8_1
+/hid.h/1.12/Mon Apr 12 20:23:35 2004/-ko/Tlinux_2_6_8_1
+/hiddev.c/1.29/Fri Jul  9 02:16:50 2004/-ko/Tlinux_2_6_8_1
+/kbtab.c/1.9/Sun Jun  6 02:12:49 2004/-ko/Tlinux_2_6_8_1
+/mtouchusb.c/1.2/Sun Jun  6 02:12:49 2004/-ko/Tlinux_2_6_8_1
+/pid.c/1.8/Mon Apr 12 20:23:35 2004/-ko/Tlinux_2_6_8_1
+/pid.h/1.1/Tue Oct 29 13:23:52 2002/-ko/Tlinux_2_6_8_1
+/powermate.c/1.17/Tue Jul 20 20:21:23 2004/-ko/Tlinux_2_6_8_1
+/touchkitusb.c/1.1/Sun Jun  6 02:12:49 2004/-ko/Tlinux_2_6_8_1
+/usbkbd.c/1.20/Mon Apr 12 20:23:35 2004/-ko/Tlinux_2_6_8_1
+/usbmouse.c/1.18/Mon Apr 12 20:23:35 2004/-ko/Tlinux_2_6_8_1
+/wacom.c/1.18/Sun Jun  6 02:12:49 2004/-ko/Tlinux_2_6_8_1
+/xpad.c/1.16/Fri Apr 23 15:54:17 2004/-ko/Tlinux_2_6_8_1
+D

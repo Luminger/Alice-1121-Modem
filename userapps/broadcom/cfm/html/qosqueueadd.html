@@ -1,0 +1,164 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+
+function btnApply() {
+   var loc = 'qosqueue.cmd?action=add';
+
+   with ( document.forms[0] ) {
+
+	  if ( queueenbl.selectedIndex == 0 ) {
+         msg = 'Please select status for this queue.'
+         alert(msg);
+         return;
+      }      
+
+      if ( queueintf.selectedIndex == 0 ) {
+         msg = 'Specify an egress interface for this queue.'
+         alert(msg);
+         return;
+      }      
+
+	  if ( queueprecedence.selectedIndex == 0 ) {
+         msg = 'Please select precedence for this queue.'
+         alert(msg);
+         return;
+      }
+    
+      // queueenbl
+      idx = queueenbl.selectedIndex;
+      val = queueenbl.options[idx].value;
+      loc += '&enable=' + val;
+
+      // queueintf
+      idx = queueintf.selectedIndex;
+      val = queueintf.options[idx].value;
+      loc += '&queueintf=' + val;
+
+      // precedence
+      if ( queueprecedence.value != "" )
+         loc += '&precedence=' + queueprecedence.value;
+      else
+         loc += '&precedence=' + '1';
+
+   }
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+      </script>
+   </head>
+   <body>
+      <blockquote>
+         <form>
+            <b>QoS Queue Configuration</b><br>
+            <br>
+            The screen allows you to configure a QoS queue entry and assign it to a specific
+            network interface. Each interface with QoS enabled will be allocated three queues
+            by default. Each of the queues can be configured for a specific precedence. The
+            queue entry configured here will be used by the classifier to place ingress packets
+            appropriately.<b> Note: Lower integer values for precedence imply higher priority
+            for this queue relative to others </b>
+            Click 'Save/Apply' to save and activate the filter.<br>
+            <br>
+            <table border="0" cellpadding="0" cellspacing="0">
+            <!--
+               <tr>
+                  <td>Queue Name:</td>
+                  <td><input type='text' size="22" name="queuename"></td>
+               </tr>
+               <tr>
+                  <td colspan="2">&nbsp;</td>
+               </tr>
+            -->
+               <tr>
+                  <td>Queue Configuration Status:</td>
+                  <td>
+                     <select name='queueenbl' size="1">
+                        <option value="0">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <option value="1"> Disable
+                        <option value="2"> Enable
+                     </select>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="2">&nbsp;</td>
+               </tr>
+               <tr>
+                  <td>Queue:</td>
+                  <td><select name='queueintf' size="1">
+                        <option value="0">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                        <script language="javascript">
+<!-- hide
+{
+   var i = 0;
+							   var qosIntf     = '<%ejGetOther(qosIntf, all)%>';
+							   var intf = qosIntf.split('|');
+   intf.sort();
+   for ( i = 0; i < intf.length; i++ ) {
+      if (intf[i] != '') {
+         document.write("  <option value='" + intf[i] + "'>");
+         document.writeln(intf[i]);
+      }
+   }
+}
+// done hiding -->
+                     </script>
+                     	</select>
+                  </td>
+               </tr>
+               <tr>
+                  <td colspan="2">&nbsp;</td>
+               </tr>
+               <tr>
+                  <td>Queue Precedence:</td>
+                  <td>
+                     <select name='queueprecedence' size="1">
+                        <option value="0">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <script language="javascript">
+							<!-- hide
+							{
+							   var i = 0;
+							   var queuePrecedence = '<%ejGetOther(qosPrcd, all)%>';
+							   var prece = queuePrecedence.split('|');
+							   prece.sort();
+							   for ( i = 0; i < prece.length; i++ ) {
+							      if (prece[i] != '') {
+							         document.write("  <option value='" + prece[i] + "'>");
+							         document.writeln(prece[i]);
+							      }
+							   }
+							}
+							// done hiding -->
+                     	</script>
+                     </select>
+                  </td>
+               </tr>
+            </table>
+            <br>
+            <br>
+            <center><input type='button' onClick='btnApply()' value='Save/Apply'></center>
+         </form>
+      </blockquote>
+   </body>
+</html>

@@ -1,0 +1,13 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:27 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.19/Tue Nov 18 05:15:20 2003/-ko/Tlinux_2_6_8_1
+/ecc-berr.c/1.4/Sun Feb  1 23:14:16 2004/-ko/Tlinux_2_6_8_1
+/int-handler.S/1.15/Tue Nov 18 01:17:46 2003/-ko/Tlinux_2_6_8_1
+/ioasic-irq.c/1.4/Mon Apr 14 12:31:02 2003/-ko/Tlinux_2_6_8_1
+/kn02-irq.c/1.5/Mon Apr 14 16:42:29 2003/-ko/Tlinux_2_6_8_1
+/promcon.c/1.9/Thu Oct  9 14:23:49 2003/-ko/Tlinux_2_6_8_1
+/reset.c/1.9/Sat Jan  3 16:57:01 2004/-ko/Tlinux_2_6_8_1
+/setup.c/1.41/Fri Aug 20 09:19:01 2004/-ko/Tlinux_2_6_8_1
+/time.c/1.32/Sat Jan  3 16:57:01 2004/-ko/Tlinux_2_6_8_1
+/wbflush.c/1.7/Thu Dec 12 19:09:24 2002/-ko/Tlinux_2_6_8_1
+D/boot////
+D/prom////

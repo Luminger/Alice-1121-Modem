@@ -1,0 +1,140 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+var state = '<%ejGet(dnsRefresh)%>';
+if ( state == '1' ) {
+   var code = 'location="dnscfg.cgi?dnsRefresh=0"';
+   eval(code);
+}
+
+function hideDnsInfo(hide) {
+   var status = 'visible';
+
+   if ( hide == 1 )
+      status = 'hidden';
+   if (document.getElementById)  // DOM3 = IE5, NS6
+      document.getElementById('dnsInfo').style.visibility = status;
+   else {
+      if (document.layers == false) // IE4
+         document.all.dnsInfo.style.visibility = status;
+   }
+}
+
+
+function dnsClick(cb) {
+   if (cb.checked == true)
+      hideDnsInfo(1);
+   else
+      hideDnsInfo(0);
+}
+
+function btnApply() {
+   var loc = 'dnscfg.cgi?';
+
+   with ( document.forms[0] ) {
+      if (enableAuto.checked == false) {
+         if ( isValidIpAddress(dnsPrimary.value) == false ) {
+            alert('Primary DNS "' + dnsPrimary.value + '" has invalid IP address.');
+            return;
+         }
+         loc += 'dnsPrimary=' + dnsPrimary.value;
+         if (dnsSecondary.value != '') {
+            if ( isValidIpAddress(dnsSecondary.value) == false ) {
+               alert('Secondary DNS "' + dnsSecondary.value + '" has invalid IP address.');
+               return;
+            }
+            loc += '&dnsSecondary=' + dnsSecondary.value;
+         }
+         else
+            loc += '&dnsSecondary=' + '0.0.0.0';
+         loc += '&dnsDynamic=0';
+         loc += '&dnsRefresh=1';
+      }
+      else {
+         loc += 'dnsPrimary=' + '0.0.0.0';
+         loc += '&dnsSecondary=' + '0.0.0.0';
+         loc += '&dnsDynamic=1';
+         loc += '&dnsRefresh=0';
+      }
+   }
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+
+function frmLoad() {
+   with ( document.forms[0] ) {
+      var auto = '<%ejGetOther(sysInfo, dnsAuto)%>';
+      var dns1 = '<%ejGetOther(sysInfo, dns)%>';
+      if ( dns1 == '&nbsp' ) dns1 = '';
+
+      var dns2 = '<%ejGetOther(sysInfo, dns2)%>';
+      if ( dns2 == '&nbsp' ) dns2 = '';
+
+      if ( auto == '1' ) {
+         enableAuto.checked = true;
+         dnsPrimary.value = '';
+         dnsSecondary.value = '';
+         hideDnsInfo(1);
+      } else {
+         enableAuto.checked = false;
+         dnsPrimary.value = dns1;
+         dnsSecondary.value = dns2;
+         hideDnsInfo(0);
+      }
+   }
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <P>
+               <b>DNS Server Configuration</b><br><br>
+               If 'Enable Automatic Assigned DNS' checkbox is selected, this router will accept
+               the first received DNS assignment from one of the PPPoA, PPPoE or MER/DHCP
+               enabled PVC(s) during the connection establishment. If the checkbox is
+               not selected, enter the primary and optional secondary DNS server IP addresses.
+               Click 'Save' button to save the new configuration. You must reboot the
+               router to make the new configuration effective.<br><br>
+            </P>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td valign="center" align="middle" colspan="2" width="30" height="30">
+                     <input type='checkbox' name='enableAuto' onclick='dnsClick(this)'></td>
+                  <td colspan="2">
+                     Enable Automatic Assigned DNS</td>
+               </tr>
+            </table>
+            <br>
+            <br>
+            <div id='dnsInfo'>
+               <table border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                     <td>Primary DNS server:
+                     </td>
+                     <td><input type='text' name='dnsPrimary'></td>
+                  </tr>
+                  <tr>
+                     <td>Secondary DNS server:
+                     </td>
+                     <td><input type='text' name='dnsSecondary'></td>
+                  </tr>
+               </table>
+               <br>
+            </div>
+            <br>
+            <center>
+               <input type='button' onClick='btnApply()' value='Save'>
+            </center>
+         </form>
+      </blockquote>
+   </body>
+</html>

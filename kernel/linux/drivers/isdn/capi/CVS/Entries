@@ -1,0 +1,14 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:33 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.2/Thu Mar 11 16:46:49 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.8/Mon Jun 23 01:23:05 2003/-ko/Tlinux_2_6_8_1
+/capi.c/1.22/Fri Aug 13 07:18:54 2004/-ko/Tlinux_2_6_8_1
+/capidrv.c/1.9/Tue Jul 20 20:21:19 2004/-ko/Tlinux_2_6_8_1
+/capidrv.h/1.1/Tue Sep  3 02:17:18 2002/-ko/Tlinux_2_6_8_1
+/capifs.c/1.9/Thu Mar 11 16:46:49 2004/-ko/Tlinux_2_6_8_1
+/capifs.h/1.3/Thu Mar 11 16:46:49 2004/-ko/Tlinux_2_6_8_1
+/capilib.c/1.4/Tue Jul 20 20:21:19 2004/-ko/Tlinux_2_6_8_1
+/capiutil.c/1.3/Tue Jul 20 20:21:19 2004/-ko/Tlinux_2_6_8_1
+/kcapi.c/1.16/Tue Jul 20 20:21:19 2004/-ko/Tlinux_2_6_8_1
+/kcapi.h/1.3/Thu Mar 11 16:46:49 2004/-ko/Tlinux_2_6_8_1
+/kcapi_proc.c/1.5/Tue Jul 20 20:21:19 2004/-ko/Tlinux_2_6_8_1
+D

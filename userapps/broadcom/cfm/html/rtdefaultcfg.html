@@ -1,0 +1,259 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+var gtwyMem = '<%ejGet(defaultGateway)%>';
+var gtwyIfc = '<%ejGetOther(sysInfo, dfltGwIfc)%>';
+if ( gtwyIfc == '&nbsp' ) gtwyIfc = '';
+var gtwy = '<%ejGetOther(sysInfo, dfltGw)%>';
+if ( gtwy == '&nbsp' ) gtwy = '';
+var enblAuto = '<%ejGet(enblAuto)%>';
+//dare zy add enblpptpgw for set pptp default gateway
+var enblpptpgw='<%ejGet(enblpptpgw)%>';
+//add end
+var ipExt = '<%ejGetOther(sysInfo, pppIpExtension)%>';
+
+function hideGWInfo(hide) {
+   var status = 'visible';
+
+   if ( hide == 1 )
+      status = 'hidden';
+   if (document.getElementById)  // DOM3 = IE5, NS6
+      document.getElementById('gwInfo').style.visibility = status;
+   else {
+      if (document.layers == false) // IE4
+         document.all.gwInfo.style.visibility = status;
+   }
+
+   if (hide == 0) {
+      with ( document.forms[0] ) {
+         if ( isValidIpAddress(gtwy) == true ) {
+            gwStr.checked = true;
+            dstGtwy.value = gtwy;
+         } else {
+            gwStr.checked = false;
+            dstGtwy.value = '';
+         }
+         if ( gtwyIfc != '' )
+            ifStr.checked = true;
+         else
+            ifStr.checked = false;
+      }
+   }
+}
+
+
+function gwClick(cb) {
+   if (cb.checked == true)
+      hideGWInfo(1);
+   else
+      hideGWInfo(0);
+}
+
+function pptpgwClick(cb)
+{
+    with ( document.forms[0] )
+    {
+        if (cb.checked == true)
+        {
+            if (enableAuto.checked == true)
+            {
+                enableAuto.checked = false;
+                hideGWInfo(0);
+            }
+        }
+        else
+        {
+            //enableAuto.checked = true;
+            //hideGWInfo(1);
+        }
+    }
+}
+
+function btnApply() {
+   var loc = 'rtdefaultcfg.cgi?';
+
+   with ( document.forms[0] ) {
+      if (enableAuto.checked == false && gwStr.checked == false && ifStr.checked == false) {
+         if(enablepptpdfgw.checked == true)
+         {
+             loc += 'enblpptpgw=1';
+             var code = 'location="' + loc + '"';
+             eval(code);
+             return;
+         }
+         else
+         {
+            alert('A default gateway has to be selected.');
+            return;
+        }
+      }
+      if (enableAuto.checked == true) {
+         loc += 'enblAuto=1';
+      }
+      else {
+         loc += 'enblAuto=0';
+         if (gwStr.checked == true ) {
+            if ( isValidIpAddress(dstGtwy.value) == false ) {
+                if(enablepptpdfgw.checked == true)
+                {
+                    loc += 'enblpptpgw=1';
+                    var code = 'location="' + loc + '"';
+                    eval(code);
+                    return;
+                }
+                else
+                {
+                    alert('Configure default gateway failed. Invalid argument or Interface is down.');
+                    return;
+                }
+            }
+            loc += '&defaultGateway=' + dstGtwy.value;
+         }
+         else
+            loc += '&defaultGateway=' + '0.0.0.0';
+         if (ifStr.checked == true) {
+            var idx = wanIf.selectedIndex;
+            var ifc = wanIf.options[idx].value;
+            // if chosen interface is MER but does not specify static IP address then display error
+            if ( ifc.indexOf('nas_') != -1 && gwStr.checked == false ) {
+                if(enablepptpdfgw.checked == true)
+                {
+                    loc += 'enblpptpgw=1';
+                    var code = 'location="' + loc + '"';
+                    eval(code);
+                    return;
+                }
+                else
+                {
+                    alert('Default gateway IP address should be specified since MER interface is selected.');
+                    return;
+                }
+            }
+            loc += '&wanIfName=' + ifc;
+         }
+         else
+            loc += '&wanIfName=' + '';
+      }
+      if(enablepptpdfgw.checked == true)
+      {
+          loc += '&enblpptpgw=1';
+      }
+      else
+      {
+          loc += '&enblpptpgw=0';
+      }
+   }
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+
+function frmLoad() {
+   with ( document.forms[0] ) {
+      if(enblpptpgw==1)
+      {
+         enablepptpdfgw.checked = true;
+      }
+      else
+      {
+         enablepptpdfgw.checked = false;
+         if (enblAuto == 1)
+         {
+            enableAuto.checked = true;
+            hideGWInfo(1);
+         }
+         else
+         {
+            enableAuto.checked = false;
+            hideGWInfo(0);
+         }
+      }
+   }
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <P>
+               <b>Routing -- Default Gateway</b><br>
+               <br>
+               If Enable Automatic Assigned Default Gateway&nbsp;checkbox is selected, this
+               router will accept the first received default gateway assignment from one of
+               the PPPoA, PPPoE or MER/DHCP enabled PVC(s). If the checkbox is not selected,
+               enter the static default gateway AND/OR a WAN interface. Click 'Save/Apply' button
+               to save it.</P>
+            <P>NOTE: If changing the Automatic Assigned&nbsp;Default Gateway&nbsp;from
+               unselected to selected, You must reboot the router to get the automatic
+               assigned default gateway.
+               <br>
+            </P>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td valign="center" align="middle" colspan="2" width="30" height="30">
+                     <input type='checkbox' name='enableAuto' onclick='gwClick(this)'></td>
+                  <td colspan="2">
+                     Enable Automatic Assigned Default Gateway</td>
+               </tr>
+            </table>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td valign="center" align="middle" colspan="2" width="30" height="30">
+                     <input type='checkbox' name='enablepptpdfgw' onclick='pptpgwClick(this)' ></td>
+                  <td colspan="2">
+                     Use PPTP Connection as Default Gateway</td>
+               </tr>
+            </table>
+            <br>
+            <div id='gwInfo'>
+               <table>
+                  <tr>
+                     <td><input type="checkbox" name='gwStr'>&nbsp;Use Default Gateway IP
+                        Address&nbsp;&nbsp;</td>
+                     <td><input type='text' name='dstGtwy'></td>
+                  </tr>
+                  <tr>
+                     <td><input type="checkbox" name='ifStr'>&nbsp;Use Interface</td>
+                     <td><select name='wanIf'>
+                           <script language="javascript">
+<!-- hide
+{
+   var i = 0;
+   var interfaceInfo = '<%ejGetOther(wanInterfaceInfo, route)%>';
+   var interfaces = interfaceInfo.split('|');
+   
+   for ( i = 0; i < interfaces.length; i++ ) {
+      var names = interfaces[i].split('/');
+      if ( names[1] == gtwyIfc )
+         document.write("  <option value='" + names[1] + "' selected>");
+      else
+         document.write("  <option value='" + names[1] + "'>");
+      document.writeln(interfaces[i]);
+   }
+   if (gtwyIfc == 'br0')
+      document.writeln("  <option value='br0' selected> LAN/br0");
+   else
+      document.writeln("  <option value='br0'> LAN/br0");
+}
+// done hiding -->
+</script>
+                        </select></td>
+                  </tr>
+               </table>
+               <br>
+            </div>
+            <br>
+            <center>
+               <input type='button' onClick='btnApply()' value='Save/Apply'>
+            </center>
+         </form>
+      </blockquote>
+   </body>
+</html>

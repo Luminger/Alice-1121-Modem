@@ -1,0 +1,85 @@
+op_popt.o op_popt.o: op_popt.c \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/stdlib.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/features.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/uClibc_config.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/sys/cdefs.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/include/stddef.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/sys/types.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/types.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/kernel_types.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/pthreadtypes.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/sched.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/time.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/endian.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/endian.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/sys/select.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/select.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/sigset.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/time.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/sys/sysmacros.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/alloca.h \
+  op_libiberty.h ../config.h op_popt.h ../popt.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/stdio.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/uClibc_stdio.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/wchar.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/wchar.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/include/stdarg.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/stdio_lim.h
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/stdlib.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/features.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/uClibc_config.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/sys/cdefs.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/include/stddef.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/sys/types.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/types.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/kernel_types.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/pthreadtypes.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/sched.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/time.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/endian.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/endian.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/sys/select.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/select.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/sigset.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/time.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/sys/sysmacros.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/alloca.h:
+
+op_libiberty.h:
+
+../config.h:
+
+op_popt.h:
+
+../popt.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/stdio.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/uClibc_stdio.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/wchar.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/wchar.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/include/stdarg.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/stdio_lim.h:

@@ -1,0 +1,16 @@
+/.cvsignore/1.9/Fri Feb 20 17:35:36 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.7/Sat Jun 26 15:15:19 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.59/Sun Jun  6 02:12:48 2004/-ko/Tlinux_2_6_8_1
+/README/1.2/Sun Oct 19 00:50:10 2003/-ko/Tlinux_2_6_8_1
+/usb-skeleton.c/1.34/Fri Apr 23 15:54:17 2004/-ko/Tlinux_2_6_8_1
+D/class////
+D/core////
+D/gadget////
+D/host////
+D/image////
+D/input////
+D/media////
+D/misc////
+D/net////
+D/serial////
+D/storage////

@@ -1,0 +1,49 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+
+function applyClick() {
+   var loc = 'scacccntr.cmd?action=add';
+
+   with ( document.forms[0] ) {
+      if ( isValidIpAddress(addr.value) == false ) {
+         msg = 'IP address "' + addr.value + '" is invalid IP address.';
+         alert(msg);
+         return;
+      }
+
+      loc += '&addr=' + addr.value;
+   }
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body>
+      <blockquote>
+         <form>
+            <b>Access Control</b><br>
+            <br>
+            Enter the IP address of the management station permitted to access the local 
+            management services, and click 'Save/Apply.'<br>
+            <br>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td width="80">IP Address:</td>
+                  <td><input type='text' name="addr"></td>
+               </tr>
+            </table>
+            <br>
+            <center><input type='button' onClick='applyClick()' value='Save/Apply'></center>
+         </form>
+      </blockquote>
+   </body>
+</html>

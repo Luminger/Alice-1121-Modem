@@ -1,0 +1,126 @@
+<html>
+   <head>
+      <meta http-equiv='Pragma' content='no-cache'>
+      <meta http-equiv="refresh" content="15">
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript">
+<!-- hide
+
+function frmLoad() {
+   var update = '<%ejFncCmd(stsvoiceupdate)%>';
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <b>Statistics -- Voice</b><br>
+            <br>
+            <table border="1" cellpadding="2" cellspacing="0">
+               <tr>
+                  <td class='hd'>Line id</td>
+                  <td class='hd'>0</td>
+                  <td class='hd'>1</td>
+               </tr>
+               <tr>
+                  <td class='hd'>Peak holding time</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 0)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 0)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>Packet count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 1)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 1)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>Add tail count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 2)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 2)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>Reorder count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 3)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 3)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>Overrun count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 4)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 4)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>Duplicate count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 5)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 5)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>Out of range count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 6)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 6)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>Too late count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 7)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 7)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>Can't decode count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 8)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 8)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>AJC underrun count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 9)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 9)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>AJC delete count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 10)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 10)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>AJC repeat count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 11)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 11)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>AJC resync count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 12)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 12)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>AJC phase jitter count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 13)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 13)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>Inactive frame count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 14)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 14)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>Active frame count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 15)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 15)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>SID frame count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 16)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 16)%></td>
+               </tr>
+               <tr>
+                  <td class='hd'>Tone relay count</td>
+                  <td><%ejGetOther(stsvoiceget, 0, 17)%></td>
+                  <td><%ejGetOther(stsvoiceget, 1, 17)%></td>
+               </tr>
+               <script language="javascript">
+</script>
+            </table>
+            <br>
+            <br>
+         </form>
+      </blockquote>
+   </body>
+</html>

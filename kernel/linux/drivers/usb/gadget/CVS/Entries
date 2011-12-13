@@ -1,0 +1,23 @@
+/.cvsignore/1.3/Fri Feb 20 17:35:36 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.9/Tue Jul 20 20:21:23 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.5/Fri Apr 23 15:54:17 2004/-ko/Tlinux_2_6_8_1
+/config.c/1.1/Mon Apr 12 20:23:35 2004/-ko/Tlinux_2_6_8_1
+/dummy_hcd.c/1.4/Wed Jun 30 17:26:48 2004/-ko/Tlinux_2_6_8_1
+/epautoconf.c/1.3/Tue Jul 20 20:21:23 2004/-ko/Tlinux_2_6_8_1
+/ether.c/1.16/Tue Jul 20 20:21:23 2004/-ko/Tlinux_2_6_8_1
+/file_storage.c/1.7/Tue Jul 20 20:21:23 2004/-ko/Tlinux_2_6_8_1
+/gadget_chips.h/1.3/Sun Jun  6 02:12:48 2004/-ko/Tlinux_2_6_8_1
+/goku_udc.c/1.3/Fri Apr 23 15:54:17 2004/-ko/Tlinux_2_6_8_1
+/goku_udc.h/1.1/Thu Feb  5 02:40:04 2004/-ko/Tlinux_2_6_8_1
+/inode.c/1.7/Tue Jul 20 20:21:23 2004/-ko/Tlinux_2_6_8_1
+/ndis.h/1.2/Sat Jun 26 15:15:19 2004/-ko/Tlinux_2_6_8_1
+/net2280.c/1.15/Tue Jul 20 20:21:23 2004/-ko/Tlinux_2_6_8_1
+/net2280.h/1.4/Thu Feb  5 02:40:04 2004/-ko/Tlinux_2_6_8_1
+/pxa2xx_udc.c/1.7/Fri Jul  9 02:16:50 2004/-ko/Tlinux_2_6_8_1
+/pxa2xx_udc.h/1.2/Thu Feb 19 03:06:31 2004/-ko/Tlinux_2_6_8_1
+/rndis.c/1.6/Fri Aug  6 00:33:29 2004/-ko/Tlinux_2_6_8_1
+/rndis.h/1.4/Sat Jun 26 15:15:19 2004/-ko/Tlinux_2_6_8_1
+/serial.c/1.5/Tue Jul 20 20:21:23 2004/-ko/Tlinux_2_6_8_1
+/usbstring.c/1.3/Fri Apr 23 15:54:17 2004/-ko/Tlinux_2_6_8_1
+/zero.c/1.9/Tue Jul 20 20:21:23 2004/-ko/Tlinux_2_6_8_1
+D

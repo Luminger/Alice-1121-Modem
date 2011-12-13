@@ -1,0 +1,11 @@
+/Kconfig/1.1/Sat Nov  2 20:01:53 2002/-ko/Tlinux_2_6_8_1
+/Makefile/1.6/Mon Jun 23 01:23:02 2003/-ko/Tlinux_2_6_8_1
+/init.c/1.8/Fri Jul 11 02:13:10 2003/-ko/Tlinux_2_6_8_1
+/nmi_int.c/1.17/Mon May 10 14:25:30 2004/-ko/Tlinux_2_6_8_1
+/nmi_timer_int.c/1.2/Thu Mar 11 16:46:42 2004/-ko/Tlinux_2_6_8_1
+/op_counter.h/1.2/Wed Jun  4 15:00:08 2003/-ko/Tlinux_2_6_8_1
+/op_model_athlon.c/1.6/Tue Aug 26 00:28:50 2003/-ko/Tlinux_2_6_8_1
+/op_model_p4.c/1.7/Fri Jul  9 02:16:46 2004/-ko/Tlinux_2_6_8_1
+/op_model_ppro.c/1.7/Thu Mar 11 16:46:42 2004/-ko/Tlinux_2_6_8_1
+/op_x86_model.h/1.3/Tue Aug 26 00:28:50 2003/-ko/Tlinux_2_6_8_1
+D

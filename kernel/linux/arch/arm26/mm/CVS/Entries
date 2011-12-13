@@ -1,0 +1,8 @@
+/Makefile/1.2/Thu Mar 11 16:46:41 2004/-ko/Tlinux_2_6_8_1
+/extable.c/1.2/Thu Feb  5 02:39:52 2004/-ko/Tlinux_2_6_8_1
+/fault.c/1.2/Tue Sep  9 16:40:55 2003/-ko/Tlinux_2_6_8_1
+/fault.h/1.1/Sun Jun 22 23:09:47 2003/-ko/Tlinux_2_6_8_1
+/init.c/1.5/Sat Jun 26 15:15:08 2004/-ko/Tlinux_2_6_8_1
+/mm-memc.c/1.2/Fri Jul 11 02:13:09 2003/-ko/Tlinux_2_6_8_1
+/proc-funcs.S/1.1/Sun Jun 22 23:09:47 2003/-ko/Tlinux_2_6_8_1
+D

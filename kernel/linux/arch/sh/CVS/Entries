@@ -1,0 +1,14 @@
+/Kconfig/1.22/Sat Jun 26 15:15:12 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.22/Sat Jun 26 15:15:12 2004/-ko/Tlinux_2_6_8_1
+/defconfig/1.24/Sat Jun 26 15:15:12 2004/-ko/Tlinux_2_6_8_1
+D/boards////
+D/boot////
+D/cchips////
+D/configs////
+D/drivers////
+D/kernel////
+D/lib////
+D/mm////
+D/oprofile////
+D/ramdisk////
+D/tools////

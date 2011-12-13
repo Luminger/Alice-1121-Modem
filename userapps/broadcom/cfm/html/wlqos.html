@@ -1,0 +1,144 @@
+<html><head>
+<link rel=stylesheet href='stylemain.css' type='text/css'>
+<link rel=stylesheet href='colors.css' type='text/css'>
+<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+<script language="javascript" src="util.js"></script>
+<script language='javascript'>
+<!-- hide
+
+var enbl = '<%ejGetWl(wlEnbl)%>';
+var wme='<%ejGetWl(wlWme)%>';
+var wmenoack='<%ejGetWl(wlWmeNoAck)%>';
+var afterburneren = '<%ejGetWl(wlAfterBurnerEn)%>';
+var nmode = '<%ejGetWl(wlNmode)%>'; 
+var phy = '<%ejGetWl(wlPhyType)%>';
+
+function addClick() {
+   var loc = 'wlqos.cmd?action=preadd';
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function editClick(name) {
+   var loc = 'wlqos.cmd?action=preedit&clsName=' + name;
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function removeClick(name) {
+   var loc = 'wlqos.cmd?action=remove&clsName=' + name;
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function wmeChange() {
+   with ( document.forms[0] ) {
+  
+      if(afterburneren != "off")
+         setSelect(wlWme, 0);
+                  
+      setDisable(wlWmeNoAck, getSelect(wlWme) != 1);
+      //setDisable(wlWme, (phy == "n" && nmode != "off"));
+      //showhide("WMMWarning", (phy == "n" && nmode != "off")); 
+      
+      showhide("divqos", getSelect(wlWme));
+      if (getSelect(wlWme) == '0') {
+         qosbutton.style.display = "none";
+      }
+      else {
+         qosbutton.style.display = "inline";
+      }
+   }
+}
+
+function frmLoad() {
+   with ( document.forms[0] ) {
+      setSelect(wlWme, wme);
+      setSelect(wlWmeNoAck, wmenoack);
+   }
+   wmeChange();
+}
+
+function btnApply() {
+   var loc = 'wlqos.cmd?action=wmeapply';
+   var idx;
+
+   if ( enbl == '0' ) {
+      alert('Cannot apply the change since wireless is currently disabled.');
+      return;
+   }
+   
+   with ( document.forms[0] ) {
+      loc += '&wlWme=' + parseInt(wlWme.value);
+      loc += '&wlWmeNoAck=' + parseInt(wlWmeNoAck.value);      
+   }
+  
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+</script>
+</head>
+<body onLoad="frmLoad()">
+<blockquote>
+<form>
+<b>WMM(Wi-Fi Multimedia) Settings</b><br><br>
+<table border="0" cellpadding="0" cellspacing="0">    			
+	<tr> 
+		<td width="260">WMM(Wi-Fi Multimedia):</td>
+			<td><select name='wlWme' size="1" onchange="wmeChange()">
+		  	<option value="0">Disabled</option>
+		  	<option value="1">Enabled</option>
+		  	</select>
+		</td> 
+		<td>
+			<div id="WMMWarning">
+			</div>
+		</td>	
+	</tr>		
+	<tr> 
+	    <td>WMM No Acknowledgement:</td>
+		    <td><select name='wlWmeNoAck' size="1">
+			<option value="0">Disabled</option>
+			<option value="1">Enabled</option>
+			</select></td> 
+	</tr> 
+</table>
+<br>
+
+<div id="divqos">
+<br><b>Default Wireless QoS Classification: DSCP</b><br>
+Network traffic classe is automatically assigned according to DSCP in TCP/IP header.<br><br>
+<br><b>Extended Wireless QoS Classification:</b><br>
+Choose Add or Remove to configure network traffic classes.<br><br>
+<center>
+<table border='1' cellpadding='2' cellspacing='0'>
+    <tr>
+      <td class='hd' rowspan='2'>Class Name</td>
+      <td class='hd' rowspan='2'>Priority</td>
+      <td class='hd' colspan='5'><center>TRAFFIC CLASSIFICATION RULES</center></td>
+      <td class='hd' colspan='1' rowspan='2'>&nbsp;</td>
+    </tr>
+    <tr>
+      <td class='hd'>Protocol</td>
+      <td class='hd'>Source Addr./Mask</td>
+      <td class='hd'>Source Port</td>
+      <td class='hd'>Dest. Addr./Mask</td>
+      <td class='hd'>Dest. Port</td>
+   </tr>
+<%ejGetWl(wlQosTbl)%>
+</table><br>
+</div>
+
+<center>
+<input name="qosbutton" type='button' onClick='addClick()' value='Add QoS Entry'> &nbsp&nbsp
+<input type='button' onClick='btnApply()' value='Save/Apply WMM Settings'>
+</center>
+
+</form>
+</blockquote>
+</body>
+</html>

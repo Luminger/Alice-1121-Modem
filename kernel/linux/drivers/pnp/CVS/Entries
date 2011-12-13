@@ -1,0 +1,15 @@
+/.cvsignore/1.8/Fri Feb 20 17:35:35 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.8/Thu Feb 19 03:06:30 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.21/Fri Aug 15 15:14:36 2003/-ko/Tlinux_2_6_8_1
+/base.h/1.6/Fri Aug 15 15:14:36 2003/-ko/Tlinux_2_6_8_1
+/card.c/1.9/Thu Feb 19 03:06:30 2004/-ko/Tlinux_2_6_8_1
+/core.c/1.12/Tue Aug 26 00:28:56 2003/-ko/Tlinux_2_6_8_1
+/driver.c/1.8/Thu Jun  5 00:04:35 2003/-ko/Tlinux_2_6_8_1
+/interface.c/1.13/Fri Apr 23 15:54:15 2004/-ko/Tlinux_2_6_8_1
+/manager.c/1.9/Fri Apr 23 15:54:15 2004/-ko/Tlinux_2_6_8_1
+/quirks.c/1.16/Tue Sep 30 14:27:25 2003/-ko/Tlinux_2_6_8_1
+/resource.c/1.17/Mon Apr 12 20:23:33 2004/-ko/Tlinux_2_6_8_1
+/support.c/1.5/Fri Aug 15 15:14:36 2003/-ko/Tlinux_2_6_8_1
+/system.c/1.8/Mon Apr 12 20:23:33 2004/-ko/Tlinux_2_6_8_1
+D/isapnp////
+D/pnpbios////

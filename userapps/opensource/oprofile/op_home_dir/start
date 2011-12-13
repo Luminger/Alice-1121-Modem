@@ -1,0 +1,29 @@
+#!/bin/sh
+
+OP_BASE_DIR='/var/lib/oprofile'
+
+kill `cat $OP_BASE_DIR/lock 2>/dev/null` 2>/dev/null
+rm -rf $OP_BASE_DIR
+
+mkdir /dev/oprofile >/dev/null 2>&1
+mount -t oprofilefs nodev /dev/oprofile >/dev/null
+
+mkdir -p $OP_BASE_DIR
+mkdir -p $OP_BASE_DIR/samples/current
+
+echo 1          > /dev/oprofile/0/enabled
+echo 0          > /dev/oprofile/0/event
+echo 1500000    > /dev/oprofile/0/count
+echo 1          > /dev/oprofile/0/kernel
+echo 1          > /dev/oprofile/0/user
+echo 0          > /dev/oprofile/0/unit_mask
+
+# events -- name:value:counter:count:um:kernel:user
+#          ..    18     0    10   0   1    1
+
+/mnt/op/oprofiled --verbose=all --vmlinux=/mnt/op/bin_symbols/vmlinux --kernel-range=80010000,80ffffff --events=CYCLES:0:0:1500000:0:1:1
+
+echo 1 >/dev/oprofile/enable
+kill -16 `cat $OP_BASE_DIR/lock`
+echo "Profiler running."
+

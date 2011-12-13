@@ -1,0 +1,16 @@
+/Makefile/1.1/Mon Jun  2 13:54:10 2003/-ko/Tlinux_2_6_8_1
+/exec_kern.c/1.1/Mon Jun  2 13:54:10 2003/-ko/Tlinux_2_6_8_1
+/exec_user.c/1.1/Mon Jun  2 13:54:10 2003/-ko/Tlinux_2_6_8_1
+/mem.c/1.2/Wed Jun  4 14:05:42 2003/-ko/Tlinux_2_6_8_1
+/mem_user.c/1.2/Wed Jun  4 14:05:42 2003/-ko/Tlinux_2_6_8_1
+/mmu.c/1.1/Mon Jun  2 13:54:10 2003/-ko/Tlinux_2_6_8_1
+/process.c/1.2/Wed Jun  4 14:05:42 2003/-ko/Tlinux_2_6_8_1
+/process_kern.c/1.4/Tue Aug 26 00:28:52 2003/-ko/Tlinux_2_6_8_1
+/syscall_kern.c/1.2/Wed Jun  4 14:05:42 2003/-ko/Tlinux_2_6_8_1
+/syscall_user.c/1.2/Wed Jun  4 14:05:42 2003/-ko/Tlinux_2_6_8_1
+/time.c/1.1/Mon Jun  2 13:54:10 2003/-ko/Tlinux_2_6_8_1
+/tlb.c/1.2/Wed Jun  4 14:05:42 2003/-ko/Tlinux_2_6_8_1
+/trap_user.c/1.2/Wed Jun  4 14:05:42 2003/-ko/Tlinux_2_6_8_1
+D/include////
+D/sys-i386////
+D/util////

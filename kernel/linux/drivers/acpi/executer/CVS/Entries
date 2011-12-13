@@ -1,0 +1,26 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:31 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.5/Mon Jun  2 10:48:39 2003/-ko/Tlinux_2_6_8_1
+/exconfig.c/1.16/Thu Feb  5 02:39:58 2004/-ko/Tlinux_2_6_8_1
+/exconvrt.c/1.19/Thu Mar 11 16:46:47 2004/-ko/Tlinux_2_6_8_1
+/excreate.c/1.17/Mon Apr 12 20:23:28 2004/-ko/Tlinux_2_6_8_1
+/exdump.c/1.21/Mon Apr 12 20:23:28 2004/-ko/Tlinux_2_6_8_1
+/exfield.c/1.16/Thu Feb  5 02:39:58 2004/-ko/Tlinux_2_6_8_1
+/exfldio.c/1.20/Thu Mar 11 16:46:47 2004/-ko/Tlinux_2_6_8_1
+/exmisc.c/1.19/Thu Mar 11 16:46:47 2004/-ko/Tlinux_2_6_8_1
+/exmutex.c/1.12/Mon Apr 12 20:23:28 2004/-ko/Tlinux_2_6_8_1
+/exnames.c/1.11/Thu Feb  5 02:39:58 2004/-ko/Tlinux_2_6_8_1
+/exoparg1.c/1.19/Thu Feb  5 02:39:58 2004/-ko/Tlinux_2_6_8_1
+/exoparg2.c/1.18/Thu Mar 11 16:46:47 2004/-ko/Tlinux_2_6_8_1
+/exoparg3.c/1.10/Thu Feb  5 02:39:58 2004/-ko/Tlinux_2_6_8_1
+/exoparg6.c/1.8/Thu Feb  5 02:39:58 2004/-ko/Tlinux_2_6_8_1
+/exprep.c/1.17/Thu Mar 11 16:46:47 2004/-ko/Tlinux_2_6_8_1
+/exregion.c/1.14/Thu Feb  5 02:39:58 2004/-ko/Tlinux_2_6_8_1
+/exresnte.c/1.20/Mon Apr 12 20:23:28 2004/-ko/Tlinux_2_6_8_1
+/exresolv.c/1.18/Thu Mar 11 16:46:47 2004/-ko/Tlinux_2_6_8_1
+/exresop.c/1.20/Thu Mar 11 16:46:47 2004/-ko/Tlinux_2_6_8_1
+/exstore.c/1.20/Thu Mar 11 16:46:47 2004/-ko/Tlinux_2_6_8_1
+/exstoren.c/1.17/Mon Apr 12 20:23:28 2004/-ko/Tlinux_2_6_8_1
+/exstorob.c/1.14/Thu Feb  5 02:39:58 2004/-ko/Tlinux_2_6_8_1
+/exsystem.c/1.12/Thu Feb  5 02:39:58 2004/-ko/Tlinux_2_6_8_1
+/exutils.c/1.18/Thu Feb  5 02:39:58 2004/-ko/Tlinux_2_6_8_1
+D

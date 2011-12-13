@@ -1,0 +1,14 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:33 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.4/Thu Mar 11 16:46:49 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.4/Wed Jun  4 14:05:44 2003/-ko/Tlinux_2_6_8_1
+/avm_cs.c/1.9/Sun Jun  6 02:12:44 2004/-ko/Tlinux_2_6_8_1
+/avmcard.h/1.7/Tue Sep  9 16:41:00 2003/-ko/Tlinux_2_6_8_1
+/b1.c/1.12/Fri Aug  6 00:33:26 2004/-ko/Tlinux_2_6_8_1
+/b1dma.c/1.9/Thu Mar 11 16:46:49 2004/-ko/Tlinux_2_6_8_1
+/b1isa.c/1.9/Thu Mar 11 16:46:49 2004/-ko/Tlinux_2_6_8_1
+/b1pci.c/1.13/Thu Mar 11 16:46:49 2004/-ko/Tlinux_2_6_8_1
+/b1pcmcia.c/1.9/Thu Mar 11 16:46:49 2004/-ko/Tlinux_2_6_8_1
+/c4.c/1.14/Thu Mar 11 16:46:49 2004/-ko/Tlinux_2_6_8_1
+/t1isa.c/1.11/Thu Mar 11 16:46:49 2004/-ko/Tlinux_2_6_8_1
+/t1pci.c/1.12/Thu Mar 11 16:46:49 2004/-ko/Tlinux_2_6_8_1
+D

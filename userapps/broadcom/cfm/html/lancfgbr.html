@@ -1,0 +1,85 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+var addr = '<%ejGet(ethIpAddress)%>';
+var mask = '<%ejGet(ethSubnetMask)%>';
+var prtcl = '<%ejGetOther(memInfo, ntwkPrtcl)%>';
+
+function frmLoad() {
+   with ( document.forms[0] ) {
+      ethIpAddress.value = addr;
+      ethSubnetMask.value = mask;
+   }
+}
+
+function btnNext() {
+   var ifc = '<%ejGetWl(wlInterface)%>';
+   var loc = '';
+
+   if ( ifc == '1' )
+      loc = 'wlsetup.cgi?';
+   else
+      loc = 'ntwksum2.cgi?';
+
+   with ( document.forms[0] ) {
+      if ( isValidIpAddress(ethIpAddress.value) == false ) {
+         alert('Address "' + ethIpAddress.value + '" is invalid IP address.');
+         return;
+      }
+      if ( isValidIpAddress(ethSubnetMask.value) == false ) {
+         alert('Subnet mask "' + ethSubnetMask.value + '" has invalid IP address.');
+         return;
+      }
+      loc += 'ethIpAddress=' + ethIpAddress.value;
+      loc += '&ethSubnetMask=' + ethSubnetMask.value;
+   }
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function btnBack() {
+   var loc = 'enblbridge.html';
+
+   if ( prtcl == 'PPPoE' || prtcl == 'PPPoA' )
+      loc = 'enblservice.html';
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+</script>
+            <base target="_self">
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <b>Device Setup</b><br>
+            <br>
+            Configure the DSL Router IP Address and Subnet Mask for your Local Area Network
+            (LAN).<br>
+            <br>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td width="110">IP Address:</td>
+                  <td><input type='text' name='ethIpAddress'></td>
+               </tr>
+               <tr>
+                  <td>Subnet Mask:</td>
+                  <td><input type='text' name='ethSubnetMask'></td>
+               </tr>
+            </table>
+            <br>
+            <center>
+               <input type='button' onClick='btnBack()' value='Back'> <input type='button' onClick='btnNext()' value='Next'>
+            </center>
+         </form>
+      </blockquote>
+   </body>
+</html>

@@ -1,0 +1,289 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+var addr = '<%ejGet(wanIpAddress)%>';
+var mask = '<%ejGet(wanSubnetMask)%>';
+var enblAuto = '<%ejGet(enblAuto)%>';
+var gtwyIfc = '<%ejGetOther(sysInfo, dfltGwIfc)%>';
+if ( gtwyIfc == '&nbsp' ) gtwyIfc = '';
+var gtwy = '<%ejGetOther(sysInfo, dfltGw)%>';
+if ( gtwy == '&nbsp' ) gtwy = '';
+var dnsAuto = '<%ejGetOther(sysInfo,dnsAuto)%>';
+var dns1Mem = '<%ejGet(dnsPrimary)%>';
+var dns1 = '<%ejGetOther(sysInfo, dns)%>';
+if ( dns1 == '&nbsp' )
+   dns1 = '';
+var dns2Mem = '<%ejGet(dnsSecondary)%>';
+var dns2 = '<%ejGetOther(sysInfo, dns2)%>';
+if ( dns2 == '&nbsp' )
+   dns2 = '';
+var qs = '<%ejGet(quickSetup)%>';
+var srvId = parseInt('<%ejGet(serviceId)%>');
+
+function disableDnsInfo() {
+   with ( document.forms[0] ) {
+      dnsPrimary.disabled = 1;
+      dnsPrimary.value = '';
+      dnsSecondary.disabled = 1;
+      dnsSecondary.value = '';
+   }
+}
+
+function enableDnsInfo() {
+   with ( document.forms[0] ) {
+      dnsPrimary.disabled = 0;
+      dnsPrimary.value = dns1;
+      dnsSecondary.disabled = 0;
+      dnsSecondary.value = dns2;
+   }
+}
+
+function dnsClick(cb) {
+   if ( cb.checked == true )
+      enableDnsInfo();
+   else
+      disableDnsInfo();
+}
+
+function disableGwInfo() {
+   with ( document.forms[0] ) {
+      gwAddr.disabled = 1;
+      gwAddr.checked = false;
+      defaultGateway.disabled = 1;
+      defaultGateway.value = '';
+      gwIfc.disabled = 1;
+      gwIfc.checked = false;
+      wanIf.disabled = 1;
+   }
+}
+
+function enableGwInfo() {
+   with ( document.forms[0] ) {
+      gwAddr.disabled = 0;
+      if ( isValidIpAddress(gtwy) == true ) {
+         gwAddr.checked = true;
+         defaultGateway.value = gtwy;
+      } else {
+         gwAddr.checked = false;
+         defaultGateway.value = '';
+      }
+      defaultGateway.disabled = 0;
+      gwIfc.disabled = 0;
+      if ( gtwyIfc != '' )
+         gwIfc.checked = true;
+      else
+         gwIfc.checked = false;
+      wanIf.disabled = 0;
+   }
+}
+
+function gwClick(cb) {
+   if ( cb.checked == true )
+      enableGwInfo();
+   else
+      disableGwInfo();
+}
+
+function frmLoad() {
+   with ( document.forms[0] ) {
+      wanIpAddress.value = addr;
+      wanSubnetMask.value = mask;
+      if ( enblAuto == '1' ) {
+         gw.checked = false;
+         disableGwInfo();
+      } else {
+         gw.checked = true;
+         enableGwInfo();
+      }
+      if (dnsAuto == '1') {
+         dns.checked = false;
+         disableDnsInfo();
+      } else {
+         dns.checked = true;
+         enableDnsInfo();
+      }
+   }
+}
+
+function btnNext() {
+   var loc = 'natcfg2.cgi?';
+
+   with ( document.forms[0] ) {
+      dns1 = dnsPrimary.value;
+      dns2 = dnsSecondary.value;
+      // ipoa always uses static wan ip address
+      loc += 'enblDhcpClnt=0';
+      // wan IP address
+      if ( isValidIpAddress(wanIpAddress.value) == false ) {
+         alert('WAN IP address "' + wanIpAddress.value + '" is invalid IP address.');
+         return;
+      }
+      loc += '&wanIpAddress=' + wanIpAddress.value;
+      // wan subnet mask
+      if ( isValidIpAddress(wanSubnetMask.value) == false &&  wanSubnetMask.value != '255.255.255.255') {
+         alert('WAN subnet mask "' + wanSubnetMask.value + '" is invalid IP address.');
+         return;
+      }
+      loc += '&wanSubnetMask=' + wanSubnetMask.value;
+      // default gateway
+      if ( gw.checked == true ) {
+         if ( gwAddr.checked == false && gwIfc.checked == false ) {
+            alert('There is no selection for default gateway.');
+            return;
+         }
+         if ( gwAddr.checked == true ) {
+            if ( isValidIpAddress(defaultGateway.value) == false ) {
+               alert('Remote WAN IP address "' + defaultGateway.value + '" is invalid IP address.');
+               return;
+            }
+            loc += '&defaultGateway=' + defaultGateway.value;
+         } else
+            loc += '&defaultGateway=0.0.0.0';
+         if ( gwIfc.checked == true ) {
+            var idx = wanIf.selectedIndex;
+            var ifc = wanIf.options[idx].value;
+            // if chosen interface is MER but does not specify static IP address then display error
+            if ( ifc.indexOf('nas_') != -1 && gwAddr.checked == false ) {
+               alert('Default gateway IP address should be specified since MER interface is selected.');
+               return;
+            }
+            loc += '&wanIfName=' + ifc;
+         } else
+            loc += '&wanIfName=';
+         // use static default gateway
+         loc += '&enblAuto=0';
+      } else {
+         loc += '&defaultGateway=0.0.0.0';
+         loc += '&wanIfName=';
+         loc += '&enblAuto=1';
+      }
+      if ( dns.checked == true ) {
+         // primary DNS
+         if ( isValidIpAddress(dns1) == false ) {
+            alert('Primary DNS server "' + dnsPrimary.value + '" is invalid IP address.');
+            return;
+         }
+         loc += '&dnsPrimary=' + dns1;
+         // secondary DNS
+         if ( dns2 != '' && dns2 != '0.0.0.0' ) {
+            if ( isValidIpAddress(dns2) == false ) {
+               alert('Secondary DNS server "' + dns2 + '" is invalid IP address.');
+               return;
+            }
+         }
+         loc += '&dnsSecondary=' + dns2;
+         loc += '&dnsDynamic=0';
+      } else {
+         loc += '&dnsPrimary=0.0.0.0';
+         loc += '&dnsSecondary=0.0.0.0';
+         loc += '&dnsDynamic=1';
+      }
+   }
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function btnBack() {
+   var loc = 'ntwkprtcl.html';
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <b>WAN IP Settings</b><br>
+            <br>
+            Enter information provided to you by your ISP to configure the WAN IP settings.<br><br>
+            Notice: DHCP is not supported in IPoA mode.
+            Changing the default gateway or the DNS effects the whole system.
+            Configuring them with static values will disable the automatic assignment
+            from other WAN connection.<br><br>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td width="160">WAN IP Address:</td>
+                  <td><input type='text' name='wanIpAddress'></td>
+               </tr>
+               <tr>
+                  <td>WAN Subnet Mask:</td>
+                  <td><input type='text' name='wanSubnetMask'></td>
+               </tr>
+            </table><br>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td colspan="3"><input type="checkbox" name="gw" onClick='gwClick(this)'>&nbsp;&nbsp;Use the following default gateway:</td>
+               </tr>
+               <tr>
+                  <td width="20">&nbsp;</td>
+                  <td><input type="checkbox" name='gwAddr'>&nbsp;Use IP Address:&nbsp;&nbsp;</td>
+                  <td><input type='text' name='defaultGateway'></td>
+               </tr>
+               <tr>
+                  <td width="20">&nbsp;</td>
+                  <td><input type="checkbox" name='gwIfc'>&nbsp;Use WAN Interface:&nbsp;&nbsp;</td>
+                  <td><select name='wanIf'>
+                        <script language="javascript">
+<!-- hide
+{
+   var i = 0;
+   var defaultInterface = '<%ejGetOther(wanInterfaceInfo, default)%>';
+   var interfaceInfo = '<%ejGetOther(wanInterfaceInfo, route)%>';
+   var interfaces = interfaceInfo.split('|');
+
+   if ( srvId == 0 || qs == '1' ) {
+      var defaultNames = defaultInterface.split('/');
+      document.write("  <option value='" + defaultNames[1] + "' selected>");
+      document.writeln(defaultInterface);
+      for ( i = 0; i < interfaces.length; i++ ) {
+         var names = interfaces[i].split('/');
+         document.write("  <option value='" + names[1] + "'>");
+         document.writeln(interfaces[i]);
+      }
+   } else {
+      for ( i = 0; i < interfaces.length; i++ ) {
+         var names = interfaces[i].split('/');
+         if ( names[1] == gtwyIfc )
+            document.write("  <option value='" + names[1] + "' selected>");
+         else
+            document.write("  <option value='" + names[1] + "'>");
+         document.writeln(interfaces[i]);
+         }
+      }
+}
+// done hiding -->
+</script>
+                     </select></td>
+               </tr>
+            </table><br>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td colspan="3"><input type="checkbox" name="dns" onClick='dnsClick(this)'>&nbsp;&nbsp;Use the following DNS server addresses:</td>
+               </tr>
+               <tr>
+                  <td width="20">&nbsp;</td>
+                  <td width="140">Primary DNS server:&nbsp;&nbsp;</td>
+                  <td><input type='text' name='dnsPrimary'></td>
+               </tr>
+               <tr>
+                  <td>&nbsp;</td>
+                  <td>Secondary DNS server:&nbsp;&nbsp;</td>
+                  <td><input type='text' name='dnsSecondary'></td>
+               </tr>
+            </table><br>
+            <center>
+               <input type='button' onClick='btnBack()' value='Back'> <input type='button' onClick='btnNext()' value='Next'>
+            </center>
+         </form>
+      </blockquote>
+   </body>
+</html>

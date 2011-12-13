@@ -1,0 +1,14 @@
+/Makefile/1.4/Fri Apr 23 15:54:13 2004/-ko/Tlinux_2_6_8_1
+/saa6752hs.c/1.4/Sat Jun 26 15:15:15 2004/-ko/Tlinux_2_6_8_1
+/saa7134-cards.c/1.10/Sat Jun 26 15:15:15 2004/-ko/Tlinux_2_6_8_1
+/saa7134-core.c/1.13/Fri Aug  6 00:33:26 2004/-ko/Tlinux_2_6_8_1
+/saa7134-i2c.c/1.11/Sun Jun  6 02:12:44 2004/-ko/Tlinux_2_6_8_1
+/saa7134-input.c/1.5/Sat Jun 26 15:15:15 2004/-ko/Tlinux_2_6_8_1
+/saa7134-oss.c/1.11/Tue Jul 20 20:21:20 2004/-ko/Tlinux_2_6_8_1
+/saa7134-reg.h/1.3/Thu Oct  9 13:09:31 2003/-ko/Tlinux_2_6_8_1
+/saa7134-ts.c/1.12/Tue Jul 20 20:21:20 2004/-ko/Tlinux_2_6_8_1
+/saa7134-tvaudio.c/1.11/Sat Jun 26 15:15:15 2004/-ko/Tlinux_2_6_8_1
+/saa7134-vbi.c/1.7/Thu Feb  5 02:40:01 2004/-ko/Tlinux_2_6_8_1
+/saa7134-video.c/1.14/Tue Jul 20 20:21:20 2004/-ko/Tlinux_2_6_8_1
+/saa7134.h/1.11/Sat Jun 26 15:15:15 2004/-ko/Tlinux_2_6_8_1
+D

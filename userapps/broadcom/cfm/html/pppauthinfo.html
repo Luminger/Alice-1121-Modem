@@ -1,0 +1,54 @@
+<html>
+<head>
+<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+<link rel=stylesheet href='stylemain.css' type='text/css'>
+<link rel=stylesheet href='colors.css' type='text/css'>
+<script language="javascript">
+<!-- hide
+var prtcl = '<%ejGetOther(memInfo, ntwkPrtcl)%>';
+var port = '<%ejGet(portId)%>';
+var vpi = '<%ejGet(atmVpi)%>';
+var vci = '<%ejGet(atmVci)%>';
+var ipExtension = '<%ejGet(pppIpExtension)%>';
+
+function verifyPppAuth() {
+   var loc = 'lancfg.cgi';
+   
+   if ( ipExtension == '1' )
+      loc = 'lancfgbr.cgi';
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function frmLoad() {
+   setTimeout("verifyPppAuth()", 200);
+}
+
+// done hiding -->
+</script>
+</head>
+
+<body onLoad='frmLoad()'>
+<blockquote>
+<b>DSL Router Auto-connection Authentication Information</b><br><br>
+<script language="javascript">
+<!-- hide
+   switch ( prtcl ) {
+      case 'PPPoA':
+         msg = 'DSL Router is verifying the PPPoA authentication using ';
+         msg += 'PVC (' + port + '/'  + vpi + '/' + vci + ').<br><br>';
+         msg += 'Please wait...';
+         break;
+      default:
+         msg = 'DSL Router is verifying the PPPoE authentication using ';
+         msg += 'PVC (' + port + '/'  + vpi + '/' + vci + ').<br><br>';
+         msg += 'Please wait...';
+         break;
+   }
+   document.writeln(msg);
+// done hiding -->
+</script>
+</blockquote>
+</body>
+</html>

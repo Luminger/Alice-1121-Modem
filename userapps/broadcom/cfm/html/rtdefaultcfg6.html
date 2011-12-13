@@ -1,0 +1,110 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+var gtwyIfc = '<%ejGetOther(sysInfo, dfltGw6Ifc)%>';
+if ( gtwyIfc == '&nbsp' ) gtwyIfc = '';
+var gtwy = '<%ejGetOther(sysInfo, dfltGw6)%>';
+if ( gtwy == '&nbsp' ) gtwy = '';
+
+function btnApply() {
+   var loc = 'rtdefaultcfg6.cgi?';
+
+   with ( document.forms[0] ) {
+
+      var idx = wanIf.selectedIndex;
+      var ifc = wanIf.options[idx].value;
+
+      if (ifc == '') {
+//         alert('No interface was selected.');
+//         return;
+         loc += "wanIfName6=&defaultGateway6=";
+      }
+      else {
+        // if chosen interface is MER but does not specify static IP address then display error
+        if (ifc.indexOf('nas_') != -1 && dstGtwy.value == '') {
+           alert('Default gateway IPv6 address shall be specified since MER interface is selected.');
+           return;
+        }
+        loc += 'wanIfName6=' + ifc;
+
+        if (dstGtwy.value != '' && isValidIpAddress6(dstGtwy.value) == false) {
+           alert('Configure default gateway failed. Invalid argument or Interface is down.');
+           return;
+        }
+        loc += '&defaultGateway6=' + dstGtwy.value;
+      }
+   }
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+
+function frmLoad() {
+   with ( document.forms[0] ) {
+      if (isValidIpAddress6(gtwy) == true) {
+         dstGtwy.value = gtwy;
+      } else {
+         dstGtwy.value = '';
+      }
+   }
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <P>
+               <b>Routing -- IPv6 Default Gateway</b><br>
+               <br>
+               Select a WAN interface. If it is a MER interface, next hop IPv6 address must be specified. Click 'Save/Apply' button
+               to save it.</P>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td>Select Interface</td>
+                  <td><select name='wanIf'>
+<script language="javascript">
+<!-- hide
+{
+   var i = 0;
+   var interfaceInfo = '<%ejGetOther(wanInterfaceInfo, route)%>';
+   var interfaces = interfaceInfo.split('|');
+
+   document.writeln("  <option value=''>");
+   
+   for ( i = 0; i < interfaces.length; i++ ) {
+      var names = interfaces[i].split('/');
+      if ( names[1] == gtwyIfc )
+         document.write("  <option value='" + names[1] + "' selected>");
+      else
+         document.write("  <option value='" + names[1] + "'>");
+      document.writeln(interfaces[i]);
+   }
+//   if (gtwyIfc == 'br0')
+//      document.writeln("  <option value='br0' selected> LAN/br0");
+//   else
+//      document.writeln("  <option value='br0'> LAN/br0");
+}
+// done hiding -->
+</script>
+                   </select></td>
+               </tr>
+               <tr>
+                  <td>Next Hop IPv6 Address&nbsp;&nbsp;</td>
+                  <td><input type='text' name='dstGtwy'></td>
+               </tr>
+            </table>
+            <br>
+            <center>
+               <input type='button' onClick='btnApply()' value='Save/Apply'>
+            </center>
+         </form>
+      </blockquote>
+   </body>
+</html>

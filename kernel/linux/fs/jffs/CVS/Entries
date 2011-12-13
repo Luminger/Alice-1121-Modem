@@ -1,0 +1,10 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:30 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.8/Mon Jun  2 10:48:43 2003/-ko/Tlinux_2_6_8_1
+/inode-v23.c/1.50/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/intrep.c/1.26/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/intrep.h/1.6/Wed Sep  4 00:57:55 2002/-ko/Tlinux_2_6_8_1
+/jffs_fm.c/1.14/Tue Jul 20 20:21:24 2004/-ko/Tlinux_2_6_8_1
+/jffs_fm.h/1.5/Tue Oct 29 00:57:03 2002/-ko/Tlinux_2_6_8_1
+/jffs_proc.c/1.5/Fri Aug  6 00:33:30 2004/-ko/Tlinux_2_6_8_1
+/jffs_proc.h/1.2/Tue Oct 29 20:56:01 2002/-ko/Tlinux_2_6_8_1
+D

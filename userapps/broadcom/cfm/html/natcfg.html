@@ -1,0 +1,132 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript">
+<!-- hide
+var prtcl = '<%ejGetOther(memInfo, ntwkPrtcl)%>';
+
+function frmLoad() {
+   var nat = '<%ejGet(enblNat)%>';
+   var fullcone = '<%ejGet(enblFullcone)%>';
+   var firewall = '<%ejGet(enblFirewall)%>';
+
+   with ( document.forms[0] ) {
+      if ( nat == '1' ) {
+         enblNat.checked = true;
+         hideFullconeNat(0);
+      }
+      else {
+         enblNat.checked = false;
+         hideFullconeNat(1);
+      }
+      if ( fullcone == '1' )
+         enblFullcone.checked = true;
+      else
+         enblFullcone.checked = false;
+      if ( firewall == '1' )
+         enblFirewall.checked = true;
+      else
+         enblFirewall.checked = false;
+   }
+}
+
+function btnNext() {
+   var loc = 'lancfg.cgi?';
+
+   with ( document.forms[0] ) {
+      if ( enblNat.checked == true )
+         loc += 'enblNat=1';
+      else
+         loc += 'enblNat=0';
+      if ( enblFullcone.checked == true )
+         loc += '&enblFullcone=1';
+      else
+         loc += '&enblFullcone=0';
+      if ( enblFirewall.checked == true )
+         loc += '&enblFirewall=1';
+      else
+         loc += '&enblFirewall=0';
+   }
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function btnBack() {
+   var loc;
+   if ( prtcl == 'IPoA' )
+      loc = 'ipoacfg.html';
+   else
+      loc = 'wancfg.html';
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function hideFullconeNat(hide) {
+   var status = 'visible';
+   if ( hide == 1 )
+      status = 'hidden';
+   if (document.getElementById)  // DOM3 = IE5, NS6
+      document.getElementById('fullconeNatInfo').style.visibility = status;
+   else {
+      if (document.layers) { // Netscape 4
+         if ( hide == 1 )
+            document.forms[0].enblFullcone.value = '';
+         else
+            document.forms[0].enblFullcone.value = '<%ejGet(enblFullcone)%>';
+      } else  // IE 4
+         document.all.fullconeNatInfo.style.visibility = status;
+   }
+}
+
+function natClick(cb) {
+   if ( cb.checked == true )
+      hideFullconeNat(0);
+   else
+      hideFullconeNat(1);
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <b>Network Address Translation Settings</b><br>
+            <br>
+            Network Address Translation (NAT) allows you to share one Wide Area Network 
+            (WAN) IP address for multiple computers on your Local Area Network (LAN).<br>
+            <br>
+            Select the check box below to enable NAT.<br>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td width='30' height="30"><input type='checkbox' name='enblNat' onClick='natClick(this)'></td>
+                  <td>Enable NAT</td>
+               </tr>
+            </table>
+            <div id='fullconeNatInfo'>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td width='30' height="30"><input type='checkbox' name='enblFullcone'></td>
+                  <td>Enable Fullcone NAT</td>
+               </tr>
+            </table>
+            <br>
+            </div>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td width='30' height="30"><input type='checkbox' name='enblFirewall'></td>
+                  <td>Enable Firewall</td>
+               </tr>
+            </table>
+            <br>
+            <center>
+               <input type='button' onClick='btnBack()' value='Back'> <input type='button' onClick='btnNext()' value='Next'>
+            </center>
+         </form>
+      </blockquote>
+   </body>
+</html>

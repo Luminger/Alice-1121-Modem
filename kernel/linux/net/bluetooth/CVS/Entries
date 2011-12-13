@@ -1,0 +1,16 @@
+/.cvsignore/1.8/Fri Feb 20 17:35:37 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.8/Fri Aug  6 00:33:32 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.14/Fri Jul  9 02:16:53 2004/-ko/Tlinux_2_6_8_1
+/af_bluetooth.c/1.28/Tue Jul 20 20:21:27 2004/-ko/Tlinux_2_6_8_1
+/hci_conn.c/1.13/Fri Jul  9 02:16:53 2004/-ko/Tlinux_2_6_8_1
+/hci_core.c/1.18/Fri Jul  9 02:16:53 2004/-ko/Tlinux_2_6_8_1
+/hci_event.c/1.13/Fri Jul  9 02:16:53 2004/-ko/Tlinux_2_6_8_1
+/hci_sock.c/1.21/Wed Jun  9 14:12:14 2004/-ko/Tlinux_2_6_8_1
+/hci_sysfs.c/1.4/Tue Jul 20 20:21:27 2004/-ko/Tlinux_2_6_8_1
+/l2cap.c/1.23/Tue Jul 20 20:21:27 2004/-ko/Tlinux_2_6_8_1
+/lib.c/1.6/Wed Jun  9 14:12:14 2004/-ko/Tlinux_2_6_8_1
+/sco.c/1.20/Wed Jun 16 12:09:39 2004/-ko/Tlinux_2_6_8_1
+D/bnep////
+D/cmtp////
+D/hidp////
+D/rfcomm////

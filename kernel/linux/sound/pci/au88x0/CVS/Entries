@@ -1,0 +1,26 @@
+/Makefile/1.1/Mon Apr 12 20:23:43 2004/-ko/Tlinux_2_6_8_1
+/au8810.c/1.1/Mon Apr 12 20:23:43 2004/-ko/Tlinux_2_6_8_1
+/au8810.h/1.2/Sun Jun  6 02:13:00 2004/-ko/Tlinux_2_6_8_1
+/au8820.c/1.2/Sun Jun  6 02:13:00 2004/-ko/Tlinux_2_6_8_1
+/au8820.h/1.2/Sun Jun  6 02:13:00 2004/-ko/Tlinux_2_6_8_1
+/au8830.c/1.2/Sun Jun  6 02:13:00 2004/-ko/Tlinux_2_6_8_1
+/au8830.h/1.2/Sun Jun  6 02:13:00 2004/-ko/Tlinux_2_6_8_1
+/au88x0.c/1.2/Sun Jun  6 02:13:00 2004/-ko/Tlinux_2_6_8_1
+/au88x0.h/1.3/Fri Aug  6 00:33:34 2004/-ko/Tlinux_2_6_8_1
+/au88x0_a3d.c/1.3/Tue Jul 20 20:21:28 2004/-ko/Tlinux_2_6_8_1
+/au88x0_a3d.h/1.1/Mon Apr 12 20:23:43 2004/-ko/Tlinux_2_6_8_1
+/au88x0_a3ddata.c/1.1/Mon Apr 12 20:23:43 2004/-ko/Tlinux_2_6_8_1
+/au88x0_core.c/1.2/Sun Jun  6 02:13:00 2004/-ko/Tlinux_2_6_8_1
+/au88x0_eq.c/1.2/Sun Jun  6 02:13:00 2004/-ko/Tlinux_2_6_8_1
+/au88x0_eq.h/1.1/Mon Apr 12 20:23:43 2004/-ko/Tlinux_2_6_8_1
+/au88x0_eqdata.c/1.1/Mon Apr 12 20:23:43 2004/-ko/Tlinux_2_6_8_1
+/au88x0_game.c/1.2/Sun Jun  6 02:13:00 2004/-ko/Tlinux_2_6_8_1
+/au88x0_mixer.c/1.1/Mon Apr 12 20:23:43 2004/-ko/Tlinux_2_6_8_1
+/au88x0_mpu401.c/1.1/Mon Apr 12 20:23:43 2004/-ko/Tlinux_2_6_8_1
+/au88x0_pcm.c/1.2/Sun Jun  6 02:13:00 2004/-ko/Tlinux_2_6_8_1
+/au88x0_sb.h/1.1/Mon Apr 12 20:23:43 2004/-ko/Tlinux_2_6_8_1
+/au88x0_synth.c/1.2/Sun Jun  6 02:13:00 2004/-ko/Tlinux_2_6_8_1
+/au88x0_wt.h/1.1/Mon Apr 12 20:23:43 2004/-ko/Tlinux_2_6_8_1
+/au88x0_xtalk.c/1.1/Mon Apr 12 20:23:43 2004/-ko/Tlinux_2_6_8_1
+/au88x0_xtalk.h/1.1/Mon Apr 12 20:23:43 2004/-ko/Tlinux_2_6_8_1
+D

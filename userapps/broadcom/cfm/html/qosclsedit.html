@@ -1,0 +1,756 @@
+<html>
+   <head>
+      <meta http-equiv="Pragma" content="no-cache">
+      <LINK href="stylemain.css" type="text/css" rel="stylesheet">
+         <LINK href="colors.css" type="text/css" rel="stylesheet">
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript" src="portName.js"></script>
+            <script language="javascript">
+<!-- hide
+var glbDisplayPhysicalPort = false;
+var update = '<%ejFncCmd(qosClsInfoByInst)%>';
+var clsKey = '<%ejGet(qosClsKey)%>';
+var clsName = '<%ejGet(qosClsName)%>';
+var clsOrder = '<%ejGet(qosClsOrder)%>';
+var clsEnable = '<%ejGet(qosClsEnable)%>';
+var clsWanVlan8021p = '<%ejGet(qosWanVlan8021p)%>';
+var qosProtocol = '<%ejGet(qosProtocol)%>';
+var clsVlan8021p = '<%ejGet(qosVlan8021p)%>';
+var clsipoptionlist  = '<%ejGet(qosipoptionlist)%>';
+var clsSrcAddr = '<%ejGet(qosSrcAddr)%>';
+var clsSrcMask = '<%ejGet(qosSrcMask)%>';
+var clsSrcPort = '<%ejGet(qosSrcPort)%>';
+var clsDstMask = '<%ejGet(qosDstMask)%>';
+var clsDstAddr = '<%ejGet(qosDstAddr)%>';
+var clsDstPort = '<%ejGet(qosDstPort)%>';
+var dscpMark = '<%ejGet(qosDscpMark)%>';
+var dscpCheck = '<%ejGet(qosDscpCheck)%>';
+var clsSrcMacAddr = '<%ejGet(qosSrcMacAddr)%>';
+var clsDstMacAddr = '<%ejGet(qosDstMacAddr)%>';
+var clsSrcMacMask = '<%ejGet(qosSrcMacMask)%>';
+var clsDstMacMask = '<%ejGet(qosDstMacMask)%>';
+var clsQueueKey = '<%ejGet(qosClsQueueKey)%>';
+var protocolExclude = '<%ejGet(qosProtocolExclude)%>';
+var srcPortExclude = '<%ejGet(qosSrcPortExclude)%>';
+var srcIPExclude = '<%ejGet(qosSrcIPExclude)%>';
+var dstIPExclude = '<%ejGet(qosDstIPExclude)%>';
+var dstPortExclude = '<%ejGet(qosDstPortExclude)%>';
+var dscpChkExclude = '<%ejGet(qosDscpChkExclude)%>';
+var etherPrioExclude = '<%ejGet(qosEtherPrioExclude)%>';
+var clsLanIfcName = '<%ejGet(qosLanIfcName)%>';
+
+if (document.getElementById) onload = function () {
+}
+
+function setSelect(item, value)
+{
+	for (i=0; i<item.options.length; i++) {
+        if (item.options[i].value == value) {
+        	item.selectedIndex = i;
+        	break;
+        }
+    }
+}
+
+function frmLoad() {
+   with ( document.forms[0] ) {
+        txtclsname.value = clsName;
+        setSelect(rulsorder, clsOrder);
+        setSelect(rulsenbl, clsEnable);
+        
+        setSelect(queuekey, clsQueueKey);
+        setSelect(dscp, dscpMark);
+        setSelect(wanVlan8021p, clsWanVlan8021p);
+
+        setSelect(lanIfcName, clsLanIfcName);
+        setSelect(protocol, qosProtocol);
+        /*
+        if(protocolExclude == '1')
+            protoexcl.checked = true;
+        if(dscpChkExclude == '1')
+            dscpchkexcl.checked = true;
+        */
+        setSelect(dscpchk, dscpCheck);
+         
+        setSelect(ipoptionlist, clsipoptionlist); 
+
+        srcaddr.value = clsSrcAddr;
+        //if(srcIPExclude == '1')
+        //    srcaddrexcl.checked = true;
+        srcmask.value = clsSrcMask;
+        srcport.value = clsSrcPort;
+        //if(srcPortExclude == '1')
+        //    srcportexcl.checked = true;
+
+        dstaddr.value = clsDstAddr;
+        //if(dstIPExclude == '1')
+        //    dstaddrexcl.checked = true;
+        dstmask.value = clsDstMask;
+        dstport.value = clsDstPort;
+        //if(dstPortExclude == '1')
+        //    dstportexcl.checked = true;
+
+        srcmacaddr.value = clsSrcMacAddr;
+        dstmacaddr.value = clsDstMacAddr;
+        srcmacmask.value = clsSrcMacMask;
+        dstmacmask.value = clsDstMacMask;
+
+        setSelect(vlan8021p, clsVlan8021p);
+        //if(etherPrioExclude == '1')
+        //    vlan8021pexcl.checked = true;
+   }
+}
+
+function btnApply() {
+   var loc = 'qoscls.cmd?action=edit';
+
+   with ( document.forms[0] ) {
+      if ( txtclsname.value == '' ) {
+         msg = 'Please enter QoS class name.';
+         alert(msg);
+         return;
+      }
+
+      if ( isValidName(txtclsname.value) == false ) {
+         msg = 'Please enter valid QoS class name: No special characters.';
+         alert(msg);
+         return;
+      }
+      if (txtclsname.value.length > 15) {
+         msg = 'Maximum QoS class name cannot exceed 15 characters.';
+         alert(msg);
+         return;
+      }
+      idx = queuekey.selectedIndex;
+      if ( idx == 0 ) {
+         msg = 'There is no selected queuekey.';
+         alert(msg);
+         return;
+      }
+
+      idx = rulsenbl.selectedIndex;
+      if ( idx == 0 ) {
+         msg = 'Please select status for this rules';
+         alert(msg);
+         return;
+      }
+
+      if ( rulsorder.selectedIndex == 0 ) {
+         msg = 'Please select rule order.';
+         alert(msg);
+         return;
+      }
+
+
+      if ( srcaddr.value == "" && srcmask.value == "" && srcport.value == "" &&
+           dstaddr.value == "" && dstmask.value == "" && dstport.value == "" &&
+	     vlan8021p.selectedIndex == 0 &&
+            protocol.selectedIndex == 0 && vlan8021p.selectedIndex == 0 &&
+            dscpchk.selectedIndex == 0 && srcmacaddr.value == "" &&
+            srcmacmask.value == "" && dstmacaddr.value == "" &&
+            dstmacmask.value == "") {
+         if (!(glbDisplayPhysicalPort && lanIfcName.selectedIndex != 0)) {
+            msg = 'At least one condition must be specified.'
+            alert(msg);
+            return;
+         }
+      }
+
+      if ( srcaddr.value != "" && ipoptionlist.selectedIndex == 0 && isValidIpAddress(srcaddr.value) == false ) {
+         msg = 'Source address "' + srcaddr.value + '" is invalid IP address.';
+         alert(msg);
+         return;
+      }
+
+      if ( srcmask.value != "" && isValidSubnetMask(srcmask.value) == false ) {
+         msg = 'Source subnet mask "' + srcmask.value + '" is invalid subnet mask.';
+         alert(msg);
+         return;
+      }
+
+      if ( srcaddr.value == "" && srcmask.value != "" ) {
+         msg = 'Cannot have source subnet mask without source IP address.';
+         alert(msg);
+         return;
+      }
+
+      if ( srcport.value != "" && isValidPort(srcport.value) == false ) {
+         msg = 'Source port "' + srcport.value + '" is invalid port number or port range.';
+         alert(msg);
+         return;
+      }
+
+      if ( dstaddr.value != "" && isValidIpAddress(dstaddr.value) == false ) {
+         msg = 'Destination address "' + dstaddr.value + '" is invalid IP address.';
+         alert(msg);
+         return;
+      }
+
+      if ( dstmask.value != "" && isValidSubnetMask(dstmask.value) == false ) {
+         msg = 'Destination subnet mask "' + dstmask.value + '" is invalid subnet mask.';
+         alert(msg);
+         return;
+      }
+
+      if ( dstaddr.value == "" && dstmask.value != "" ) {
+         msg = 'Cannot have destination subnet mask without destination IP address.';
+         alert(msg);
+         return;
+      }
+
+      if ( dstport.value != "" && isValidPort(dstport.value) == false ) {
+         msg = 'Destination port "' + dstport.value + '" is invalid port number or port range.';
+         alert(msg);
+         return;
+      }
+      /*
+      if ( (srcport.value != "" || dstport.value != "") &&
+           ((protocol.selectedIndex == 0) || (protocol.selectedIndex == 4 ) ||
+            (protocol.selectedIndex == 1 && protoexcl.checked == true))) {
+         msg = 'TCP or UDP Protocol must be selected together with port number.';
+              alert(msg);
+              return;
+      }
+      */
+
+      if ( (srcport.value != "" || dstport.value != "") &&
+           ((protocol.selectedIndex == 0) || (protocol.selectedIndex == 4 ))) {
+         msg = 'TCP or UDP Protocol must be selected together with port number.';
+         alert(msg);
+         return;
+      }
+
+      if ( srcmacaddr.value != "" && isValidMacAddress(srcmacaddr.value) == false ) {
+         msg = 'Source MAC address "' + srcmacaddr.value + '" is invalid.';
+         alert(msg);
+         return;
+      }
+
+      if ( srcmacmask.value != "" && isValidMacMask(srcmacmask.value) == false ) {
+         msg = 'Source MAC address mask "' + srcmacmask.value + '" is invalid.';
+         alert(msg);
+         return;
+      }
+
+      if ( srcmacaddr.value == "" && srcmacmask.value != "" ) {
+         msg = 'Cannot have source MAC mask without source MAC address.';
+         alert(msg);
+         return;
+      }
+
+      if ( dstmacaddr.value != "" && isValidMacAddress(dstmacaddr.value) == false ) {
+         msg = 'Destination MAC address "' + dstmacaddr.value + '" is invalid.';
+         alert(msg);
+         return;
+      }
+
+      if ( dstmacmask.value != "" && isValidMacMask(dstmacmask.value) == false ) {
+         msg = 'Destination MAC address mask "' + dstmacmask.value + '" is invalid.';
+         alert(msg);
+         return;
+      }
+
+      if ( dstmacaddr.value == "" && dstmacmask.value != "" ) {
+         msg = 'Cannot have destination MAC mask without destination MAC address.';
+         alert(msg);
+         return;
+      }
+
+      if ( (vlan8021p.selectedIndex != 0) &&
+           (dstaddr.value != "" || dstaddr.value != "" ||
+                srcaddr.value != "" || srcport.value != "" ||  protocol.selectedIndex != 0) ) {
+         msg = '802.1p Priority cannot be selected together with IP traffic condition.';
+         alert(msg);
+         return;
+      }
+
+      // class name
+      loc += '&clsName=' + encodeUrl(txtclsname.value);
+
+      // queuekey
+      idx = queuekey.selectedIndex;
+      val = queuekey.options[idx].value;
+      loc += '&queuekey=' + val;
+
+      // Check if the DiffServ configuration is enabled
+      idx = dscp.selectedIndex;
+      if ( idx > 0 ) {
+         loc += '&dscpMark=' + dscp.options[idx].value;
+      }
+
+      // rule order
+      idx = rulsorder.selectedIndex;
+      if ( idx > 0 ){
+         loc += '&rulsOrder=' + rulsorder.options[idx].value
+      }
+
+      // rule status
+      idx = rulsenbl.selectedIndex;
+      if ( idx > 0 ){
+         loc += '&rulsEnbl=' + rulsenbl.options[idx].value
+      }
+
+      // physical lan port ifc name
+      if (glbDisplayPhysicalPort)
+        loc += '&lanIfcName=' + lanIfcName.options[lanIfcName.selectedIndex].value;;
+      // protocol
+      idx = protocol.selectedIndex;
+      val = protocol.options[idx].value;
+      loc += '&protocol=' + val;
+
+      // source address
+      if ( srcaddr.value != "" ) {
+         loc += '&ipoptionlist=' + ipoptionlist.selectedIndex;
+         loc += '&srcAddr=' + srcaddr.value;
+      }
+      // source subnet mask
+      if ( srcmask.value != "" )
+         loc += '&srcMask=' + srcmask.value;
+
+      // source port
+      if ( srcport.value != "" )
+         loc += '&srcPort=' + srcport.value;
+
+      // destination address
+      if ( dstaddr.value != "" )
+         loc += '&dstAddr=' + dstaddr.value;
+
+      // destination subnet mask
+      if ( dstmask.value != "" )
+         loc += '&dstMask=' + dstmask.value;
+
+      // destination port
+      if ( dstport.value != "" )
+         loc += '&dstPort=' + dstport.value;
+
+      // source MAC address
+      if ( srcmacaddr.value != "" )
+         loc += '&srcMacAddr=' + srcmacaddr.value;
+
+      // destination MAC address
+      if ( dstmacaddr.value != "" )
+         loc += '&dstMacAddr=' + dstmacaddr.value;
+
+      // source MAC mask
+      if ( srcmacmask.value != "" )
+         loc += '&srcMacMask=' + srcmacmask.value;
+
+      // destination MAC mask
+      if ( dstmacmask.value != "" )
+         loc += '&dstMacMask=' + dstmacmask.value;
+
+      // dscp check
+      idx = dscpchk.selectedIndex;
+      if ( idx > 0 ) {
+         loc += '&dscpCheck=' + dscpchk.options[idx].value;
+      }
+
+      // Check if DiffServ configuration is enabled
+      idx = vlan8021p.selectedIndex;
+      val = vlan8021p.options[idx].value;
+      loc += '&vlan8021p=' + val;
+
+           // WAN 802.1p priority
+      idx = wanVlan8021p.selectedIndex;
+      val = wanVlan8021p.options[idx].value;
+      loc += '&wanVlan8021p=' + val;
+      /*
+      //Exclude options
+      if(protoexcl.checked == true)
+         loc += '&protExclude=1'
+      
+      if(dscpchkexcl.checked == true)
+         loc += '&dscpExclude=1'
+
+      if(srcaddrexcl.checked == true)
+         loc += '&srcIpExclude=1'
+
+      if(dstaddrexcl.checked == true)
+         loc += '&destIpExclude=1'
+         
+      if(srcportexcl.checked == true)
+         loc += '&srcPortExclude=1'
+
+      if(dstportexcl.checked == true)
+         loc += '&destportExclude=1'
+
+      if(vlan8021pexcl.checked == true)
+         loc += '&etherPrioExclude=1'
+      */
+   }
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+</script>
+
+   </head>
+      <body onLoad='frmLoad()'>
+         <blockquote>
+            <form>
+               
+    <p><b>Add Network Traffic Class Rule</b><br>
+      <br>
+      The screen creates a traffic class rule to classify the upstream traffic, 
+      assign queue which defines the precedence and the interface and optionally 
+      overwrite the IP header DSCP byte. 
+      A rule consists of a class name and at least one condition below. All of 
+      the specified conditions in this classification rule must be satisfied for 
+      the rule to take effect. Click 'Save/Apply' to save and activate the rule. 
+      <br>
+    </p>
+    <table id="qosName" cellSpacing="0" cellPadding="0" border="0">
+      <tr>
+        <td width="158">Traffic Class Name:</td>
+        <td width="226"><input type="text" size="22" name="txtclsname" disabled></td>
+      </tr>
+      <tr>
+        <td>Rule Order:</td>
+        <td><select size="1" name="rulsorder" disabled>
+            <option value="0">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <script language="javascript">
+	        	<!-- hide
+	        	{
+	        	   var i = 0;
+                   var order;
+	        	   var queueclsRulsOrder = '<%ejGetOther(qosclsRulsOrder, all)%>';
+	        	   var rules = queueclsRulsOrder.split('|');
+                   rules.sort();
+	        	   for ( i = 0; i < rules.length; i++ ) {
+	        	      if (rules[i] != '' && rules[i] != 'Last') 
+                      {
+                         order = i + 1;
+	        	         document.write("  <option value='" + order + "'>");
+	        	         document.writeln(rules[i]);
+	        	      }
+                      else if(rules[i] == 'Last')
+                      {
+                         document.write("  <option value='" + -1 + "'>");
+	        	         document.writeln(rules[i]);
+                      }
+	        	   }
+	        	}
+	        	// done hiding -->
+        	</script>
+            </option>
+          </select></td>
+      </tr>
+      <tr>
+         <td>Rule Status:</td>
+         <td>
+            <select name='rulsenbl' size="1">
+               <option value="0">
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+               <option value="1"> Disable
+               <option value="2"> Enable
+            </select>
+         </td>
+      </tr>
+    </table>
+    
+    <p><b>Assign ATM Priority and/or DSCP Mark for the class</b><br>
+      If non-blank value is selected for 'Assign Differentiated Services Code 
+      Point (DSCP) Mark', the correcponding DSCP byte in the IP header of the 
+      upstream packet is overwritten by the selected value. </p>
+
+               <table id="qosCls" cellSpacing="0" cellPadding="0" border="0">
+                  <tr id="tblItmAtmPrio">
+        <td width="392">Assign Classification Queue: </td>
+        <td width="159"> 
+           <select size="1" name="queuekey">
+              <option value="-1" selected> 
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <script language="javascript">
+                    <!-- hide
+                    {
+                       var i = 0;
+                       var queueInfo     = '<%ejGetOther(qosqueueInfo, all)%>';
+                       var queueprioInfo = '<%ejGetOther(qosqueueprioInfo, all)%>';
+                       var queueIntf     = '<%ejGetOther(qosqueueIntf, all)%>';
+                       //var defqueue      = '<%ejGetOther(qosMgmtDefQueue, all)%>';
+                       var queues = queueInfo.split('|');
+                       var prios = queueprioInfo.split('|');
+                       var intfs = queueIntf.split('|');
+                       //queues.sort();
+                       //prios.sort();
+                       //intfs.sort();
+
+                       //if(defqueue != '0' && defqueue != '' && defqueue != '-1')
+                       //    document.write("  <option value='" + defqueue + "'> default");
+                        
+                       for ( i = 0; i < queues.length; i++ ) {
+                                              if (queues[i] != '' && prios[i] != '' && intfs[i] != '') {
+                             document.write("  <option value='" + queues[i] + "'>");
+                                                 //document.writeln("Interface " + intfs[i] + "&Priority " + prios[i] + "&Queue " + queues[i]);
+                                                 document.writeln(intfs[i] + "&Prece " + prios[i] + "&Queue " + queues[i]);
+                          }
+                       }
+                    }
+                    // done hiding -->
+              </script>
+            <script language="javascript">
+	        	<!-- hide
+	        	{
+
+   if ('<%ejGet(glbQosPrioLevel)%>' == '4') // 4 Level QoS
+      document.writeln('"<option value="4">Highest</option>"');
+	        	}
+	        	// done hiding -->
+        	</script>
+          </select> </td>
+        <td width="143">&nbsp;</td>
+      </tr>
+                  <tr id="tblItmDscpMark">
+        <td width="392">Assign Differentiated Services Code Point (DSCP) Mark: 
+                     </td>
+                     <td> <select size="1" name="dscp">
+            <option value="-1" selected> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <option value="0"> default
+            <option value="56"> AF13(001110) 
+            <option value="48"> AF12(001010) 
+            <option value="40"> AF11(001001) 
+            <option value="32"> CS1(001000) 
+            <option value="88"> AF23(010110) 
+            <option value="80"> AF22(010010) 
+            <option value="72"> AF21(010001) 
+            <option value="64"> CS2(010000) 
+            <option value="120"> AF33(011110) 
+            <option value="112"> AF32(011010) 
+            <option value="104"> AF31(011001) 
+            <option value="96"> CS3(011000) 
+            <option value="152"> AF43(100110) 
+            <option value="144"> AF42(100010) 
+            <option value="136"> AF41(100001) 
+            <option value="128"> CS4(100000) 
+            <option value="184"> EF(101110) 
+            <option value="160"> CS5(101000) 
+            <option value="192"> CS6(110000) 
+            <option value="224"> CS7(111000)</option>
+          </select> </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr id="tblItmDot1p"> 
+        <td width="392">Mark 802.1p if 802.1q is enabled: </td>
+        <td><select size="1" name="wanVlan8021p">
+            <option value="-1" selected> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <option value="0"> 0 
+            <option value="1"> 1 
+            <option value="2"> 2 
+            <option value="3"> 3 
+            <option value="4"> 4 
+            <option value="5"> 5 
+            <option value="6"> 6 
+            <option value="7"> 7</option>
+          </select> </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr> 
+        <td colspan="3">&nbsp; </td>
+      </tr>
+      <tr> 
+        <td align="left" colspan="3"> <p><b>Specify Traffic Classification Rules</b></P></tr>
+      <tr id="tblItmCond"> 
+        <td align="left" colspan="3"> <P><b>Enter the following conditions either 
+            for IP level, SET-1, or for IEEE 802.1p, SET-2.</b></p></td>
+      </tr>
+      <tr> 
+        <td colSpan="3">&nbsp; </td>
+      </tr>
+      <tr id="tblItmSet1"> 
+        <td><b>SET-1</b> </td>
+      </tr>
+      <script language="javascript">
+<!-- hide
+{
+   var i = 0;
+   var interfaceInfo = '';
+   var dispName = '';
+   var brdId = '<%ejGet(boardID)%>';
+
+   interfaceInfo = '<%ejGetOther(bridgeInterfaceInfo, all)%>';
+   var interfaces = interfaceInfo.split('|');   
+   interfaces.sort();
+   if (interfaces.length > 1) {
+      glbDisplayPhysicalPort = true;
+      document.writeln("           <tr>");
+      document.writeln("               <td width='350'>Physical LAN Port:");
+      document.writeln("               </td>");
+      document.writeln("               <td><select size='1' name='lanIfcName'>");
+      document.writeln("                      <option value='' selected>");
+      document.writeln("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; \
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;");
+      var interfaces = interfaceInfo.split('|');
+ 	interfaces.sort();
+  	for ( i = 0; i < interfaces.length; i++ ) {
+      	   dispName = getUNameByLName(brdId + '|' + interfaces[i]);
+         if (dispName.indexOf('nas_') != -1)
+            continue;      // skip nas_ ifc
+         if (interfaces[i] != '')
+          document.writeln("  <option value='" + interfaces[i] + "'>" + dispName);
+      }
+     	document.writeln("                    </select>");
+      document.writeln("                </td>");
+      document.writeln("            </tr>");      
+   }
+}
+// done hiding -->  
+</script>
+      <tr> 
+        <td width="392">Protocol: </td>
+        <td><select size="1" name="protocol">
+            <option value="-1" selected> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <option value="1"> TCP/UDP 
+            <option value="2"> TCP 
+            <option value="3"> UDP 
+            <option value="4"> ICMP</option>
+          </select> </td>
+        <!--td><input type="checkbox" name="protoexcl">Exclude</td-->
+      </tr>
+	  <tr id="tblItmDscpMarkChk"> 
+        <td width="392">Differentiated Services Code Point (DSCP) Mark: 
+        </td>
+        <td> <select size="1" name="dscpchk">
+            <option value="-1" selected> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <option value="0"> default(000000) 
+            <option value="56"> AF13(001110) 
+            <option value="48"> AF12(001010) 
+            <option value="40"> AF11(001001) 
+            <option value="32"> CS1(001000) 
+            <option value="88"> AF23(010110) 
+            <option value="80"> AF22(010010) 
+            <option value="72"> AF21(010001) 
+            <option value="64"> CS2(010000) 
+            <option value="120"> AF33(011110) 
+            <option value="112"> AF32(011010) 
+            <option value="104"> AF31(011001) 
+            <option value="96"> CS3(011000) 
+            <option value="152"> AF43(100110) 
+            <option value="144"> AF42(100010) 
+            <option value="136"> AF41(100001) 
+            <option value="128"> CS4(100000) 
+            <option value="184"> EF(101110) 
+            <option value="160"> CS5(101000) 
+            <option value="192"> CS6(110000) 
+            <option value="224"> CS7(111000)</option>
+          </select> </td>
+        <!--td><input type="checkbox" name="dscpchkexcl">Exclude</td-->
+      </tr>
+      <tr> 
+                     <td><select size="1" name="ipoptionlist">
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <option value="0" selected>IP Address
+                            <option value="1">Vendor Class ID(DHCP Option 60)
+                            <option value="2">User class ID(DHCP option 77)
+               <!--             <option value="3">Client Identifier(DHCP option 61)  not support now -->
+                            </option>
+                          </select>
+                     </td>
+        <td><input type="text" size="22" name="srcaddr"> </td>
+        <!--td><input type="checkbox" name="srcaddrexcl">Exclude</td-->
+      </tr>
+      <tr> 
+        <td width="392">Source Subnet Mask: </td>
+        <td><input type="text" size="22" name="srcmask"> &nbsp; </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr> 
+        <td width="392">UDP/TCP Source Port (port or port:port): </td>
+        <td><input type="text" size="22" name="srcport"> </td>
+        <!--td><input type="checkbox" name="srcportexcl">Exclude</td-->
+      </tr>
+      <tr> 
+        <td width="392">Destination IP Address: </td>
+        <td><input type="text" size="22" name="dstaddr"> </td>
+        <!--td><input type="checkbox" name="dstaddrexcl">Exclude</td-->
+      </tr>
+      <tr> 
+        <td width="392">Destination Subnet Mask: </td>
+        <td><input type="text" size="22" name="dstmask"> </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr> 
+        <td width="392">UDP/TCP Destination Port (port or port:port): </td>
+        <td><input type="text" size="22" name="dstport"> </td>
+        <!--td><input type="checkbox" name="dstportexcl">Exclude</td-->
+      </tr>
+      <tr id="tblItmSrcMacAddr"> 
+        <td width="392">Source MAC Address: </td>
+        <td><input type="text" size="22" name="srcmacaddr"> </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr id="tblItmSrcMacMask"> 
+        <td width="392">Source MAC Mask: </td>
+        <td><input type="text" size="22" name="srcmacmask"> </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr id="tblItmDstMacAddr"> 
+        <td width="392">Destination MAC Address: </td>
+        <td><input type="text" size="22" name="dstmacaddr"> </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr id="tblItmDstMacMask"> 
+        <td width="392">Destination MAC Mask: </td>
+        <td><input type="text" size="22" name="dstmacmask"> </td>
+        <td>&nbsp;</td>
+      </tr>
+      <tr> 
+        <td colSpan="3">&nbsp; </td>
+      </tr>
+      <tr id="tblItmSet2"> 
+        <td><b>SET-2</b> </td>
+      </tr>
+      <tr id="tblItmDot1p"> 
+        <td>802.1p Priority: </td>
+        <td><select size="1" name="vlan8021p">
+            <option value="-1" selected> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+            <option value="0"> 0 
+            <option value="1"> 1 
+            <option value="2"> 2 
+            <option value="3"> 3 
+            <option value="4"> 4 
+            <option value="5"> 5 
+            <option value="6"> 6 
+            <option value="7"> 7</option>
+          </select> </td>
+        <!--td><input type="checkbox" name="vlan8021pexcl">Exclude</td-->
+      </tr>
+    </table>
+               <br>
+               <br>
+               <center><input type='button' onClick='btnApply()' value='Save/Apply'></center>
+            </form>
+         </blockquote>
+      </body>
+</html>
+

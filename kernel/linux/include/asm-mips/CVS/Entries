@@ -1,0 +1,207 @@
+/.cvsignore/1.3/Tue Nov 18 01:17:47 2003/-ko/Tlinux_2_6_8_1
+/8253pit.h/1.1/Sun Jun  6 02:12:54 2004/-ko/Tlinux_2_6_8_1
+/a.out.h/1.2/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/addrspace.h/1.13/Sun Nov 30 01:52:25 2003/-ko/Tlinux_2_6_8_1
+/asm.h/1.21/Thu Apr  8 15:40:01 2004/-ko/Tlinux_2_6_8_1
+/asmmacro-32.h/1.2/Tue Nov 18 01:17:47 2003/-ko/Tlinux_2_6_8_1
+/asmmacro-64.h/1.2/Tue Nov 18 01:17:47 2003/-ko/Tlinux_2_6_8_1
+/asmmacro.h/1.14/Thu May 27 12:54:17 2004/-ko/Tlinux_2_6_8_1
+/atomic.h/1.36/Thu Aug 19 09:54:23 2004/-ko/Tlinux_2_6_8_1
+/bcache.h/1.8/Tue Aug  6 00:08:58 2002/-ko/Tlinux_2_6_8_1
+/bitops.h/1.54/Thu Aug 19 09:54:23 2004/-ko/Tlinux_2_6_8_1
+/bootinfo.h/1.75/Sat Jun 26 15:15:24 2004/-ko/Tlinux_2_6_8_1
+/branch.h/1.7/Wed Jan 29 16:38:28 2003/-ko/Tlinux_2_6_8_1
+/break.h/1.1/Fri Jun  6 00:17:08 2003/-ko/Tlinux_2_6_8_1
+/bug.h/1.4/Mon Nov  3 14:23:28 2003/-ko/Tlinux_2_6_8_1
+/bugs.h/1.10/Fri Jul 25 22:49:24 2003/-ko/Tlinux_2_6_8_1
+/byteorder.h/1.9/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/cache.h/1.17/Sun May  9 12:59:36 2004/-ko/Tlinux_2_6_8_1
+/cachectl.h/1.3/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/cacheflush.h/1.14/Sun Jun  6 02:12:54 2004/-ko/Tlinux_2_6_8_1
+/cacheops.h/1.6/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/checksum.h/1.26/Sat Jun 26 15:15:24 2004/-ko/Tlinux_2_6_8_1
+/compat.h/1.2/Thu Aug 12 17:37:53 2004/-ko/Tlinux_2_6_8_1
+/cpu-features.h/1.5/Tue Aug 17 08:30:47 2004/-ko/Tlinux_2_6_8_1
+/cpu-info.h/1.1/Tue Aug 17 08:30:47 2004/-ko/Tlinux_2_6_8_1
+/cpu.h/1.52/Mon Jan 19 18:23:16 2004/-ko/Tlinux_2_6_8_1
+/current.h/1.10/Sun Jun  1 12:07:44 2003/-ko/Tlinux_2_6_8_1
+/ddb5074.h/1.2/Wed May 10 18:20:51 2000/-ko/Tlinux_2_6_8_1
+/debug.h/1.3/Wed Feb 26 21:15:04 2003/-ko/Tlinux_2_6_8_1
+/delay.h/1.15/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/div64.h/1.8/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/dma-mapping.h/1.10/Mon Apr 12 20:23:38 2004/-ko/Tlinux_2_6_8_1
+/dma.h/1.14/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/ds1286.h/1.7/Tue Nov 18 05:15:20 2003/-ko/Tlinux_2_6_8_1
+/elf.h/1.21/Thu Oct 16 00:01:37 2003/-ko/Tlinux_2_6_8_1
+/errno.h/1.7/Mon Oct 28 19:44:49 2002/-ko/Tlinux_2_6_8_1
+/fcntl.h/1.12/Sat Jun 26 15:15:24 2004/-ko/Tlinux_2_6_8_1
+/fixmap.h/1.3/Thu Oct 31 20:59:37 2002/-ko/Tlinux_2_6_8_1
+/floppy.h/1.14/Tue Nov 18 01:17:47 2003/-ko/Tlinux_2_6_8_1
+/fpregdef.h/1.2/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/fpu.h/1.11/Thu Dec  4 00:28:59 2003/-ko/Tlinux_2_6_8_1
+/fpu_emulator.h/1.2/Wed May  1 17:10:06 2002/-ko/Tlinux_2_6_8_1
+/gdb-stub.h/1.11/Fri Aug 20 10:03:22 2004/-ko/Tlinux_2_6_8_1
+/gfx.h/1.8/Tue Aug  6 00:08:58 2002/-ko/Tlinux_2_6_8_1
+/gt64120.h/1.5/Tue Nov 18 01:17:47 2003/-ko/Tlinux_2_6_8_1
+/gt64240.h/1.2/Thu Jun 24 21:49:57 2004/-ko/Tlinux_2_6_8_1
+/hardirq.h/1.28/Wed Mar 17 17:42:20 2004/-ko/Tlinux_2_6_8_1
+/hazards.h/1.5/Thu Jun  3 00:18:42 2004/-ko/Tlinux_2_6_8_1
+/hdreg.h/1.4/Fri Apr 23 15:54:21 2004/-ko/Tlinux_2_6_8_1
+/highmem.h/1.17/Fri Apr 23 15:54:21 2004/-ko/Tlinux_2_6_8_1
+/hw_irq.h/1.9/Tue Nov 18 01:17:47 2003/-ko/Tlinux_2_6_8_1
+/i8259.h/1.5/Mon Nov  3 23:21:15 2003/-ko/Tlinux_2_6_8_1
+/ide.h/1.24/Tue Nov 18 01:17:47 2003/-ko/Tlinux_2_6_8_1
+/inst.h/1.3/Sat Nov 25 04:49:47 2000/-ko/Tlinux_2_6_8_1
+/inventory.h/1.4/Thu Oct 31 20:37:22 2002/-ko/Tlinux_2_6_8_1
+/io.h/1.72/Thu Aug 19 15:27:41 2004/-ko/Tlinux_2_6_8_1
+/ioctl.h/1.5/Sat Jan 10 04:59:56 2004/-ko/Tlinux_2_6_8_1
+/ioctls.h/1.15/Thu Jun  5 11:24:18 2003/-ko/Tlinux_2_6_8_1
+/ipc.h/1.5/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/ipcbuf.h/1.2/Tue Aug  6 00:08:58 2002/-ko/Tlinux_2_6_8_1
+/irq.h/1.23/Fri Aug 20 09:19:02 2004/-ko/Tlinux_2_6_8_1
+/irq_cpu.h/1.5/Sat Nov 15 00:50:52 2003/-ko/Tlinux_2_6_8_1
+/isadep.h/1.7/Wed Jun  4 14:05:50 2003/-ko/Tlinux_2_6_8_1
+/it8712.h/1.2/Tue Aug  6 00:08:58 2002/-ko/Tlinux_2_6_8_1
+/jazz.h/1.18/Fri Aug 20 15:46:04 2004/-ko/Tlinux_2_6_8_1
+/jazzdma.h/1.7/Sat Feb 24 17:32:56 2001/-ko/Tlinux_2_6_8_1
+/kmap_types.h/1.9/Sun Jun  6 02:12:54 2004/-ko/Tlinux_2_6_8_1
+/linkage.h/1.1/Wed Oct 30 22:28:22 2002/-ko/Tlinux_2_6_8_1
+/local.h/1.2/Tue Aug 26 00:28:59 2003/-ko/Tlinux_2_6_8_1
+/m48t35.h/1.1/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/marvell.h/1.1/Thu Jun 24 21:49:57 2004/-ko/Tlinux_2_6_8_1
+/mc146818-time.h/1.2/Wed Feb 25 18:14:25 2004/-ko/Tlinux_2_6_8_1
+/mc146818rtc.h/1.15/Tue Nov 18 05:15:20 2003/-ko/Tlinux_2_6_8_1
+/mipsprom.h/1.1.1.1/Sun Jun  1 03:17:13 1997/-ko/Tlinux_2_6_8_1
+/mipsregs.h/1.63/Wed May 19 16:02:20 2004/-ko/Tlinux_2_6_8_1
+/mman.h/1.7/Tue Sep 30 14:27:29 2003/-ko/Tlinux_2_6_8_1
+/mmu.h/1.3/Fri Jan 17 04:23:08 2003/-ko/Tlinux_2_6_8_1
+/mmu_context.h/1.46/Wed Aug 11 01:30:50 2004/-ko/Tlinux_2_6_8_1
+/mmzone.h/1.8/Wed Feb 18 16:35:29 2004/-ko/Tlinux_2_6_8_1
+/module.h/1.7/Thu Jun 17 01:43:44 2004/-ko/Tlinux_2_6_8_1
+/msc01_ic.h/1.1/Tue Jul  6 15:51:21 2004/-ko/Tlinux_2_6_8_1
+/msgbuf.h/1.4/Tue Oct  7 23:18:08 2003/-ko/Tlinux_2_6_8_1
+/mv64340.h/1.5/Thu Jun 24 21:49:57 2004/-ko/Tlinux_2_6_8_1
+/namei.h/1.11/Fri Oct 24 13:05:03 2003/-ko/Tlinux_2_6_8_1
+/ng1.h/1.5/Thu Sep  6 13:12:02 2001/-ko/Tlinux_2_6_8_1
+/ng1hw.h/1.8/Wed Jun  4 14:05:50 2003/-ko/Tlinux_2_6_8_1
+/nile4.h/1.5/Mon Jul 15 00:00:55 2002/-ko/Tlinux_2_6_8_1
+/numnodes.h/1.1/Mon Jan  5 23:33:19 2004//Tlinux_2_6_8_1
+/paccess.h/1.4/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/page.h/1.44/Fri Aug 20 12:02:18 2004/-ko/Tlinux_2_6_8_1
+/param.h/1.12/Thu Mar 11 16:46:57 2004/-ko/Tlinux_2_6_8_1
+/parport.h/1.6/Thu Sep  6 13:12:02 2001/-ko/Tlinux_2_6_8_1
+/pci.h/1.55/Wed Jun  2 21:37:56 2004/-ko/Tlinux_2_6_8_1
+/pci_channel.h/1.8/Tue Nov 11 13:20:28 2003/-ko/Tlinux_2_6_8_1
+/percpu.h/1.1/Mon Aug 19 23:25:25 2002/-ko/Tlinux_2_6_8_1
+/pgalloc.h/1.31/Mon Apr 19 16:36:35 2004/-ko/Tlinux_2_6_8_1
+/pgtable-32.h/1.11/Sat Jun 26 15:15:24 2004/-ko/Tlinux_2_6_8_1
+/pgtable-64.h/1.17/Sun Aug 15 09:57:09 2004/-ko/Tlinux_2_6_8_1
+/pgtable-bits.h/1.9/Thu Jun 24 20:31:11 2004/-ko/Tlinux_2_6_8_1
+/pgtable.h/1.97/Sat Jun 19 01:39:24 2004/-ko/Tlinux_2_6_8_1
+/pmon.h/1.2/Sat May 15 18:26:27 2004/-ko/Tlinux_2_6_8_1
+/poll.h/1.2/Sat Nov  2 20:02:05 2002/-ko/Tlinux_2_6_8_1
+/posix_types.h/1.17/Thu Jul  8 20:26:48 2004/-ko/Tlinux_2_6_8_1
+/prctl.h/1.3/Tue Aug  6 00:08:58 2002/-ko/Tlinux_2_6_8_1
+/prefetch.h/1.3/Fri Mar  5 02:18:22 2004/-ko/Tlinux_2_6_8_1
+/processor.h/1.96/Tue Aug 17 08:30:47 2004/-ko/Tlinux_2_6_8_1
+/ptrace.h/1.22/Fri Apr 23 15:54:21 2004/-ko/Tlinux_2_6_8_1
+/r4kcache.h/1.22/Mon Jan  5 01:56:01 2004/-ko/Tlinux_2_6_8_1
+/reboot.h/1.3/Thu Aug 23 22:24:47 2001/-ko/Tlinux_2_6_8_1
+/regdef.h/1.2/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/resource.h/1.11/Sat Jun 26 15:15:24 2004/-ko/Tlinux_2_6_8_1
+/riscos-syscall.h/1.2/Tue Aug  6 00:08:58 2002/-ko/Tlinux_2_6_8_1
+/rtc.h/1.2/Thu Feb  5 00:05:48 2004/-ko/Tlinux_2_6_8_1
+/scatterlist.h/1.8/Thu Jul  3 03:41:12 2003/-ko/Tlinux_2_6_8_1
+/sections.h/1.7/Tue Jul 29 14:26:29 2003/-ko/Tlinux_2_6_8_1
+/segment.h/1.2/Sat Dec  4 03:59:12 1999/-ko/Tlinux_2_6_8_1
+/semaphore.h/1.28/Fri May 28 00:43:30 2004/-ko/Tlinux_2_6_8_1
+/sembuf.h/1.2/Tue Aug  6 00:08:58 2002/-ko/Tlinux_2_6_8_1
+/serial.h/1.58/Fri Aug 20 13:09:38 2004/-ko/Tlinux_2_6_8_1
+/setup.h/1.1/Sat Jun 26 15:15:24 2004/-ko/Tlinux_2_6_8_1
+/sgialib.h/1.17/Sat Nov 15 01:12:33 2003/-ko/Tlinux_2_6_8_1
+/sgiarcs.h/1.12/Thu Nov  6 13:12:20 2003/-ko/Tlinux_2_6_8_1
+/sgidefs.h/1.3/Mon Jul  2 23:11:36 2001/-ko/Tlinux_2_6_8_1
+/shmbuf.h/1.4/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/shmparam.h/1.5/Mon Apr 12 20:23:38 2004/-ko/Tlinux_2_6_8_1
+/sigcontext.h/1.12/Mon Sep  1 19:16:40 2003/-ko/Tlinux_2_6_8_1
+/siginfo.h/1.18/Fri Apr 23 15:54:21 2004/-ko/Tlinux_2_6_8_1
+/signal.h/1.17/Tue Sep 30 14:27:29 2003/-ko/Tlinux_2_6_8_1
+/sim.h/1.2/Sun Jan  4 00:16:38 2004/-ko/Tlinux_2_6_8_1
+/smp.h/1.30/Wed May 19 15:52:52 2004/-ko/Tlinux_2_6_8_1
+/sni.h/1.8/Mon Nov  3 00:52:47 2003/-ko/Tlinux_2_6_8_1
+/socket.h/1.16/Thu Feb  5 02:40:08 2004/-ko/Tlinux_2_6_8_1
+/sockios.h/1.2/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/spinlock.h/1.26/Tue Aug 17 17:49:44 2004/-ko/Tlinux_2_6_8_1
+/stackframe.h/1.32/Thu May 27 12:54:17 2004/-ko/Tlinux_2_6_8_1
+/stat.h/1.10/Tue Sep 30 14:27:29 2003/-ko/Tlinux_2_6_8_1
+/statfs.h/1.5/Sat Jan 10 04:59:56 2004/-ko/Tlinux_2_6_8_1
+/string.h/1.24/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/suspend.h/1.1/Wed Sep  4 00:58:07 2002/-ko/Tlinux_2_6_8_1
+/sysmips.h/1.2/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/system.h/1.76/Tue Aug 17 17:49:44 2004/-ko/Tlinux_2_6_8_1
+/termbits.h/1.6/Thu Mar 11 16:46:57 2004/-ko/Tlinux_2_6_8_1
+/termios.h/1.13/Tue Sep  9 16:41:06 2003/-ko/Tlinux_2_6_8_1
+/thread_info.h/1.16/Tue Jun  8 12:12:16 2004/-ko/Tlinux_2_6_8_1
+/time.h/1.12/Mon Aug 25 16:15:25 2003/-ko/Tlinux_2_6_8_1
+/timex.h/1.17/Tue Nov 18 01:17:47 2003/-ko/Tlinux_2_6_8_1
+/titan_dep.h/1.9/Thu Jul 29 21:58:31 2004/-ko/Tlinux_2_6_8_1
+/tlb.h/1.5/Thu Jan 15 22:52:29 2004/-ko/Tlinux_2_6_8_1
+/tlbdebug.h/1.1/Sun Sep 15 23:32:22 2002/-ko/Tlinux_2_6_8_1
+/tlbflush.h/1.3/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/topology.h/1.4/Fri Feb 20 17:59:43 2004/-ko/Tlinux_2_6_8_1
+/traps.h/1.4/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/tx3912.h/1.6/Sat Nov 24 14:03:19 2001/-ko/Tlinux_2_6_8_1
+/types.h/1.16/Sun Jun  6 02:12:54 2004/-ko/Tlinux_2_6_8_1
+/uaccess.h/1.34/Tue Feb 24 17:03:31 2004/-ko/Tlinux_2_6_8_1
+/ucontext.h/1.5/Fri Jan 24 01:58:41 2003/-ko/Tlinux_2_6_8_1
+/unaligned.h/1.11/Thu Oct 16 23:49:01 2003/-ko/Tlinux_2_6_8_1
+/unistd.h/1.65/Fri Aug  6 00:33:30 2004/-ko/Tlinux_2_6_8_1
+/user.h/1.3/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/vga.h/1.3/Wed Nov  6 20:47:10 2002/-ko/Tlinux_2_6_8_1
+/war.h/1.19/Tue Aug 17 17:49:44 2004/-ko/Tlinux_2_6_8_1
+/watch.h/1.6/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/wbflush.h/1.7/Tue Jul 29 03:21:47 2003/-ko/Tlinux_2_6_8_1
+/xor.h/1.1/Tue Nov 28 03:59:03 2000/-ko/Tlinux_2_6_8_1
+/xxs1500.h/1.2/Thu Jan 15 06:27:55 2004//Tlinux_2_6_8_1
+D/arc////
+D/baget////
+D/cobalt////
+D/ddb5xxx////
+D/dec////
+D/galileo-boards////
+D/gcc////
+D/hp-lj////
+D/ip32////
+D/it8172////
+D/jmr3927////
+D/lasat////
+D/mach-atlas////
+D/mach-au1x00////
+D/mach-db1x00////
+D/mach-ddb5074////
+D/mach-dec////
+D/mach-ev64120////
+D/mach-ev96100////
+D/mach-generic////
+D/mach-ip22////
+D/mach-ip27////
+D/mach-ip32////
+D/mach-ja////
+D/mach-jazz////
+D/mach-jmr3927////
+D/mach-lasat////
+D/mach-mips////
+D/mach-ocelot////
+D/mach-pb1x00////
+D/mach-rm200////
+D/mach-vr41xx////
+D/mach-yosemite////
+D/mips-boards////
+D/pci////
+D/sgi////
+D/sibyte////
+D/sn////
+D/tx4927////
+D/vr4181////
+D/vr41xx////
+D/xtalk////

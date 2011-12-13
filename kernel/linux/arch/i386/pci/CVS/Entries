@@ -1,0 +1,15 @@
+/Makefile/1.8/Thu Mar 11 16:46:42 2004/-ko/Tlinux_2_6_8_1
+/acpi.c/1.9/Sat Jun 26 15:15:09 2004/-ko/Tlinux_2_6_8_1
+/changelog/1.1/Tue Sep  3 16:13:09 2002/-ko/Tlinux_2_6_8_1
+/common.c/1.15/Thu Mar 11 16:46:42 2004/-ko/Tlinux_2_6_8_1
+/direct.c/1.10/Thu Feb  5 02:39:52 2004/-ko/Tlinux_2_6_8_1
+/fixup.c/1.11/Wed Jun  9 14:12:05 2004/-ko/Tlinux_2_6_8_1
+/i386.c/1.6/Fri Aug 15 15:14:31 2003/-ko/Tlinux_2_6_8_1
+/irq.c/1.19/Fri Aug  6 00:33:22 2004/-ko/Tlinux_2_6_8_1
+/legacy.c/1.7/Tue Jul 29 14:26:22 2003/-ko/Tlinux_2_6_8_1
+/mmconfig.c/1.1/Thu Mar 11 16:46:42 2004/-ko/Tlinux_2_6_8_1
+/numa.c/1.10/Fri Aug 15 15:14:31 2003/-ko/Tlinux_2_6_8_1
+/pcbios.c/1.9/Mon May 10 14:25:30 2004/-ko/Tlinux_2_6_8_1
+/pci.h/1.7/Thu Mar 11 16:46:42 2004/-ko/Tlinux_2_6_8_1
+/visws.c/1.7/Sat Jun 26 15:15:09 2004/-ko/Tlinux_2_6_8_1
+D

@@ -1,0 +1,17 @@
+/scsi.h/1.22/Fri Aug 13 07:18:56 2004/-ko/Tlinux_2_6_8_1
+/scsi_cmnd.h/1.5/Fri Apr 23 15:54:22 2004/-ko/Tlinux_2_6_8_1
+/scsi_dbg.h/1.1/Sat Jun 26 15:15:26 2004/-ko/Tlinux_2_6_8_1
+/scsi_device.h/1.12/Sun Jun  6 02:12:56 2004/-ko/Tlinux_2_6_8_1
+/scsi_devinfo.h/1.4/Mon Jun 28 21:04:16 2004/-ko/Tlinux_2_6_8_1
+/scsi_driver.h/1.2/Mon Nov 24 15:18:10 2003/-ko/Tlinux_2_6_8_1
+/scsi_eh.h/1.2/Sat Jun 26 15:15:26 2004/-ko/Tlinux_2_6_8_1
+/scsi_host.h/1.10/Mon Jun 28 21:04:16 2004/-ko/Tlinux_2_6_8_1
+/scsi_ioctl.h/1.7/Sat Jun 26 15:15:26 2004/-ko/Tlinux_2_6_8_1
+/scsi_request.h/1.4/Tue Sep  9 16:41:07 2003/-ko/Tlinux_2_6_8_1
+/scsi_tcq.h/1.2/Tue Sep 30 14:27:30 2003/-ko/Tlinux_2_6_8_1
+/scsi_transport.h/1.1/Mon Apr 12 20:23:40 2004/-ko/Tlinux_2_6_8_1
+/scsi_transport_fc.h/1.2/Fri Apr 23 15:54:22 2004/-ko/Tlinux_2_6_8_1
+/scsi_transport_spi.h/1.2/Fri Apr 23 15:54:22 2004/-ko/Tlinux_2_6_8_1
+/scsicam.h/1.5/Sat Nov  2 20:02:05 2002/-ko/Tlinux_2_6_8_1
+/sg.h/1.25/Fri Aug 13 07:18:56 2004/-ko/Tlinux_2_6_8_1
+D

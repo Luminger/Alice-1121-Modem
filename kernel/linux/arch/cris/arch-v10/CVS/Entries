@@ -1,0 +1,10 @@
+/Kconfig/1.1/Fri Jul 11 02:13:09 2003/-ko/Tlinux_2_6_8_1
+/README.mm/1.1/Fri Jul 11 02:13:09 2003/-ko/Tlinux_2_6_8_1
+/defconfig/1.4/Sat Aug 14 16:16:40 2004/-ko/Tlinux_2_6_8_1
+/output_arch.ld/1.1/Fri Jul 11 02:13:09 2003/-ko/Tlinux_2_6_8_1
+/vmlinux.lds.S/1.2/Fri Apr 23 15:54:06 2004/-ko/Tlinux_2_6_8_1
+D/boot////
+D/drivers////
+D/kernel////
+D/lib////
+D/mm////

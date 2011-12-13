@@ -1,0 +1,7 @@
+/.cvsignore/1.8/Fri Feb 20 17:35:33 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.7/Mon Jun 23 01:23:05 2003/-ko/Tlinux_2_6_8_1
+/divert_init.c/1.7/Tue Jun  3 14:26:40 2003/-ko/Tlinux_2_6_8_1
+/divert_procfs.c/1.22/Fri Aug 13 07:18:54 2004/-ko/Tlinux_2_6_8_1
+/isdn_divert.c/1.8/Mon Nov  5 20:15:38 2001/-ko/Tlinux_2_6_8_1
+/isdn_divert.h/1.5/Mon Nov  5 20:15:38 2001/-ko/Tlinux_2_6_8_1
+D

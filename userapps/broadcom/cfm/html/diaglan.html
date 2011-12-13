@@ -1,0 +1,56 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+          <script language="javascript" src="portName.js"></script>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+   </head>
+   <body>
+      <blockquote>
+         <form>
+            <b>Diagnostics</b><br>
+            <P>Your modem is capable of testing your DSL connection. The individual tests are
+               listed below. If a test displays a fail status, click &quot;Rerun Diagnostic
+               Tests&quot; at the bottom of this page to make sure the fail status is
+               consistent. If the test continues to fail, click &quot;Help&quot; and follow
+               the troubleshooting procedures.
+            </P>
+            <P><B>Test the connection to your local network</B>
+               <TABLE border="1" cellspacing="0" cellpadding="3">
+                  <TBODY>
+                     <%ejGet(enetDiag)%>                  
+                     <script language="javascript">
+<!-- hide
+if ('<%ejGet(enblUsb)%>' == '1') {
+   document.writeln("<TR><TD class='hd'>Test your USB Connection: </TD>");
+   document.writeln("<TD><B><%ejGetOther(diagnostic, 13)%></B>&nbsp;</TD>");
+}
+if ('<%ejGet(enblWireless)%>' == '1') {
+   document.writeln("<TR><TD class='hd'>Test your Wireless Connection: </TD>");
+   document.writeln("<TD><B><%ejGetOther(diagnostic, 17)%></B>&nbsp;</TD>");
+}
+
+if ('<%ejGetOther(sysInfo, numWlAdaptor)%>'== '2') {
+   document.writeln("<TR><TD class='hd'>Test your Wireless1 Connection: </TD>");
+   document.writeln("<TD><B><%ejGetOther(diagnostic, 19)%></B>&nbsp;</TD>");
+}
+
+// done hiding -->
+</script>
+                  </TBODY></TABLE>
+            <P><B>Test the connection to your DSL service provider</B>
+               <TABLE border="1" cellspacing="0" cellpadding="3">
+                  <TBODY>
+                     <TR>
+                        <TD class='hd' width="250">Test ADSL Synchronization:
+                        </TD>
+                        <TD width="50"><B><%ejGetOther(diagnostic, 2)%></B>&nbsp;</TD>
+                     </TR>
+                  </TBODY></TABLE>
+            <P>
+               <CENTER><br>
+                  <input type='button' onClick='location.href="diag.html"' value='Rerun Diagnostic Tests'>
+         </form>
+      </blockquote>
+   </body>
+</html>

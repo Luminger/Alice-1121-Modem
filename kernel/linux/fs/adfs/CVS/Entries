@@ -1,0 +1,13 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:29 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.6/Mon Jun  2 10:48:42 2003/-ko/Tlinux_2_6_8_1
+/adfs.h/1.13/Thu Mar 11 16:46:55 2004/-ko/Tlinux_2_6_8_1
+/dir.c/1.25/Tue Sep  9 16:41:04 2003/-ko/Tlinux_2_6_8_1
+/dir_f.c/1.11/Tue Sep  9 16:41:04 2003/-ko/Tlinux_2_6_8_1
+/dir_f.h/1.2/Thu Oct  5 01:19:00 2000/-ko/Tlinux_2_6_8_1
+/dir_fplus.c/1.10/Tue Sep  9 16:41:04 2003/-ko/Tlinux_2_6_8_1
+/dir_fplus.h/1.2/Thu Oct  5 01:19:00 2000/-ko/Tlinux_2_6_8_1
+/file.c/1.18/Tue Sep  9 16:41:04 2003/-ko/Tlinux_2_6_8_1
+/inode.c/1.33/Tue Sep  9 16:41:04 2003/-ko/Tlinux_2_6_8_1
+/map.c/1.11/Tue Sep  9 16:41:04 2003/-ko/Tlinux_2_6_8_1
+/super.c/1.34/Fri Apr 23 15:54:18 2004/-ko/Tlinux_2_6_8_1
+D

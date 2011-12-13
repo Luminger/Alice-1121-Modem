@@ -1,0 +1,12 @@
+/.cvsignore/1.8/Fri Feb 20 17:35:29 2004/-ko/Tlinux_2_6_8_1
+/Changes/1.12/Thu Jun  5 00:04:36 2003/-ko/Tlinux_2_6_8_1
+/Makefile/1.7/Mon Jun  2 10:48:42 2003/-ko/Tlinux_2_6_8_1
+/amigaffs.c/1.16/Sat Jun 26 15:15:21 2004/-ko/Tlinux_2_6_8_1
+/bitmap.c/1.16/Sat Jun 26 15:15:21 2004/-ko/Tlinux_2_6_8_1
+/dir.c/1.25/Thu Jun  5 00:04:36 2003/-ko/Tlinux_2_6_8_1
+/file.c/1.45/Thu Oct  9 13:09:33 2003/-ko/Tlinux_2_6_8_1
+/inode.c/1.36/Mon Jun 28 21:04:15 2004/-ko/Tlinux_2_6_8_1
+/namei.c/1.32/Fri Jul 11 02:13:13 2003/-ko/Tlinux_2_6_8_1
+/super.c/1.38/Sat Jun 26 15:15:21 2004/-ko/Tlinux_2_6_8_1
+/symlink.c/1.20/Sat Jun 26 15:15:21 2004/-ko/Tlinux_2_6_8_1
+D

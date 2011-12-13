@@ -1,0 +1,15 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:40 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.3/Fri Aug  6 00:33:34 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.5/Mon Jun  2 10:48:46 2003/-ko/Tlinux_2_6_8_1
+/awacs.c/1.8/Fri Aug 15 15:14:42 2003/-ko/Tlinux_2_6_8_1
+/awacs.h/1.2/Tue Oct 29 05:07:17 2002/-ko/Tlinux_2_6_8_1
+/burgundy.c/1.5/Fri Aug 15 15:14:42 2003/-ko/Tlinux_2_6_8_1
+/burgundy.h/1.1/Mon Jul 22 07:27:43 2002/-ko/Tlinux_2_6_8_1
+/daca.c/1.6/Thu Feb 19 03:06:39 2004/-ko/Tlinux_2_6_8_1
+/keywest.c/1.9/Sun Jun  6 02:13:01 2004/-ko/Tlinux_2_6_8_1
+/pmac.c/1.15/Fri Aug  6 00:33:34 2004/-ko/Tlinux_2_6_8_1
+/pmac.h/1.7/Sun Jun  6 02:13:01 2004/-ko/Tlinux_2_6_8_1
+/powermac.c/1.10/Sun Jun  6 02:13:01 2004/-ko/Tlinux_2_6_8_1
+/tumbler.c/1.12/Sun Jun  6 02:13:01 2004/-ko/Tlinux_2_6_8_1
+/tumbler_volume.h/1.2/Fri Nov  1 22:08:38 2002/-ko/Tlinux_2_6_8_1
+D

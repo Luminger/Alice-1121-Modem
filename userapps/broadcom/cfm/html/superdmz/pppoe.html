@@ -1,0 +1,514 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+var timeOut = '<%ejGet(pppTimeOut)%>';
+var onDemand = '<%ejGet(enblOnDemand)%>';
+var ipExtension = '<%ejGet(pppIpExtension)%>';
+var authMethod = '<%ejGet(pppAuthMethod)%>';
+var qs = '<%ejGet(quickSetup)%>';
+var auto = '<%ejGet(enblAutoScan)%>';
+var prtcl = '<%ejGetOther(memInfo, ntwkPrtcl)%>';
+var enblSuperDmz = '<%ejGet(enableSuperDmz)%>';
+var nonDmzIpAddr = '<%ejGet(nonDmzIpAddress)%>';
+var nonDmzIpMsk = '<%ejGet(nonDmzIpMask)%>';
+var enblIpAddr = '<%ejGet(useStaticIpAddress)%>';
+var localIpAddr = '<%ejGet(pppLocalIpAddress)%>';
+var pppDebug = '<%ejGet(enblPppDebug)%>';
+var pppShowAuthErrorRetry = '<%ejGet(pppShowAuthErrorRetry)%>';
+var pppAuthErrorRetry = '<%ejGet(pppAuthErrorRetry)%>';
+var enetWan = parseInt('<%ejGet(enblEnetWan)%>');
+var ppptobr = '<%ejGet(pppToBridge)%>';
+var manualConnect = '<%ejGet(enblManualConnect)%>';  //DARE MANUAL PPP
+
+function frmLoad() {
+   with ( document.forms[0] ) {
+      if (qs == '1')
+         showPppoe(auto);
+      else
+         showPppoe(0);
+      if ( onDemand == '1' )
+         enblOnDemand.checked = true;
+      else
+         enblOnDemand.checked = false;
+//DARE MANUAL PPP
+      if ( manualConnect == '1')
+      {
+         enblManual.checked = true;
+      }
+      else
+      {
+         enblManual.checked = false;
+      }
+//DARE MANUAL PPP      
+      if ( enblIpAddr == '1' )
+         enblPppIpAddress.checked = true;
+      else
+         enblPppIpAddress.checked = false;
+      if ( ipExtension == '1' )
+         pppIpExtension.checked = true;
+      else
+         pppIpExtension.checked = false;
+      if ( enblSuperDmz == '1' )
+         enableSuperDmz.checked = true;
+      else
+         enableSuperDmz.checked = false;
+      if ( authMethod == '1' )
+         pppAuthMethod.selectedIndex = 2;
+      else if ( authMethod == '2' )
+         pppAuthMethod.selectedIndex = 3;
+      else if ( authMethod == '3' )
+         pppAuthMethod.selectedIndex = 4;
+      else
+         pppAuthMethod.selectedIndex = 1;
+
+      pppUserName.value = '<%ejGet(pppUserName)%>';
+      pppPassword.value = '<%ejGet(pppPassword)%>';
+      pppTimeOut.value = timeOut;
+      nonDmzIpAddress.value = nonDmzIpAddr;
+      nonDmzIpMask.value = nonDmzIpMsk;
+      pppLocalIpAddress.value = localIpAddr;
+      if ( prtcl == 'PPPoE' && !(auto == '1' && qs == '1') )
+         pppServerName.value = '<%ejGet(pppServerName)%>';
+
+      if ( pppShowAuthErrorRetry == '1' )
+         hidePppAuthErrorRetry(0);
+      else
+         hidePppAuthErrorRetry(1);
+
+      if ( pppAuthErrorRetry == '1' )
+         authErrorRetry.checked = true;
+      else
+         authErrorRetry.checked = false;
+
+      if ( pppDebug == '1' )
+         enblPppDebug.checked = true;
+      else
+         enblPppDebug.checked = false;
+      
+      if (prtcl == 'PPPoE') {
+	     setCheck(pppToBridge, ppptobr);
+	  }   
+	  else {
+	     setCheck(pppToBridge, 0);
+	  }
+      pppIpExtChange(pppIpExtension);
+   }
+}
+
+function btnNext() {
+   var loc = 'enblservice.cgi?';
+
+   with ( document.forms[0] ) {
+      // validate user name
+      var len = pppUserName.value.length;
+      if ( len > 256 ) {
+         msg = 'The length of user name (' + len + ') is too long [0-256].';
+         alert(msg);
+         return;
+      }
+      // validate password
+      len = pppPassword.value.length;
+      if ( len > 32 ) {
+         msg = 'The length of password (' + len + ') is too long [0-32].';
+         alert(msg);
+         return;
+      }
+      // validate inactivity timeout
+      if ( enblOnDemand.checked == true ) {
+         if ( isNaN(parseInt(pppTimeOut.value)) == true ) {
+            msg = 'Inactivity Timeout "' + pppTimeOut.value + '" is invalid.';
+            alert(msg);
+            return;
+         }
+         timeOutNum = parseInt(pppTimeOut.value);
+         if ( timeOutNum < 1 || timeOutNum > 4320 ) {
+            msg = 'Inactivity Timeout "' + pppTimeOut.value + '" is out of range [1-4320].';
+            alert(msg);
+            return;
+         }
+      }
+      // validate ppp IP address
+      if ( enblPppIpAddress.checked == true ) {
+         if ( isValidIpAddress(pppLocalIpAddress.value) == false ) {
+            alert('Address "' + pppLocalIpAddress.value + '" is invalid IP address.');
+            return;
+         }
+      }
+      // validate non DMZ IP address and Netmask
+      if ( enableSuperDmz.checked == true ) {
+         if ( isValidIpAddress(nonDmzIpAddress.value) == false ) {
+            alert('Address "' + nonDmzIpAddress.value + '" is invalid IP address.');
+            return;
+         }
+         if ( isValidIpAddress(nonDmzIpMask.value) == false ) {
+            alert('Address "' + nonDmzIpMask.value + '" is invalid Netmask.');
+            return;
+         }
+      }
+      // validate authentication method
+      if ( pppAuthMethod.selectedIndex == 0 ) {
+         msg = 'No selection for authentication method.';
+         alert(msg);
+         return;
+      }
+      // validate server name
+      if ( prtcl == 'PPPoE' && !(auto == '1' && qs == '1') ) {
+         len = pppServerName.value.length;
+         if ( len > 32 ) {
+            msg = 'The length of PPP service (' + len + ') is too long [0-32].';
+            alert(msg);
+            return;
+         }
+      }
+
+      if ( qs == '1' ) {
+         if ( auto == '1' )
+            loc = 'pppauthinfo.cgi?';
+      } else
+         loc = 'enblservice.cgi?';
+
+      loc += 'pppUserName=' + encodeUrl(pppUserName.value);
+      loc += '&pppPassword=' + encodeUrl(pppPassword.value);
+      if ( enblOnDemand.checked == true ) {
+         loc += '&enblOnDemand=1';
+         loc += '&pppTimeOut=' + timeOutNum;
+      } else {
+         loc += '&enblOnDemand=0';
+         loc += '&pppTimeOut=' + timeOut;
+      }
+//DARE MANUAL PPP
+      if ( enblManual.checked == true ) {
+         loc += '&enblManualConnect=1';
+      } else {
+         loc += '&enblManualConnect=0';
+      }
+//DARE MANUAL PPP
+      if ( enblPppIpAddress.checked == true ) {
+         loc += '&useStaticIpAddress=1';
+         loc += '&pppLocalIpAddress=' + pppLocalIpAddress.value;
+      } else {
+         loc += '&useStaticIpAddress=0';
+         loc += '&pppLocalIpAddress=' + localIpAddr;
+      }
+      if ( pppIpExtension.checked == true ) {
+         loc += '&pppIpExtension=1&enblNat=0&enblFirewall=0';
+         if ( enableSuperDmz.checked == true ) {
+            loc += '&enableSuperDmz=1';
+            loc += '&nonDmzIpAddress=' + nonDmzIpAddress.value;
+            loc += '&nonDmzIpMask=' + nonDmzIpMask.value;
+         } else {
+            loc += '&enableSuperDmz=0';
+            loc += '&nonDmzIpAddress=' + nonDmzIpAddr;
+            loc += '&nonDmzIpMask=' + nonDmzIpMsk;
+         }
+      } else {
+         loc += '&pppIpExtension=0&enblFirewall=1&enblNat=1';
+         loc += '&enableSuperDmz=0';
+         loc += '&nonDmzIpAddress=' + nonDmzIpAddr;
+         loc += '&nonDmzIpMask=' + nonDmzIpMsk;
+      }
+
+      var idx = pppAuthMethod.selectedIndex;
+      loc += '&pppAuthMethod=' + pppAuthMethod.options[idx].value;
+      if ( prtcl == 'PPPoE' && !(auto == '1' && qs == '1') )
+         loc += '&pppServerName=' + encodeUrl(pppServerName.value);
+
+      if ( authErrorRetry.checked == true )
+         loc += '&pppAuthErrorRetry=1';
+      else
+         loc += '&pppAuthErrorRetry=0';
+
+      if ( enblPppDebug.checked == true )
+         loc += '&enblPppDebug=1';
+      else
+         loc += '&enblPppDebug=0';
+         
+      loc += submitCheck(pppToBridge);
+   }
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function btnBack() {
+   var loc = 'ntwkprtcl.html';
+   if ( qs == '1' && auto == '1' )
+      loc = 'vpivci.html';
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+
+function showPppoe(show) {
+   var status = 'visible';
+   if ( show == 0 )
+      status = 'hidden';
+   if (document.getElementById)  // DOM3 = IE5, NS6
+      document.getElementById('pppoeSN').style.visibility = status;
+   else
+      document.all.pppoeSN.style.visibility = status;
+}
+
+function hideOnDemandInfo(hide) {
+   var status = 'visible';
+   if ( hide == 1 )
+      status = 'hidden';
+   if (document.getElementById)  // DOM3 = IE5, NS6
+      document.getElementById('pppInfo').style.visibility = status;
+   else {
+      if (document.layers) { // Netscape 4
+         if ( hide == 1 )
+            document.forms[0].pppTimeOut.value = '';
+         else
+            document.forms[0].pppTimeOut.value = '<%ejGet(pppTimeOut)%>';
+      } else  // IE 4
+         document.all.pppInfo.style.visibility = status;
+   }
+}
+
+//DARE MANUAL PPP
+function dialManualClick(cb) {
+   if ( cb.checked == true )
+   {
+      hideOnDemandInfo(1);
+      with ( document.forms[0] ) {
+         enblOnDemand.checked = false;
+      }
+   }
+}
+
+function dialOnDemandClick(cb) {
+   if ( cb.checked == true )
+   {
+      hideOnDemandInfo(0);
+      with ( document.forms[0] ) {
+         enblManual.checked = false;
+      }
+   }
+   else
+   {
+      hideOnDemandInfo(1);
+   }
+}
+
+function superDmzClick(cb) {
+   with ( document.forms[0] ) {
+     setDisable(nonDmzIpAddress, cb.checked != true);
+     setDisable(nonDmzIpMask, cb.checked != true);
+   }
+}
+
+function hidePppIpAddressInfo(hide) {
+   var status = 'visible';
+   if ( hide == 1 )
+      status = 'hidden';
+   if (document.getElementById)  // DOM3 = IE5, NS6
+      document.getElementById('pppIpAddressInfo').style.visibility = status;
+   else {
+      if (document.layers) { // Netscape 4
+         if ( hide == 1 )
+            document.forms[0].pppLocalIpAddress.value = '';
+         else
+            document.forms[0].pppLocalIpAddress.value = '<%ejGet(pppLocalIpAddress)%>';
+      } else  // IE 4
+         document.all.pppIpAddressInfo.style.visibility = status;
+   }
+}
+
+function pppIpAddressClick(cb) {
+   if ( cb.checked == true )
+      hidePppIpAddressInfo(0);
+   else
+      hidePppIpAddressInfo(1);
+}
+
+function hidePppAuthErrorRetry(hide) {
+   var status = 'visible';
+
+   if ( hide == 1 )
+      status = 'hidden';
+   if (document.getElementById)  // DOM3 = IE5, NS6
+      document.getElementById('pppAuthErrorInfo').style.visibility = status;
+   else {
+      if (document.layers == false) // IE4
+         document.all.pppAuthErrorInfo.style.visibility = status;
+   }
+}
+
+function pppIpExtChange(item) {
+        if ( item.checked == true ) {
+            with ( document.forms[0] ) {
+              setDisable(enableSuperDmz, 0);
+              setDisable(nonDmzIpAddress, enableSuperDmz.checked != true);
+              setDisable(nonDmzIpMask, enableSuperDmz.checked != true);
+            }
+        } else {
+            with ( document.forms[0] ) {
+              setDisable(enableSuperDmz,1);
+              setDisable(nonDmzIpAddress,1);
+              setDisable(nonDmzIpMask,1);
+            }
+        }
+
+	if (enetWan == '1' || prtcl != 'PPPoE' || item.checked == true) {
+	    showhide("divPppToBridge", 0);
+	}
+	else {
+	    showhide("divPppToBridge", 1);
+	}
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <b>PPP Username and Password</b><br>
+            <br>
+            PPP usually requires that you have a user name and password to establish your 
+            connection. In the boxes below, enter the user name and password that your ISP 
+            has provided to you.<br>
+            <br>
+            <div id='pppoeSN'>
+               <table border="0" cellpadding="0" cellspacing="0">
+                  <tr>
+                     <td width="150">PPPoE Service Name:</td>
+                     <td>
+                        <b><%ejGetOther(memInfo, pppoeServiceName)%></b>
+                     </td>
+                  </tr>
+                  <br>
+               </table>
+            </div>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td>PPP Username:&nbsp;&nbsp;</td>
+                  <td><input type='text' name='pppUserName'></td>
+               </tr>
+               <tr>
+                  <td>PPP Password:&nbsp;&nbsp;</td>
+                  <td><input type='password' name='pppPassword'></td>
+               </tr>
+<script language="javascript">
+<!-- hide
+if ( prtcl == 'PPPoE' && !(auto == '1' && qs == '1') ) {
+   document.writeln("               </tr>");
+   document.writeln("                  <td>PPPoE Service Name:&nbsp;&nbsp;</td>");
+   document.writeln("                  <td><input type='text' name='pppServerName'></td>");
+   document.writeln("               </tr>");
+}
+// done hiding -->
+</script>
+               <tr>
+                  <td>Authentication Method:&nbsp;&nbsp;</td>
+                  <td><select name='pppAuthMethod' size="1">
+                        <option value="-1">
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp
+                        <option value="0">AUTO
+                        <option value="1">PAP
+                        <option value="2">CHAP
+                        <option value="3">MSCHAP
+                     </select></td>
+               </tr>
+            </table>
+              <br>
+<!--DARE MANUAL PPP-->
+              <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width='30' height="30"><input type='checkbox' name='enblManual'></td>
+                  <td>Manual connect</td>
+                </tr>
+              </table>
+<!--DARE MANUAL PPP-->
+              <table border="0" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td width='30' height="30"><input type='checkbox' name='enblOnDemand' onClick='dialOnDemandClick(this)'></td>
+                  <td>Dial on demand (with idle timeout timer)</td>
+                </tr>
+              </table>
+            <div id='pppInfo'>
+            <table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td>Inactivity Timeout (minutes) [1-4320]:&nbsp;&nbsp;</td>
+                <td><input type='text' name='pppTimeOut'></td>
+              </tr>
+            </table>
+            <br>
+            </div>
+            <table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width='30' height="30"><input type='checkbox' name='pppIpExtension' onClick='pppIpExtChange(this)'></td>
+                <td>PPP IP extension</td>
+              </tr>
+            </table>
+            <div id='superDmzInfo'>
+            <table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width='30' height="30"><input type='checkbox' name='enableSuperDmz' onClick='superDmzClick(this)'></td>
+                <td>Advanced DMZ</td>
+              </tr>
+            </table>
+            </div>
+            <div id='nonDmzIpAddressInfo'>
+            <table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width="140">Non DMZ IP Address:&nbsp;&nbsp;</td>
+                <td><input type='text' name='nonDmzIpAddress'></td>
+              </tr>
+              <tr>
+                <td width="140">Non DMZ Net Mask:&nbsp;&nbsp;</td>
+                <td><input type='text' name='nonDmzIpMask'></td>
+              </tr>
+            </table>
+            <br>
+            </div>
+            <table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width='30' height="30"><input type='checkbox' name='enblPppIpAddress' onClick='pppIpAddressClick(this)'></td>
+                <td>Use Static IP Address</td>
+              </tr>
+            </table>
+            <div id='pppIpAddressInfo'>
+              <table border="0" cellpadding="0" cellspacing="0"">
+              <tr>
+                <td width="140">IP Address:&nbsp;&nbsp;</td>
+                <td><input type='text' name='pppLocalIpAddress'></td>
+              </tr>
+            </table>
+            <br>
+            </div>
+            <div id='pppAuthErrorInfo'>
+            <table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width='30' height="30"><input type='checkbox' name='authErrorRetry'></td>
+                <td>Retry PPP password on authentication error</td>
+              </tr>
+            </table>
+            </div>
+            <table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width='30' height="30"><input type='checkbox' name='enblPppDebug'></td>
+                <td>Enable PPP Debug Mode</td>
+              </tr>
+            </table>
+            <div id = 'divPppToBridge'><table border="0" cellpadding="0" cellspacing="0">
+              <tr>
+                <td width='30' height="30"><input type='checkbox' name='pppToBridge'></td>
+                <td>Bridge PPPoE Frames Between WAN and Local Ports (Default Enabled)</td>
+              </tr>
+            </table></div>
+            <br>
+            <br>
+            <center>
+               <input type='button' onClick='btnBack()' value='Back'> <input type='button' onClick='btnNext()' value='Next'>
+            </center>
+         </form>
+      </blockquote>
+   </body>
+</html>

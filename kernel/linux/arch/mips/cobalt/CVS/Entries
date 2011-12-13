@@ -1,0 +1,8 @@
+/.cvsignore/1.9/Fri Feb 20 17:35:27 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.10/Thu Nov 13 14:30:45 2003/-ko/Tlinux_2_6_8_1
+/int-handler.S/1.10/Thu Nov 13 14:30:45 2003/-ko/Tlinux_2_6_8_1
+/irq.c/1.10/Fri Aug 20 09:19:01 2004/-ko/Tlinux_2_6_8_1
+/promcon.c/1.7/Mon Nov 10 18:15:07 2003/-ko/Tlinux_2_6_8_1
+/reset.c/1.9/Mon Dec  2 00:27:43 2002/-ko/Tlinux_2_6_8_1
+/setup.c/1.19/Wed Jan 28 22:16:39 2004/-ko/Tlinux_2_6_8_1
+D

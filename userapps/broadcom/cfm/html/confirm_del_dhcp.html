@@ -1,0 +1,35 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+<title>ADSL Router</title>
+<script language="JavaScript">
+var sURL = new String(window.location);
+var QMark= sURL.lastIndexOf('#');
+var lst=sURL.substring(QMark+1,sURL.length);
+var link="viewdhcplist.cmd?action=del&bindid="+lst;
+
+function change()
+{
+        //window.opener.location.assign(link);
+        var code = 'window.opener.location.href="/'; // for Mac safari browser compatibility
+        code += link + '"';
+        eval(code);
+        self.close();
+}
+</script>
+</head>
+
+<body bgcolor="#D8D8D8">
+<center><FONT face="Arial, Helvetica, sans-serif" size=2><br>Are you sure to delete this entry?</FONT><p>
+<form>
+<input type="button" value=" YES " onClick="change()">
+<input id="cancel" type="button" value=" NO " onClick="self.close()">&nbsp;&nbsp;
+<script language="JavaScript">
+document.getElementById('cancel').focus();
+</script>
+</form>
+
+</body>
+</html>

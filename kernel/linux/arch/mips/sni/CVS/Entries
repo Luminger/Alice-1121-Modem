@@ -1,0 +1,8 @@
+/.cvsignore/1.8/Fri Feb 20 17:35:28 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.15/Wed Nov 12 01:26:10 2003/-ko/Tlinux_2_6_8_1
+/int-handler.S/1.9/Tue Nov  4 00:18:22 2003/-ko/Tlinux_2_6_8_1
+/irq.c/1.10/Fri Aug 20 09:19:02 2004/-ko/Tlinux_2_6_8_1
+/pcimt_scache.c/1.8/Thu Sep  6 13:12:02 2001/-ko/Tlinux_2_6_8_1
+/reset.c/1.2/Mon Nov  4 01:48:30 2002/-ko/Tlinux_2_6_8_1
+/setup.c/1.50/Thu Jan 22 22:04:05 2004/-ko/Tlinux_2_6_8_1
+D

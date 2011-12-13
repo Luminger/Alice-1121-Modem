@@ -1,0 +1,67 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+
+function btnClear() {
+   with ( document.forms[0] ) {
+      dstAddr.value = '';
+      dstMask.value = '';
+   }
+}
+
+function btnApply() {
+   var loc = 'routeremove.cmd?';
+
+   with ( document.forms[0] ) {
+      if ( isValidIpAddress(dstAddr.value) == false ) {
+         msg = 'Destination "' + dstAddr.value + '" has invalid IP address.';
+         alert(msg);
+         return;
+      }
+      if ( isValidIpAddress(dstMask.value) == false ) {
+         msg = 'Subnet mask "' + dstMask.value + '" has invalid IP address.';
+         alert(msg);
+         return;
+      }
+      loc += 'dstAddr=' + dstAddr.value;
+      loc += '&dstMask=' + dstMask.value;
+   }
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body>
+      <blockquote>
+         <form>
+            <b>Routing -- Static Route Remove</b><br>
+            <br>
+            Enter the destination network address, subnet mask and click "Apply" to remove 
+            the entry from the routing table.<br>
+            <br>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td width="180">Destination Network Address:</td>
+                  <td><input type='text' name='dstAddr'></td>
+               </tr>
+               <tr>
+                  <td>Subnet Mask:</td>
+                  <td><input type='text' name='dstMask'></td>
+               </tr>
+            </table>
+            <br>
+            <center>
+               <input type='button' onClick='btnApply()' value='Save/Apply'>
+            </center>
+         </form>
+      </blockquote>
+   </body>
+</html>

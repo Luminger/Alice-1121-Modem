@@ -1,0 +1,217 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+var prtcl = '<%ejGetOther(memInfo, ntwkPrtcl)%>';
+var service = '<%ejGet(serviceName)%>';
+var port = '<%ejGet(portId)%>';
+var vpi = '<%ejGet(atmVpi)%>';
+var vci = '<%ejGet(atmVci)%>';
+var qs = '<%ejGet(quickSetup)%>';
+
+function frmLoad() {
+   var nat = '<%ejGet(enblNat)%>';
+   var fullcone = '<%ejGet(enblFullcone)%>';
+   var firewall = '<%ejGet(enblFirewall)%>';
+   var enableService = '<%ejGet(enblService)%>';
+   var enableIgmp = '<%ejGet(enblIgmp)%>';
+
+   if ( service == '' ) {
+      switch ( prtcl ) {
+         case 'PPPoE':
+						service = 'pppoe_' + port + '_' + vpi + '_' + vci;
+            break;
+         case 'PPPoA':
+            service = 'pppoa_' + port + '_' + vpi + '_' + vci;
+            break;
+         case 'MER':
+            service = 'mer_' + port + '_' + vpi + '_' + vci;
+            break;
+         case 'IPoA':
+            service = 'ipoa_' + port + '_' + vpi + '_' + vci;
+            break;
+         case 'Bridge':
+            service = 'br_' + port + '_' + vpi + '_' + vci;
+            break;
+         case 'IPoW':
+            service = 'eth_' + vpi;
+            break;
+      }
+   }
+
+   with ( document.forms[0] ) {
+      if ( nat == '1' ) {
+         enblNat.checked = true;
+       //  hideFullconeNat(0);  zcy delete it
+      }
+      else {
+         enblNat.checked = false;
+       //  hideFullconeNat(1);   zcy delete it
+      }
+      /*zcy delete it
+      if ( fullcone == '1' )
+         enblFullcone.checked = true;
+      else
+         enblFullcone.checked = false;
+         */
+      if ( firewall == '1' )
+         enblFirewall.checked = true;
+      else
+         enblFirewall.checked = false;
+      if ( enableService == '1' )
+         enblService.checked = true;
+      else
+         enblService.checked = false;
+      if ( enableIgmp == '1' )
+         enblIgmp.checked = true;
+      else
+         enblIgmp.checked = false;
+      serviceName.value = service;
+   }
+}
+
+function btnNext() {
+   var loc = 'ntwksum2.cgi?';
+
+   if ( qs == 1 )
+      loc = 'lancfg.cgi?';
+
+   with ( document.forms[0] ) {
+      if (serviceName.value == '' ) {
+         alert('Please enter service name.');
+         return;
+      }
+      len = serviceName.value.length;
+      if ( len > 32 ) {
+         alert('The length of service name (' + len + ') is too long [0-32].');
+         return;
+      }
+      if ( enblNat.checked == true )
+         loc += 'enblNat=1';
+      else
+         loc += 'enblNat=0';
+         /* zcy delete it
+      if ( enblFullcone.checked == true )
+         loc += '&enblFullcone=1';
+      else
+         loc += '&enblFullcone=0';
+         */
+      if ( enblFirewall.checked == true )
+         loc += '&enblFirewall=1';
+      else
+         loc += '&enblFirewall=0';
+      if ( enblService.checked == true )
+         loc += '&enblService=1';
+      else
+         loc += '&enblService=0';
+      if ( enblIgmp.checked == true )
+         loc += '&enblIgmp=1';
+      else
+         loc += '&enblIgmp=0';
+
+      loc += '&serviceName=' + encodeUrl(serviceName.value);
+   }
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function btnBack() {
+   var loc;
+
+   if ( prtcl == 'IPoA' )
+      loc = 'ipoacfg.html';
+   else
+      loc = 'wancfg.html';
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function hideFullconeNat(hide) {
+   var status = 'visible';
+   if ( hide == 1 )
+      status = 'hidden';
+   if (document.getElementById)  // DOM3 = IE5, NS6
+      document.getElementById('fullconeNatInfo').style.visibility = status;
+   else {
+      if (document.layers) { // Netscape 4
+         if ( hide == 1 )
+            document.forms[0].enblFullcone.value = '';
+         else
+            document.forms[0].enblFullcone.value = '<%ejGet(enblFullcone)%>';
+      } else  // IE 4
+         document.all.fullconeNatInfo.style.visibility = status;
+   }
+}
+
+function natClick(cb) {
+ /*  zcy delete it 
+   if ( cb.checked == true )
+      hideFullconeNat(0);
+   else
+      hideFullconeNat(1);
+      */
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <b>Network Address Translation Settings</b>
+            <br><br>
+            Network Address Translation (NAT) allows you to share one Wide Area Network
+            (WAN) IP address for multiple computers on your Local Area Network (LAN).
+            <br><br>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td>Enable NAT</td>
+                  <td width='30' height="30"><input type='checkbox' name='enblNat' onClick='natClick(this)'></td>
+               </tr>
+            </table>
+            <!-- zcy delete it-->
+            <!--div id='fullconeNatInfo'>   
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td>Enable Fullcone NAT</td>
+                  <td width='30' height="30"><input type='checkbox' name='enblFullcone'></td>
+               </tr>
+            </table>
+            </div-->
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td>Enable Firewall</td>
+                  <td width='30' height="30"><input type='checkbox' name='enblFirewall'></td>
+               </tr>
+            </table>
+            <br><br>
+            <b>Enable IGMP Multicast, and WAN Service</b>
+            <br><br>
+            <table border="0" cellpadding="4" cellspacing="0">
+               <tr>
+                  <td>Enable IGMP Multicast</td>
+                  <td width='30' height="30"><input type='checkbox' name='enblIgmp' checked></td>
+               </tr>
+               <tr>
+                  <td>Enable WAN Service</td>
+                  <td width='30' height="30"><input type='checkbox' name='enblService' checked></td>
+               </tr>
+               <tr>
+                  <td>Service Name:</td>
+                  <td><input type="text" name="serviceName"></td>
+               </tr>
+            </table>
+            <br><br>
+            <center>
+               <input type='button' onClick='btnBack()' value='Back'> <input type='button' onClick='btnNext()' value='Next'>
+            </center>
+         </form>
+      </blockquote>
+   </body>
+</html>

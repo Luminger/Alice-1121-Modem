@@ -1,0 +1,65 @@
+<html>
+<head>
+
+<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+<link rel=stylesheet href='stylemain.css' type='text/css'>
+<link rel=stylesheet href='colors.css' type='text/css'>
+<script language="javascript">
+<!-- hide
+
+function frmLoad() {
+   with ( document.forms[0] ) {
+      pvc.selectedIndex = parseInt('<%ejGet(vccIdx)%>');
+   }
+}
+
+function btnNext() {
+   var loc = 'vpivci.cgi?';
+
+   with ( document.forms[0] ) {
+      var idx = pvc.selectedIndex;
+      loc += 'vccIdx=' + pvc.options[idx].value;
+   }
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function btnBack() {
+   var code = 'location="vpivci.html"';
+   eval(code);
+}
+
+// done hiding -->
+</script>
+</head>
+
+<body onLoad='frmLoad()'>
+<blockquote>
+<form>
+<b>PVC Index</b><br><br>
+Select PVC Index you want to configure.<br>
+<br>
+<table border="0" cellpadding="4" cellspacing="0">
+  <tr>
+    <td>PVC Index:</td>
+    <td><select name='pvc' size=1>
+      <option value=0>0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <option value=1>1
+      <option value=2>2
+      <option value=3>3
+      <option value=4>4
+      <option value=5>5
+      <option value=6>6
+      <option value=7>7
+    </select></td>
+  </tr>
+</table><br><br>
+<center>
+<input type='button' onClick='btnBack()' value='Back'>
+<input type='button' onClick='btnNext()' value='Next'>
+</center>
+</form>
+</blockquote>
+</body>
+</html>

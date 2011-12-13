@@ -1,0 +1,69 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+
+function frmLoad() {
+   var addr='';
+
+   with ( document.forms[0] ) {
+      IPAddr.value = addr;
+   }
+}
+
+function btnPing() {
+   var loc = 'pingtrace.cmd?action=ping&';
+   with ( document.forms[0] ) {
+      if ( IPAddr.value != '' &&
+           isValidIpAddress(IPAddr.value) == false ) {
+         alert('IP address "' + IPAddr.value + '" is invalid IP address.');
+         return;
+      }
+      loc += 'address=' + IPAddr.value;
+   }
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+function btnTrace() {
+   var loc = 'pingtrace.cmd?action=trace&start=1&';
+   with ( document.forms[0] ) {
+      if ( IPAddr.value != '' &&
+           isValidIpAddress(IPAddr.value) == false ) {
+         alert('IP address "' + IPAddr.value + '" is invalid IP address.');
+         return;
+      }
+      loc += 'address=' + IPAddr.value;
+   }
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+// done hiding -->
+</script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <b>Ping and Trace Route</b><br>
+            <br>
+            You can use ping and trace route in this page.<br>
+            <br>
+            Please input the IP address and click "Ping" or "Trace Route".<br>
+            <br>
+            <br>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td width="140">IP Address:</td>
+                  <td><input type='text' name='IPAddr'></td>
+               </tr>
+            </table>
+            <br>
+            <center><input type='button' onClick='btnPing()' value='Ping'>
+            	 &nbsp;<input type='button' onClick='btnTrace()' value='Trace Route'></center>
+         </form>
+      </blockquote>
+   </body>
+</html>

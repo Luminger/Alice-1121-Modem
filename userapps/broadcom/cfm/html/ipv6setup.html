@@ -1,0 +1,204 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+var enblIP6 = '<%ejGet(enblIPv6)%>';
+var enblDhcp6Client = '<%ejGetOther(sysInfo, enblDhcp6c)%>';
+var lanPrfx = '<%ejGetOther(sysInfo, lan6Prefix)%>';
+if ( lanPrfx == '&nbsp' )
+   lanPrfx = '';
+var dns1 = '<%ejGetOther(sysInfo, dns6Primary)%>';
+if ( dns1 == '&nbsp' )
+   dns1 = '';
+var dns2 = '<%ejGetOther(sysInfo, dns6Secondary)%>';
+if ( dns2 == '&nbsp' )
+   dns2 = '';
+
+function disableLan6PrefixInfo() {
+   with ( document.forms[0] ) {
+      lanPrefix.disabled = 1;
+      lanPrefix.value = '';
+   }
+}
+
+function enableLan6PrefixInfo() {
+   with ( document.forms[0] ) {
+      lanPrefix.disabled = 0;
+      lanPrefix.value = lanPrfx;
+   }
+}
+
+function disableDns6Info() {
+   with ( document.forms[0] ) {
+      dnsPrimary.disabled = 1;
+      dnsPrimary.value = '';
+      dnsSecondary.disabled = 1;
+      dnsSecondary.value = '';
+   }
+}
+
+function enableDns6Info() {
+   with ( document.forms[0] ) {
+      dnsPrimary.disabled = 0;
+      dnsPrimary.value = dns1;
+      dnsSecondary.disabled = 0;
+      dnsSecondary.value = dns2;
+   }
+}
+
+function dhcp6cClick(cb) {
+   with ( document.forms[0] ) {
+      if ( cb.checked == true ) {
+         disableLan6PrefixInfo();
+         disableDns6Info();
+      }
+      else {
+         enableLan6PrefixInfo();
+         enableDns6Info();
+      }
+   }
+}
+
+function hideDhcp6Info(hide) {
+   var status = 'visible';
+
+   if ( hide == 1 )
+      status = 'hidden';
+   if (document.getElementById)  // DOM3 = IE5, NS6
+      document.getElementById('dhcp6Info').style.visibility = status;
+   else {
+      if (document.layers == false) // IE4
+         document.all.gwInfo.style.visibility = status;
+   }
+
+   if (hide == 0) {
+      with ( document.forms[0] ) {
+         if (enblDhcp6Client == '1') {
+            enableDhcp6c.checked = true;
+            disableLan6PrefixInfo();
+            disableDns6Info();
+         }
+         else {
+            enableDhcp6c.checked = false;
+            enableLan6PrefixInfo();
+            enableDns6Info();
+         }
+      }
+   }
+}
+
+function ipv6Click(cb) {
+   if ( cb.checked == true ) {
+      hideDhcp6Info(0);
+   }
+   else {
+      hideDhcp6Info(1);
+   }
+}
+
+function btnApply() {
+   var loc = 'ipv6setup.cgi?';
+
+   with ( document.forms[0] ) {
+      if (enableIPv6.checked == false) {
+         loc += 'enblIPv6=0';
+      }
+      else {
+         loc += 'enblIPv6=1';
+         if (enableDhcp6c.checked == false) {
+            loc += '&enblDhcp6c=0';
+            if (lanPrefix.value != '' && isValidIpAddress6(lanPrefix.value) == false ) {
+               alert('IPv6 LAN Prefix "' + lanPrefix.value + '" is invalid address.');
+               return;
+            }
+            loc += '&lan6Prefix=' + lanPrefix.value;
+            if (dnsPrimary.value != '' && isValidIpAddress6(dnsPrimary.value) == false ) {
+               alert('IPv6 Primary DNS Server "' + dnsPrimary.value + '" is invalid address.');
+               return;
+            }
+            loc += '&dns6Primary=' + dnsPrimary.value;
+            if (dnsSecondary.value != '' && isValidIpAddress6(dnsSecondary.value) == false ) {
+               alert('IPv6 Secondary DNS Server "' + dnsSecondary.value + '" is invalid address.');
+               return;
+            }
+            loc += '&dns6Secondary=' + dnsSecondary.value;
+         }
+         else {
+            loc += '&enblDhcp6c=1';
+         }
+      }
+   }
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+
+function frmLoad() {
+   with ( document.forms[0] ) {
+      if ( enblIP6 == '1' ) {
+         enableIPv6.checked = true;
+         hideDhcp6Info(0);
+      } else {
+         enableIPv6.checked = false;
+         hideDhcp6Info(1);
+      }
+   }
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <P>
+               <b>IPv6 Setup</b><br><br>
+            </P>
+            <table border='0' cellpadding='0' cellspacing='0'>
+               <tr>
+                  <td valign='center' align='middle' colspan='2' width='30' height='30'>
+                     <input type='checkbox' name='enableIPv6' onClick='ipv6Click(this)'></td>
+                  <td colspan="2">Enable IPv6</td>
+               </tr>
+            </table><br>
+            <div id='dhcp6Info'>
+            <table border='0' cellpadding='0' cellspacing='0'>
+               <tr>
+                  <td valign='center' align='middle' colspan='2' width='30' height='30'>
+                     <input type='checkbox' name='enableDhcp6c' onClick='dhcp6cClick(this)'></td>
+                  <td colspan='2'>Enable DHCPv6 Client</td>
+               </tr>
+            </table><br>
+            <p>
+               If DHCPv6 Client is disabled, enter the 64-bit IPv6 address prefix for LAN,
+               and the IPv6 DNS server addresses. These information are used to auto-configure
+               LAN hosts by DHCPv6 server and RADVD daemon.
+            </p>
+            <table border='0' cellpadding='0' cellspacing='0'>
+               <tr>
+                  <td width='160'>LAN IPv6 Prefix/48:</td>
+                  <td><input type='text' name='lanPrefix'></td>
+               </tr>
+            </table><br>
+            <table border='0' cellpadding='0' cellspacing='0'>
+               <tr>
+                  <td width='160'>Primary IPv6 DNS server:</td>
+                  <td><input type='text' name='dnsPrimary'></td>
+               </tr>
+               <tr>
+                  <td>Secondary IPv6 DNS server:</td>
+                  <td><input type='text' name='dnsSecondary'></td>
+               </tr>
+            </table><br>
+            </div><br>
+            <center>
+               <input type='button' onClick='btnApply()' value='Save/Reboot'>
+            </center>
+         </form>
+      </blockquote>
+   </body>
+</html>

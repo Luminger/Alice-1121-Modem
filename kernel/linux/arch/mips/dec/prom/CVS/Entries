@@ -1,0 +1,11 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:27 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.12/Wed Feb 11 15:17:32 2004/-ko/Tlinux_2_6_8_1
+/call_o32.S/1.2/Tue Oct  1 15:03:26 2002/-ko/Tlinux_2_6_8_1
+/cmdline.c/1.8/Wed Feb 11 15:17:32 2004/-ko/Tlinux_2_6_8_1
+/console.c/1.2/Wed Feb 11 15:17:32 2004//Tlinux_2_6_8_1
+/dectypes.h/1.1/Sun Jan 17 03:49:44 1999/-ko/Tlinux_2_6_8_1
+/identify.c/1.16/Wed Feb 11 15:17:32 2004/-ko/Tlinux_2_6_8_1
+/init.c/1.14/Wed Feb 11 15:17:32 2004/-ko/Tlinux_2_6_8_1
+/locore.S/1.2/Tue Oct  1 15:03:26 2002/-ko/Tlinux_2_6_8_1
+/memory.c/1.14/Mon Nov  3 16:48:28 2003/-ko/Tlinux_2_6_8_1
+D

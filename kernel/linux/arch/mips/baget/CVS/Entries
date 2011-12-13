@@ -1,0 +1,13 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:27 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.13/Sun Jun 15 14:13:56 2003/-ko/Tlinux_2_6_8_1
+/baget.c/1.5/Mon Apr 19 16:36:35 2004/-ko/Tlinux_2_6_8_1
+/bagetIRQ.S/1.4/Tue Aug  6 00:08:53 2002/-ko/Tlinux_2_6_8_1
+/balo.c/1.4/Tue Aug  6 00:08:53 2002/-ko/Tlinux_2_6_8_1
+/balo_supp.S/1.4/Tue Aug  6 00:08:53 2002/-ko/Tlinux_2_6_8_1
+/irq.c/1.23/Fri Aug 20 11:29:06 2004/-ko/Tlinux_2_6_8_1
+/ld.script.balo/1.4/Sun Mar  9 13:56:54 2003/-ko/Tlinux_2_6_8_1
+/print.c/1.4/Tue Aug  6 00:08:54 2002/-ko/Tlinux_2_6_8_1
+/reset.c/1.1/Sun Jan 17 03:49:38 1999/-ko/Tlinux_2_6_8_1
+/setup.c/1.11/Fri Aug 20 11:29:06 2004/-ko/Tlinux_2_6_8_1
+/time.c/1.11/Sat Jun 26 15:15:10 2004/-ko/Tlinux_2_6_8_1
+D/prom////

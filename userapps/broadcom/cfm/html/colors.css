@@ -1,0 +1,65 @@
+body {
+    color: #5f5f5f;
+    background-color: #ffffff;
+    font-size: 12px;
+}
+td {
+    color: #5f5f5f;
+    background-color: #ffffff;
+    font-size: 12px;
+}
+td.menu {
+    background-color: #f3f3f3;
+    font-size: 13px;
+}
+td.hd {
+    color: #5f5f5f;
+    background-color: #e0e0e0;
+    font-size: 12px;
+}
+input {
+    color: #5f5f5f;
+    font-size: 12px;
+}
+.footerbody {
+    border-top: #C35822 1px solid;
+    border-bottom: #C35822 1px solid;
+    background: #82ABEB none;
+    font-size: 11px;
+}
+.footertd {
+    background-color: #C35822;
+    font-size: 11px;
+}
+.mainMenuBody {
+    background: #f3f3f3 none;
+    font-size: 14px;
+}
+.menuLink {
+    color: #333333;
+    font-size: 14px;
+}
+.menuLink:hover {
+    color: #ffffff;
+    background-color: #5AA1F4;
+    font-size: 14px;  
+}
+.menuLink:active {
+    color: #e10027;
+    background-color: #f3f3f3;
+    font-size: 14px;
+}
+.menuLink:focus {
+    color: #e10027;
+    background-color: #f3f3f3;
+    font-size: 14px;
+}
+.menuLink:focus:hover {
+    color: #ffffff;
+    background-color: #5AA1F4;
+    font-size: 14px;
+}
+.menuCell {
+    background-color: #f3f3f3;
+    font-size: 14px;
+}

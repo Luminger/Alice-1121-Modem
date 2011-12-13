@@ -1,0 +1,53 @@
+<html>
+<head>
+<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+<link rel=stylesheet href='stylemain.css' type='text/css'>
+<link rel=stylesheet href='colors.css' type='text/css'>
+<script language="javascript">
+<!-- hide
+var prtcl = '<%ejGetOther(memInfo, ntwkPrtcl)%>';
+var username = '<%ejGet(pppUserName)%>';
+var password = '<%ejGet(pppPassword)%>';
+
+function btnBack() {
+   var loc = 'pppoe.html';
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+</script>
+</head>
+
+<body>
+<blockquote>
+<b>PPP Authentication Error</b><br><br>
+<script language="javascript">
+<!-- hide
+   var passwd = '';
+   for ( i = 0; i < password.length; i++ )
+      passwd += '*';
+
+   switch ( prtcl ) {
+      case 'PPPoA':
+         msg = 'The DSL Router can not setup a PPPoA connection ';
+         break;
+      default:
+         msg = 'The DSL Router can not setup a PPPoE connection ';
+         break;
+   }
+   msg += 'using <b>"' + username + '"</b> as its username, ';
+   msg += 'and <b>"' + passwd + '"</b> as its password.<br><br>';
+   document.writeln(msg);
+   msg = 'Please check your username and password, and click ';
+   msg += 'on the "Back" button to try again.<br><br><br>';
+   document.writeln(msg);
+// done hiding -->
+</script>
+<center>
+<input type='button' onClick='btnBack()' value='Back'>
+</center>
+</blockquote>
+</body>
+</html>

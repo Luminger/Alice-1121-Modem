@@ -1,0 +1,7 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:29 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.9/Thu Mar 11 16:46:55 2004/-ko/Tlinux_2_6_8_1
+/inode.c/1.24/Thu Mar 11 16:46:55 2004/-ko/Tlinux_2_6_8_1
+/xattr.c/1.1/Thu Jun  5 18:24:09 2003/-ko/Tlinux_2_6_8_1
+/xattr.h/1.1/Thu Jun  5 18:24:09 2003/-ko/Tlinux_2_6_8_1
+/xattr_security.c/1.2/Thu Feb  5 02:40:05 2004/-ko/Tlinux_2_6_8_1
+D

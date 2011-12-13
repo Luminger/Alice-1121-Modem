@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+		<link rel="stylesheet" href='stylemain.css' type='text/css'>
+			<link rel="stylesheet" href='colors.css' type='text/css'>
+				<script language="javascript">
+<!-- hide
+
+function btnNext() {
+   var loc = 'rebootinfo.cgi';
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function btnBack() {
+   var ifc = '<%ejGetWl(wlInterface)%>';
+   var prtcl = '<%ejGetOther(memInfo, ntwkPrtcl)%>';
+   var ipExtension = '<%ejGet(pppIpExtension)%>';
+   var loc = '';
+   
+   if ( ifc == '1' )
+      loc = 'wlsetup.html';
+   else {
+      if ( prtcl == 'Bridge' )
+         loc = 'lancfgbr.html';
+      else if ( (ipExtension == '1') &&
+                ((prtcl == 'PPPoE') || (prtcl == 'PPPoA')) )
+         loc = 'lancfgbr.html';
+      else
+         loc = 'lancfg.html';
+   }
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+</script>
+	</head>
+	<body>
+		<blockquote>
+			<form>
+				<b>Network Setup - Summary</b><br>
+				<br>
+				Make sure that the settings below match the settings provided by your ISP.<br>
+				<br>
+				<table border="1" cellpadding="3" cellspacing="0">
+					<tr>
+						 <td class='hd'>PORT / VPI / VCI:</td>
+						<td><%ejGetOther(memInfo, portVpiVci)%></td>
+					</tr>
+					<tr>
+						<td class='hd'>Connection Type:</td>
+						<td><%ejGetOther(memInfo, ntwkPrtcl)%></td>
+					</tr>
+					<tr>
+						<td class='hd'>LAN IP Address:</td>
+						<td><%ejGet(ethIpAddress)%></td>
+					</tr>
+					<tr>
+						<td class='hd'>WAN IP Address:</td>
+						<td><%ejGetOther(memInfo, wanAddr)%></td>
+					</tr>
+					<tr>
+						<td class='hd'>Default Gateway:</td>
+						<td><%ejGetOther(memInfo, dfltGw)%></td>
+					</tr>
+					<tr>
+						<td class='hd'>DNS Server:</td>
+						<td><%ejGetOther(memInfo, dns)%></td>
+					</tr>
+				</table>
+				<br>
+				Click &quot;Finish&quot; to accept these settings. Click "Back" to make any 
+				modifications.<br>
+				NOTE: The configuration process takes about 1 minute to complete and your DSL 
+				Router will reboot.<br>
+				<br>
+				<center>
+					<input type='button' onClick='btnBack()' value='Back'> <input type='button' onClick='btnNext()' value='Finish'>
+				</center>
+			</form>
+		</blockquote>
+	</body>
+</html>

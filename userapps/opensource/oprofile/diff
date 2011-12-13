@@ -1,0 +1,119 @@
+89c89
+< ACLOCAL = ${SHELL} /home/xiwang/ccase/xiwang_dev30_1/CommEngine/userapps/opensource/oprofile/missing --run aclocal-1.9
+---
+> ACLOCAL = ${SHELL} /home/troy/data/oprofile-0.9.1-be/missing --run aclocal-1.9
+92,95c92,95
+< AMTAR = ${SHELL} /home/xiwang/ccase/xiwang_dev30_1/CommEngine/userapps/opensource/oprofile/missing --run tar
+< AUTOCONF = ${SHELL} /home/xiwang/ccase/xiwang_dev30_1/CommEngine/userapps/opensource/oprofile/missing --run autoconf
+< AUTOHEADER = ${SHELL} /home/xiwang/ccase/xiwang_dev30_1/CommEngine/userapps/opensource/oprofile/missing --run autoheader
+< AUTOMAKE = ${SHELL} /home/xiwang/ccase/xiwang_dev30_1/CommEngine/userapps/opensource/oprofile/missing --run automake-1.9
+---
+> AMTAR = ${SHELL} /home/troy/data/oprofile-0.9.1-be/missing --run tar
+> AUTOCONF = ${SHELL} /home/troy/data/oprofile-0.9.1-be/missing --run autoconf
+> AUTOHEADER = ${SHELL} /home/troy/data/oprofile-0.9.1-be/missing --run autoheader
+> AUTOMAKE = ${SHELL} /home/troy/data/oprofile-0.9.1-be/missing --run automake-1.9
+97,100c97,100
+< BFD_LIBS = ../binutils/bfd/.libs/libbfd.a -liberty  
+< CAT_ENTRY_END = -->
+< CAT_ENTRY_START = <!--
+< CC = /opt/toolchains/uclibc-crosstools/mips-linux-uclibc/bin/gcc
+---
+> BFD_LIBS = -lbfd -liberty -ldl 
+> CAT_ENTRY_END = 
+> CAT_ENTRY_START = 
+> CC = mips-linux-gcc
+103c103
+< CPP = /opt/toolchains/uclibc-crosstools/mips-linux-uclibc/bin/gcc -E
+---
+> CPP = mips-linux-gcc -E
+105,106c105,106
+< CXX = /opt/toolchains/uclibc-crosstools/mips-linux-uclibc/bin/g++
+< CXXCPP = /opt/toolchains/uclibc-crosstools/mips-linux-uclibc/bin/g++ -E
+---
+> CXX = mips-linux-g++
+> CXXCPP = mips-linux-g++ -E
+110c110
+< DATE = Wed 15 November 2006
+---
+> DATE = Fri 16 September 2005
+128,129c128,129
+< LDFLAGS =  -L /opt/toolchains/uclibc-crosstools/mips-linux-uclibc/lib -Xlinker -R -Xlinker /opt/toolchains/uclibc-crosstools/mips-linux-uclibc/lib
+< LIBERTY_LIBS = -liberty  
+---
+> LDFLAGS =   -L/home/troy/data/oprofile-0.9.1-be
+> LIBERTY_LIBS = -liberty -ldl 
+133,135c133,135
+< MAKEINFO = ${SHELL} /home/xiwang/ccase/xiwang_dev30_1/CommEngine/userapps/opensource/oprofile/missing --run makeinfo
+< MOC = /usr/lib/qt3//bin/moc
+< MODINSTALLDIR = 
+---
+> MAKEINFO = ${SHELL} /home/troy/data/oprofile-0.9.1-be/missing --run makeinfo
+> MOC = /usr/lib/qt-2.3.1/bin/moc
+> MODINSTALLDIR = /home/troy/data/94350-fpga-2.6.8-smp/romfs/lib/modules/2.6.8.1
+137c137
+< OPROFILE_DIR = /home/xiwang/ccase/xiwang_dev30_1/CommEngine/userapps/opensource/oprofile
+---
+> OPROFILE_DIR = /home/troy/data/oprofile-0.9.1-be
+149c149
+< POPT_LIBS = ../libpopt/.libs/libpopt.a
+---
+> POPT_LIBS = -lpopt
+151,152c151,152
+< QT_INCLUDES = -isystem /usr/lib/qt3//include
+< QT_LDFLAGS = -L/usr/lib/qt3//lib
+---
+> QT_INCLUDES = -isystem /usr/lib/qt-2.3.1/include
+> QT_LDFLAGS = -L/usr/lib/qt-2.3.1/lib
+155c155
+< RANLIB = /opt/toolchains/uclibc-crosstools/mips-linux-uclibc/bin/ranlib
+---
+> RANLIB = mips-linux-ranlib
+159,160c159,160
+< STRIP = strip
+< UIC = /usr/lib/qt3//bin/uic
+---
+> STRIP = mips-linux-strip
+> UIC = /usr/lib/qt-2.3.1/bin/uic
+162,164c162,164
+< XML_CATALOG = /etc/xml/catalog
+< XSLTPROC = 
+< XSLTPROC_FLAGS = --nonet
+---
+> XML_CATALOG = 
+> XSLTPROC = xsltproc
+> XSLTPROC_FLAGS = 
+167c167
+< X_LIBS =  -lbfd -liberty -lpopt   -L/usr/X11R6/lib -lX11 
+---
+> X_LIBS =  -lbfd -liberty -lpopt  -ldl  -L/usr/X11R6/lib -lX11 
+172c172
+< ac_ct_STRIP = strip
+---
+> ac_ct_STRIP = 
+183c183
+< build_alias = 
+---
+> build_alias = i386-linux
+184a185,186
+> enable_abi_FALSE = 
+> enable_abi_TRUE = #
+188,189c190,191
+< have_xsltproc_FALSE = 
+< have_xsltproc_TRUE = #
+---
+> have_xsltproc_FALSE = #
+> have_xsltproc_TRUE = 
+193c195
+< install_sh = /home/xiwang/ccase/xiwang_dev30_1/CommEngine/userapps/opensource/oprofile/install-sh
+---
+> install_sh = /home/troy/data/oprofile-0.9.1-be/install-sh
+202c204
+< prefix = /op
+---
+> prefix = /usr/local
+207,208c209,210
+< target_alias = 
+< topdir = /home/xiwang/ccase/xiwang_dev30_1/CommEngine/userapps/opensource/oprofile
+---
+> target_alias = mips-linux
+> topdir = /home/troy/data/oprofile-0.9.1-be

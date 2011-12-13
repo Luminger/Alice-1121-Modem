@@ -1,0 +1,328 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+var pa = '<%ejGetVoice(proxyAddr)%>';
+var pp = '<%ejGetVoice(proxyPort)%>';
+var ra = '<%ejGetVoice(regAddr)%>';
+var rp = '<%ejGetVoice(regPort)%>';
+var la = '<%ejGetVoice(sipLogAddr)%>';
+var lp = '<%ejGetVoice(sipLogPort)%>';
+var ex = '<%ejGetVoice(extension)%>';
+var ifn = '<%ejGetVoice(ifName)%>';
+
+function btnApply() {
+   var loc = 'voicesipset.cmd?';
+
+   with ( document.forms[0] ) {
+      if ( enblProxy.checked == true ) {
+         if ( isValidIpAddress(proxyAddr.value) == false ) {
+            msg = 'Address "' + proxyAddr.value + '" is invalid IP address.';
+            alert(msg);
+            return;
+         }
+      }
+      else {
+        proxyAddr.value = '0.0.0.0';
+        proxyPort.value = '0';
+      }
+
+      if ( enblReg.checked == true ) {
+         if ( isValidIpAddress(regAddr.value) == false ) {
+            msg = 'Address "' + regAddr.value + '" is invalid IP address.';
+            alert(msg);
+            return;
+         }
+      }
+      else {
+        regAddr.value = '0.0.0.0';
+        regPort.value = '0';
+      }
+
+      if ( enblLog.checked == true ) {
+         if ( isValidIpAddress(sipLogAddr.value) == false ) {
+            msg = 'Address "' + sipLogAddr.value + '" is invalid IP address.';
+            alert(msg);
+            return;
+         }
+      }
+      else {
+        sipLogAddr.value = '192.168.1.100';
+        sipLogPort.value = '55555';
+      }
+
+      loc += 'proxyAddr=' + proxyAddr.value;
+      loc += '&proxyPort=' + proxyPort.value;
+      loc += '&regAddr=' + regAddr.value;
+      loc += '&regPort=' + regPort.value;
+      loc += '&sipLogAddr=' + sipLogAddr.value;
+      loc += '&sipLogPort=' + sipLogPort.value;
+      loc += '&extension=' + extension.value;
+      loc += '&ifName=' + ifName.value;
+   }
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function btnStartSip() {
+   var loc = 'voicesipstart.cmd?';
+
+   with ( document.forms[0] ) {
+      if ( enblProxy.checked == true ) {
+         if ( isValidIpAddress(proxyAddr.value) == false ) {
+            msg = 'Address "' + proxyAddr.value + '" is invalid IP address.';
+            alert(msg);
+            return;
+         }
+      }
+      else {
+        proxyAddr.value = '0.0.0.0';
+        proxyPort.value = '0';
+      }
+
+      if ( enblReg.checked == true ) {
+         if ( isValidIpAddress(regAddr.value) == false ) {
+            msg = 'Address "' + regAddr.value + '" is invalid IP address.';
+            alert(msg);
+            return;
+         }
+      }
+      else {
+        regAddr.value = '0.0.0.0';
+        regPort.value = '0';
+      }
+
+      if ( enblLog.checked == true ) {
+         if ( isValidIpAddress(sipLogAddr.value) == false ) {
+            msg = 'Address "' + sipLogAddr.value + '" is invalid IP address.';
+            alert(msg);
+            return;
+         }
+      }
+      else {
+        sipLogAddr.value = '192.168.1.100';
+        sipLogPort.value = '55555';
+      }
+
+      loc += 'proxyAddr=' + proxyAddr.value;
+      loc += '&proxyPort=' + proxyPort.value;
+      loc += '&regAddr=' + regAddr.value;
+      loc += '&regPort=' + regPort.value;
+      loc += '&sipLogAddr=' + sipLogAddr.value;
+      loc += '&sipLogPort=' + sipLogPort.value;
+      loc += '&extension=' + extension.value;
+      loc += '&ifName=' + ifName.value;
+   }
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function frmLoad() {
+   with ( document.forms[0] ) {
+      proxyAddr.value = pa;
+      proxyPort.value = pp;
+      regAddr.value = ra;
+      regPort.value = rp;
+      sipLogAddr.value = la;
+      sipLogPort.value = lp;
+      extension.value = ex;
+      ifName.value = ifn;
+
+      if ('<%ejGetVoice(proxyAddr)%>' != '0.0.0.0') {
+         enblProxy.checked = true;
+         hideProxyInfo(0);
+      } else {
+         enblProxy.checked = false;
+         hideProxyInfo(1);
+      }
+
+      if ('<%ejGetVoice(regAddr)%>' != '0.0.0.0') {
+         enblReg.checked = true;
+         hideRegInfo(0);
+      } else {
+         enblReg.checked = false;
+         hideRegInfo(1);
+      }
+
+      if ('<%ejGetVoice(sipLogAddr)%>' != '0.0.0.0') {
+         enblLog.checked = true;
+         hideLogInfo(0);
+      } else {
+         enblLog.checked = false;
+         hideLogInfo(1);
+      }
+   }
+}
+
+function hideProxyInfo(hide) {
+   var status = 'visible';
+
+   if ( hide == 1 )
+      status = 'hidden';
+   if (document.getElementById)  // DOM3 = IE5, NS6
+      document.getElementById('proxyInfo').style.visibility = status;
+   else {
+      if (document.layers == false) // IE4
+         document.all.proxyInfo.style.visibility = status;
+   }
+}
+
+function ProxyCbClick(cb) {
+   if ( cb.checked == true )
+      hideProxyInfo(0);
+   else
+      hideProxyInfo(1);
+}
+
+function hideRegInfo(hide) {
+   var status = 'visible';
+
+   if ( hide == 1 )
+      status = 'hidden';
+   if (document.getElementById)  // DOM3 = IE5, NS6
+      document.getElementById('regInfo').style.visibility = status;
+   else {
+      if (document.layers == false) // IE4
+         document.all.regInfo.style.visibility = status;
+   }
+}
+
+function RegCbClick(cb) {
+   if ( cb.checked == true )
+      hideRegInfo(0);
+   else
+      hideRegInfo(1);
+}
+
+function hideLogInfo(hide) {
+   var status = 'visible';
+
+   if ( hide == 1 )
+      status = 'hidden';
+   if (document.getElementById)  // DOM3 = IE5, NS6
+      document.getElementById('logInfo').style.visibility = status;
+   else {
+      if (document.layers == false) // IE4
+         document.all.regInfo.style.visibility = status;
+   }
+}
+
+function LogCbClick(cb) {
+   if ( cb.checked == true )
+      hideLogInfo(0);
+   else
+      hideLogInfo(1);
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <b>Voice -- SIP configuration</b><br>
+            <br>
+            Enter the SIP parameters.<br>
+            <br>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td width="150">Interface name:</td>
+                  <td><select name="ifName" size="1" onClick='cbClick(this)'>
+                        <option value="br0" selected>br0-Bridge
+<script language="javascript">
+<!-- hide
+{
+   var i = 0;
+   var interfaceInfo = '<%ejGetOther(wanInterfaceInfo, voice)%>';
+   var interfaces = interfaceInfo.split('|');
+   
+   for ( i = 0; i < interfaces.length; i++ ) {
+      var names = interfaces[i].split('-');
+      document.write("  <option value='" + names[0] + "'>");
+      document.writeln(interfaces[i]);
+   }
+}
+// done hiding -->
+</script>
+                     </select></td>
+               </tr>
+            </table>
+            <br>
+               <td valign="middle" align="center" colspan="2" width="30" height="30"><input type='checkbox' name='enblProxy' onClick='ProxyCbClick(this)' ID="Checkbox1"></td>
+               <td colspan="2">
+               Use SIP Proxy.
+            <br>
+            <div id='proxyInfo'>
+               <table border="0" cellpadding="0" cellspacing="0" ID="Table1">
+                  <tr>
+                     <td width="150">SIP Proxy IP Address:</td>
+                     <td><input type='text' name='proxyAddr'></td>
+                  </tr>
+                  <tr>
+                     <td>SIP Proxy port:</td>
+                     <td><input type='text' name='proxyPort'></td>
+                  </tr>
+               </table>
+            </div>
+            <br>
+               <td valign="middle" align="center" colspan="2" width="30" height="30"><input type='checkbox' name='enblReg' onClick='RegCbClick(this)' ID="Checkbox2"></td>
+               <td colspan="2">
+               Use SIP Registrar.
+            <br>
+            <div id='regInfo'>
+               <table border="0" cellpadding="0" cellspacing="0" ID="Table1">
+                  <tr>
+                     <td width="150">SIP Registrar IP Address:</td>
+                     <td><input type='text' name='regAddr'></td>
+                  </tr>
+                  <tr>
+                     <td>SIP Registrar port:</td>
+                     <td><input type='text' name='regPort'></td>
+                  </tr>
+               </table>
+            </div>
+            <br>
+            <br>
+               <td valign="middle" align="center" colspan="2" width="30" height="30"><input type='checkbox' name='enblLog' onClick='LogCbClick(this)' ID="Checkbox2"></td>
+               <td colspan="2">
+               Remote server for SIP log messages.
+            <br>
+            <div id='logInfo'>
+               <table border="0" cellpadding="0" cellspacing="0" ID="Table1">
+                  <tr>
+                     <td width="150">Log IP Address:</td>
+                     <td><input type='text' name='sipLogAddr'></td>
+                  </tr>
+                  <tr>
+                     <td>Log port:</td>
+                     <td><input type='text' name='sipLogPort'></td>
+                  </tr>
+               </table>
+            </div>
+            <br>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td width="150">Phone extension:</td>
+                  <td><input type='text' name='extension'></td>
+               </tr>
+            </table>
+            <br>
+            <center>
+               <input type='button' onClick='btnApply()' value='Change SIP parameters'>
+               <br>
+               <br>
+               <input type='button' onClick='btnStartSip()' value='Start SIP client'>
+            </center>
+         </form>
+      </blockquote>
+   </body>
+</html>
+
+
+

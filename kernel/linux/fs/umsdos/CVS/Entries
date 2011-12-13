@@ -1,0 +1,13 @@
+/.cvsignore/1.8/Fri Feb 20 17:35:30 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.10/Mon Jun  2 10:48:44 2003/-ko/Tlinux_2_6_8_1
+/README-WIP.txt/1.9/Fri Oct 19 01:24:58 2001/-ko/Tlinux_2_6_8_1
+/dir.c/1.32/Fri Jul 11 02:13:14 2003/-ko/Tlinux_2_6_8_1
+/emd.c/1.23/Fri Jul 11 02:13:14 2003/-ko/Tlinux_2_6_8_1
+/inode.c/1.38/Tue Nov 12 01:34:18 2002/-ko/Tlinux_2_6_8_1
+/ioctl.c/1.17/Tue Jul 29 14:26:29 2003/-ko/Tlinux_2_6_8_1
+/mangle.c/1.8/Fri Aug 15 15:14:39 2003/-ko/Tlinux_2_6_8_1
+/namei.c/1.28/Fri Jul 11 02:13:14 2003/-ko/Tlinux_2_6_8_1
+/notes/1.1.1.1/Sun Jun  1 03:16:22 1997/-ko/Tlinux_2_6_8_1
+/rdir.c/1.23/Fri Jul 11 02:13:14 2003/-ko/Tlinux_2_6_8_1
+/specs/1.2/Mon Jan  4 16:09:02 1999/-ko/Tlinux_2_6_8_1
+D

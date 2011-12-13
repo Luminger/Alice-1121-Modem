@@ -1,0 +1,32 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:38 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.18/Sat Jun 26 15:15:28 2004/-ko/Tlinux_2_6_8_1
+/seq.c/1.7/Sun Jun  6 02:12:59 2004/-ko/Tlinux_2_6_8_1
+/seq_clientmgr.c/1.18/Tue Jul 20 20:21:28 2004/-ko/Tlinux_2_6_8_1
+/seq_clientmgr.h/1.6/Thu Feb 19 03:06:38 2004/-ko/Tlinux_2_6_8_1
+/seq_device.c/1.8/Thu Feb 19 03:06:38 2004/-ko/Tlinux_2_6_8_1
+/seq_dummy.c/1.9/Sun Jun  6 02:12:59 2004/-ko/Tlinux_2_6_8_1
+/seq_fifo.c/1.5/Mon Apr 12 20:23:42 2004/-ko/Tlinux_2_6_8_1
+/seq_fifo.h/1.2/Thu Feb 19 03:06:38 2004/-ko/Tlinux_2_6_8_1
+/seq_info.c/1.3/Thu Feb 19 03:06:38 2004/-ko/Tlinux_2_6_8_1
+/seq_info.h/1.2/Thu Feb 19 03:06:38 2004/-ko/Tlinux_2_6_8_1
+/seq_instr.c/1.4/Thu Jun  5 18:24:14 2003/-ko/Tlinux_2_6_8_1
+/seq_lock.c/1.6/Sun Oct 19 00:50:13 2003/-ko/Tlinux_2_6_8_1
+/seq_lock.h/1.3/Mon Jun  2 12:08:57 2003/-ko/Tlinux_2_6_8_1
+/seq_memory.c/1.10/Wed Jun  9 14:12:16 2004/-ko/Tlinux_2_6_8_1
+/seq_memory.h/1.2/Thu Feb 19 03:06:38 2004/-ko/Tlinux_2_6_8_1
+/seq_midi.c/1.12/Sun Jun  6 02:12:59 2004/-ko/Tlinux_2_6_8_1
+/seq_midi_emul.c/1.6/Thu Jun  5 12:25:54 2003/-ko/Tlinux_2_6_8_1
+/seq_midi_event.c/1.8/Fri Aug 15 15:14:41 2003/-ko/Tlinux_2_6_8_1
+/seq_ports.c/1.10/Thu Feb 19 03:06:38 2004/-ko/Tlinux_2_6_8_1
+/seq_ports.h/1.4/Thu Feb 19 03:06:38 2004/-ko/Tlinux_2_6_8_1
+/seq_prioq.c/1.5/Thu Feb 19 03:06:38 2004/-ko/Tlinux_2_6_8_1
+/seq_prioq.h/1.3/Thu Feb 19 03:06:38 2004/-ko/Tlinux_2_6_8_1
+/seq_queue.c/1.10/Thu Feb 19 03:06:38 2004/-ko/Tlinux_2_6_8_1
+/seq_queue.h/1.10/Thu Feb 19 03:06:38 2004/-ko/Tlinux_2_6_8_1
+/seq_system.c/1.3/Thu Feb 19 03:06:38 2004/-ko/Tlinux_2_6_8_1
+/seq_system.h/1.2/Thu Feb 19 03:06:38 2004/-ko/Tlinux_2_6_8_1
+/seq_timer.c/1.9/Thu Feb 19 03:06:38 2004/-ko/Tlinux_2_6_8_1
+/seq_timer.h/1.5/Thu Feb 19 03:06:38 2004/-ko/Tlinux_2_6_8_1
+/seq_virmidi.c/1.6/Mon Jun  2 13:54:16 2003/-ko/Tlinux_2_6_8_1
+D/instr////
+D/oss////

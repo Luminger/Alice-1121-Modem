@@ -1,0 +1,161 @@
+<html>
+   <head>
+      <meta http-equiv='Pragma' content='no-cache'>
+      <meta http-equiv="refresh" content="15">
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript">
+<!-- hide
+
+function frmLoad() {
+   var update = '<%ejFncCmd(stsvdslupdate)%>';
+   var errMsg = '<%ejGetOther(memInfo, errMsg)%>';
+   
+   if ( errMsg != '&nbsp' )
+      eval('location="statsadslerr.html"');
+}
+
+function btnReset() {
+   var loc = 'statsadslreset.html';
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function btnClose() {
+   window.close();
+}
+
+// done hiding -->
+      </script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <center><form>
+            <b>Statistics -- VDSL2</b><br>
+
+            <table border="1" cellpadding="3" cellspacing="0">
+               <tr>
+                  <td colspan="2" class='hd'>Status:</td>
+                  <td><%ejGetOther(stsvdslget, 1, 2)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td colspan="3">&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>&nbsp;</td>
+                  <td class='hd'>Downstream</td>
+                  <td class='hd'>Upstream</td>
+               </tr>
+               <tr>
+                  <td class='hd'>B0 Traffic Type:</td>
+                  <td colspan="2"><%ejGetOther(trafficType, 0)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>B0 Rate (Kbps):</td>
+                  <td><%ejGetOther(vdsllineRate, 1, 0)%>&nbsp;</td>
+                  <td><%ejGetOther(vdsllineRate, 0, 0)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>B1 Traffic Type:</td>
+                  <td colspan="2"><%ejGetOther(trafficType, 1)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>B1 Rate (Kbps):</td>
+                  <td><%ejGetOther(vdsllineRate, 1, 1)%>&nbsp;</td>
+                  <td><%ejGetOther(vdsllineRate, 0, 1)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td colspan="3">&nbsp;</td>
+               </tr>
+               <tr>
+                  <td colspan="3" class='hd'>Derived Second Counters:</td>
+               </tr>
+               <tr>
+                  <td class='hd'>Current 15 min ES:</td>
+                  <td><%ejGetOther(stsvdslget, 9, 0)%>&nbsp;</td>
+                  <td><%ejGetOther(stsvdslget, 9, 3)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>Current 15 min SES:</td>
+                  <td><%ejGetOther(stsvdslget, 9, 1)%>&nbsp;</td>
+                  <td><%ejGetOther(stsvdslget, 9, 4)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>Current 15 min UAS:</td>
+                  <td><%ejGetOther(stsvdslget, 9, 2)%>&nbsp;</td>
+                  <td><%ejGetOther(stsvdslget, 9, 5)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>Current 24 hours ES:</td>
+                  <td><%ejGetOther(stsvdslget, 9, 12)%>&nbsp;</td>
+                  <td><%ejGetOther(stsvdslget, 9, 3)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>Current 24 hours SES:</td>
+                  <td><%ejGetOther(stsvdslget, 9, 13)%>&nbsp;</td>
+                  <td><%ejGetOther(stsvdslget, 9, 4)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>Current 24 hours UAS:</td>
+                  <td><%ejGetOther(stsvdslget, 9, 14)%>&nbsp;</td>
+                  <td><%ejGetOther(stsvdslget, 9, 5)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td colspan="3">&nbsp;</td>
+               </tr>
+               <tr>
+                  <td colspan="3" class='hd'>Anomaly Counters:</td>
+               </tr>
+               <tr>
+                  <td colspan="3" class='hd'>Bearer 0:</td>
+               </tr>
+               <tr>
+                  <td class='hd'>Current 15 min CRC-8 anomalies:</td>
+                  <td><%ejGetOther(stsvdslget, 9, 32)%>&nbsp;</td>
+                  <td><%ejGetOther(stsvdslget, 9, 34)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>Current 15 min Corrected Codewords:</td>
+                  <td><%ejGetOther(stsvdslget, 9, 33)%>&nbsp;</td>
+                  <td><%ejGetOther(stsvdslget, 9, 35)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>Current 24 hours CRC-8 anomalies:</td>
+                  <td><%ejGetOther(stsvdslget, 9, 48)%>&nbsp;</td>
+                  <td><%ejGetOther(stsvdslget, 9, 50)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>Current 24 hours Corrected Codewords:</td>
+                  <td><%ejGetOther(stsvdslget, 9, 49)%>&nbsp;</td>
+                  <td><%ejGetOther(stsvdslget, 9, 51)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td colspan="3" class='hd'>Bearer 1:</td>
+               </tr>
+               <tr>
+                  <td class='hd'>Current 15 min CRC-8 anomalies:</td>
+                  <td><%ejGetOther(stsvdslget, 9, 36)%>&nbsp;</td>
+                  <td><%ejGetOther(stsvdslget, 9, 38)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>Current 15 min Corrected Codewords:</td>
+                  <td><%ejGetOther(stsvdslget, 9, 37)%>&nbsp;</td>
+                  <td><%ejGetOther(stsvdslget, 9, 39)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>Current 24 hours CRC-8 anomalies:</td>
+                  <td><%ejGetOther(stsvdslget, 9, 52)%>&nbsp;</td>
+                  <td><%ejGetOther(stsvdslget, 9, 54)%>&nbsp;</td>
+               </tr>
+               <tr>
+                  <td class='hd'>Current 24 hours Corrected Codewords:</td>
+                  <td><%ejGetOther(stsvdslget, 9, 53)%>&nbsp;</td>
+                  <td><%ejGetOther(stsvdslget, 9, 55)%>&nbsp;</td>
+               </tr>
+            </table>
+            <br>
+            <input type='button' onClick='btnClose()' value='Close'>
+         </form>
+      </center>
+   </body>
+</html>

@@ -1,0 +1,16 @@
+/.cvsignore/1.8/Fri Feb 20 17:35:30 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.7/Mon Jun  2 10:48:44 2003/-ko/Tlinux_2_6_8_1
+/balloc.c/1.22/Fri Jul  9 02:16:51 2004/-ko/Tlinux_2_6_8_1
+/cylinder.c/1.9/Thu Oct 31 12:27:36 2002/-ko/Tlinux_2_6_8_1
+/dir.c/1.29/Fri Apr 23 15:54:19 2004/-ko/Tlinux_2_6_8_1
+/file.c/1.15/Fri Nov  1 19:20:35 2002/-ko/Tlinux_2_6_8_1
+/ialloc.c/1.19/Wed Jun  4 15:00:13 2003/-ko/Tlinux_2_6_8_1
+/inode.c/1.41/Fri Apr 23 15:54:19 2004/-ko/Tlinux_2_6_8_1
+/namei.c/1.27/Mon Apr 12 20:23:37 2004/-ko/Tlinux_2_6_8_1
+/super.c/1.49/Fri Apr 23 15:54:19 2004/-ko/Tlinux_2_6_8_1
+/swab.h/1.5/Thu Oct 31 12:27:36 2002/-ko/Tlinux_2_6_8_1
+/symlink.c/1.11/Sat Jun 26 15:15:22 2004/-ko/Tlinux_2_6_8_1
+/truncate.c/1.24/Fri Apr 23 15:54:19 2004/-ko/Tlinux_2_6_8_1
+/util.c/1.16/Mon Apr 12 20:23:37 2004/-ko/Tlinux_2_6_8_1
+/util.h/1.14/Mon Apr 12 20:23:37 2004/-ko/Tlinux_2_6_8_1
+D

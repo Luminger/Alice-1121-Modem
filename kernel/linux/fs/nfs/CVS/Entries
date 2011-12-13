@@ -1,0 +1,23 @@
+/.cvsignore/1.8/Fri Feb 20 17:35:30 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.13/Thu Jun  5 12:25:51 2003/-ko/Tlinux_2_6_8_1
+/dir.c/1.71/Mon Apr 12 20:23:37 2004/-ko/Tlinux_2_6_8_1
+/direct.c/1.9/Sat Jun 26 15:15:22 2004/-ko/Tlinux_2_6_8_1
+/file.c/1.60/Sat Aug 14 18:13:22 2004/-ko/Tlinux_2_6_8_1
+/idmap.c/1.5/Sat Jun 26 15:15:22 2004/-ko/Tlinux_2_6_8_1
+/inode.c/1.93/Fri Aug  6 00:33:30 2004/-ko/Tlinux_2_6_8_1
+/mount_clnt.c/1.12/Mon Apr 12 20:23:37 2004/-ko/Tlinux_2_6_8_1
+/nfs2xdr.c/1.36/Tue Jul 20 20:21:25 2004/-ko/Tlinux_2_6_8_1
+/nfs3proc.c/1.28/Mon May 10 14:25:34 2004/-ko/Tlinux_2_6_8_1
+/nfs3xdr.c/1.29/Tue Jul 20 20:21:25 2004/-ko/Tlinux_2_6_8_1
+/nfs4proc.c/1.17/Tue Jul 20 20:21:25 2004/-ko/Tlinux_2_6_8_1
+/nfs4renewd.c/1.2/Thu Feb 19 03:06:32 2004/-ko/Tlinux_2_6_8_1
+/nfs4state.c/1.8/Sun Jun  6 02:12:51 2004/-ko/Tlinux_2_6_8_1
+/nfs4xdr.c/1.18/Tue Jul 20 20:21:25 2004/-ko/Tlinux_2_6_8_1
+/nfsroot.c/1.29/Wed Apr 28 13:54:57 2004/-ko/Tlinux_2_6_8_1
+/pagelist.c/1.13/Fri Apr 23 15:54:19 2004/-ko/Tlinux_2_6_8_1
+/proc.c/1.31/Fri Apr 23 15:54:19 2004/-ko/Tlinux_2_6_8_1
+/read.c/1.48/Wed Jun  9 14:12:12 2004/-ko/Tlinux_2_6_8_1
+/symlink.c/1.25/Thu Jun  5 18:24:09 2003/-ko/Tlinux_2_6_8_1
+/unlink.c/1.10/Sun Jun  6 02:12:51 2004/-ko/Tlinux_2_6_8_1
+/write.c/1.70/Wed Jun 16 12:09:38 2004/-ko/Tlinux_2_6_8_1
+D

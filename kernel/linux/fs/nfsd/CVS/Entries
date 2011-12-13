@@ -1,0 +1,20 @@
+/.cvsignore/1.8/Fri Feb 20 17:35:30 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.10/Thu Mar 11 16:46:56 2004/-ko/Tlinux_2_6_8_1
+/auth.c/1.6/Thu Mar 11 16:46:56 2004/-ko/Tlinux_2_6_8_1
+/export.c/1.65/Sun Jun  6 02:12:51 2004/-ko/Tlinux_2_6_8_1
+/lockd.c/1.15/Sun Jun  1 00:39:14 2003/-ko/Tlinux_2_6_8_1
+/nfs3proc.c/1.25/Wed Jun  9 14:12:12 2004/-ko/Tlinux_2_6_8_1
+/nfs3xdr.c/1.48/Sat Aug 14 16:16:43 2004/-ko/Tlinux_2_6_8_1
+/nfs4idmap.c/1.2/Sun Jun  6 02:12:51 2004/-ko/Tlinux_2_6_8_1
+/nfs4proc.c/1.16/Mon Jun 28 21:04:15 2004/-ko/Tlinux_2_6_8_1
+/nfs4state.c/1.13/Fri Aug 13 07:18:55 2004/-ko/Tlinux_2_6_8_1
+/nfs4xdr.c/1.24/Tue Jul 20 20:21:25 2004/-ko/Tlinux_2_6_8_1
+/nfscache.c/1.15/Tue Jul 20 20:21:25 2004/-ko/Tlinux_2_6_8_1
+/nfsctl.c/1.54/Fri Jul  9 02:16:51 2004/-ko/Tlinux_2_6_8_1
+/nfsfh.c/1.64/Wed Jun  9 14:12:12 2004/-ko/Tlinux_2_6_8_1
+/nfsproc.c/1.39/Sun Jun  6 02:12:51 2004/-ko/Tlinux_2_6_8_1
+/nfssvc.c/1.45/Tue Jul 29 14:26:29 2003/-ko/Tlinux_2_6_8_1
+/nfsxdr.c/1.30/Sat Aug 14 16:16:43 2004/-ko/Tlinux_2_6_8_1
+/stats.c/1.12/Thu Mar 11 16:46:56 2004/-ko/Tlinux_2_6_8_1
+/vfs.c/1.88/Tue Jul 20 20:21:25 2004/-ko/Tlinux_2_6_8_1
+D

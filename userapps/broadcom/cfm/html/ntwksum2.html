@@ -1,0 +1,125 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript">
+<!-- hide
+var ipExtension = '<%ejGet(pppIpExtension)%>';
+var prtcl = '<%ejGetOther(memInfo, ntwkPrtcl)%>';
+var qs = '<%ejGet(quickSetup)%>';
+
+function btnNext() {
+   var loc = 'wancfg.cmd?action=add';
+
+   // disable save button to avoid bugs while clicking this button too fast
+   document.forms[0].btnSave.disabled = 1;
+   
+   if ( qs == '1' )
+      loc = 'rebootinfo.cgi';
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function btnBack() {
+   var ifc = '<%ejGetWl(wlInterface)%>';
+   var loc = 'natcfg2.html';
+
+   if ( qs == '1' ) {
+      if ( ifc == '1' )
+         loc = 'wlsetup.html';
+      else {
+         if ( prtcl == 'Bridge' )
+            loc = 'lancfgbr.html';
+         else if ( (ipExtension == '1') &&
+                   ((prtcl == 'PPPoE') || (prtcl == 'PPPoA')) )
+            loc = 'lancfgbr.html';
+         else
+            loc = 'lancfg.html';
+      }
+   } else {
+      if (prtcl == 'Bridge')
+         loc = 'enblbridge.html';
+      else if ( prtcl == 'PPPoE' || prtcl == 'PPPoA' )
+         loc = 'enblservice.html';
+      else if (prtcl == 'MER' || prtcl == 'IPoA')
+         loc = 'natcfg2.html';
+   }
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+      </script>
+   </head>
+   <body>
+      <blockquote>
+         <form>
+         <b>WAN Setup - Summary</b><br><br>
+         Make sure that the settings below match the settings provided by your ISP.<br><br>
+         <table border="1" cellpadding="3" cellspacing="0">
+            <tr>
+               <td class='hd'>PORT /VPI / VCI:</td>
+               <td><%ejGetOther(memInfo, portVpiVci)%>&nbsp;</td>
+            </tr>
+            <tr>
+               <td class='hd'>Connection Type:</td>
+               <td><%ejGetOther(memInfo, ntwkPrtcl)%>&nbsp;</td>
+            </tr>
+            <tr>
+               <td class='hd'>Service Name:</td>
+               <td><%ejGet(serviceName)%>&nbsp;</td>
+            </tr>
+            <tr>
+               <td class='hd'>Service Category:</td>
+               <td><%ejGet(atmServiceCategory)%>&nbsp;</td>
+            </tr>
+            <tr>
+               <td class='hd'>IP Address:</td>
+               <td><%ejGetOther(memInfo, wanAddr)%>&nbsp;</td>
+            </tr>
+            <tr>
+               <td class='hd'>Service State:</td>
+               <td><%ejGetOther(memInfo, enblService)%>&nbsp;</td>
+            </tr>
+            <tr>
+               <td class='hd'>NAT:</td>
+               <td><%ejGetOther(memInfo, enblNat)%>&nbsp;</td>
+            </tr>
+            <tr>
+               <td class='hd'>Firewall:</td>
+               <td><%ejGetOther(memInfo, enblFirewall)%>&nbsp;</td>
+            </tr>
+            <tr>
+               <td class='hd'>IGMP Multicast:</td>
+               <td><%ejGetOther(memInfo, enblIgmp)%>&nbsp;</td>
+            </tr>
+            <tr>
+               <td class='hd'>Quality Of Service:</td>
+               <td><%ejGetOther(memInfo, enblQos)%>&nbsp;</td>
+            </tr>
+         </table>
+         <br>
+<script language="javascript">
+<!-- hide
+if ( qs == 1 ) {
+   document.writeln('Click "Save/Reboot" to save these settings and reboot router. Click "Back" to make any modifications.<br>');
+   document.writeln('NOTE: The configuration process takes about 1 minute to complete and your DSL Router will reboot.<br><br>');
+   document.writeln("<center>");
+   document.writeln("<input type='button' onClick='btnBack()' value='Back'> <input type='button' name='btnSave' onClick='btnNext()' value='Save/Reboot'>");
+   document.writeln("</center>");
+} else {
+   document.writeln('Click "Save" to save these settings. Click "Back" to make any modifications.<br>');
+   document.writeln('NOTE: You need to reboot to activate this WAN interface and further configure services over      this interface.<br><br>');
+   document.writeln("<center>");
+   document.writeln("<input type='button' onClick='btnBack()' value='Back'> <input type='button' name='btnSave' onClick='btnNext()' value='Save'>");
+   document.writeln("</center>");
+}
+// done hiding -->
+         </script>
+         </form>
+      </blockquote>
+   </body>
+</html>

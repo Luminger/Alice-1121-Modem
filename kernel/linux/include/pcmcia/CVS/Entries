@@ -1,0 +1,13 @@
+/bulkmem.h/1.6/Fri Mar  9 20:34:58 2001/-ko/Tlinux_2_6_8_1
+/ciscode.h/1.7/Tue Nov 12 01:34:19 2002/-ko/Tlinux_2_6_8_1
+/cisreg.h/1.5/Fri Mar  9 20:34:58 2001/-ko/Tlinux_2_6_8_1
+/cistpl.h/1.6/Fri Mar  9 20:34:58 2001/-ko/Tlinux_2_6_8_1
+/cs.h/1.13/Mon Apr 12 20:23:40 2004/-ko/Tlinux_2_6_8_1
+/cs_types.h/1.11/Wed Feb 25 02:09:31 2004/-ko/Tlinux_2_6_8_1
+/ds.h/1.10/Tue Aug 26 00:28:59 2003/-ko/Tlinux_2_6_8_1
+/ftl.h/1.4/Fri Mar  9 20:34:58 2001/-ko/Tlinux_2_6_8_1
+/mem_op.h/1.6/Thu Feb 19 03:06:35 2004/-ko/Tlinux_2_6_8_1
+/memory.h/1.4/Fri Mar  9 20:34:58 2001/-ko/Tlinux_2_6_8_1
+/ss.h/1.19/Mon Jun 28 01:09:05 2004/-ko/Tlinux_2_6_8_1
+/version.h/1.7/Thu Nov 23 02:00:56 2000/-ko/Tlinux_2_6_8_1
+D

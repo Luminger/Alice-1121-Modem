@@ -1,0 +1,90 @@
+<html>
+<head>
+<meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+<link rel=stylesheet href='stylemain.css' type='text/css'>
+<link rel=stylesheet href='colors.css' type='text/css'>
+<script language="javascript">
+<!-- hide
+var inProgress = '<%ejGet(autoScanInProgress)%>';
+var prtcl = '<%ejGetOther(memInfo, ntwkPrtcl)%>';
+var isVccInUsed = '<%ejGetOther(memInfo, isVccInUsed)%>';
+var port = '<%ejGet(portId)%>';
+var vpi = '<%ejGet(atmVpi)%>';
+var vci = '<%ejGet(atmVci)%>';
+
+function checkAutoScan() {
+   var loc = 'autoscan.cgi';
+
+   if ( inProgress == '0' ) {
+      switch ( prtcl ) {
+         case 'PPPoE':
+         case 'PPPoA':
+            loc = 'pppoe.cgi';
+            break;
+         default:
+            loc = 'lancfg.cgi';
+            break;
+      }
+   }
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+function frmLoad() {
+   setTimeout("checkAutoScan()", 1000);
+}
+
+function btnCancel() {
+   var loc = 'autoscancancel.cgi?autoScanInProgress=0';
+
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+</script>
+</head>
+
+<body onLoad='frmLoad()'>
+<blockquote>
+<b>DSL Router Auto-connection Progress Information</b><br><br>
+<script language="javascript">
+<!-- hide
+   document.writeln("The DSL Router Auto-connect is in progress.<br><br>");
+   if ( isVccInUsed == '1' ) {
+      msg = 'DSL Router has been trying ';
+			msg += 'PVC (' + port + '/' + vpi + '/' + vci + '). ';
+      msg += 'It is already in use.<br><br>';
+      msg += 'Please wait...';
+   } else
+      switch ( prtcl ) {
+      case 'PPPoA':
+         msg = 'DSL Router can be connected using ';
+         msg += 'PVC (' + port + '/' + vpi + '/' + vci + ') with PPPoA protocol.';
+         break;
+      case 'PPPoE':
+         msg = 'DSL Router can be connected using ';
+         msg += 'PVC (' + port + '/' + vpi + '/' + vci + ') with PPPoE protocol.';
+         break;
+      case 'Bridge':
+         msg = 'DSL Router can be connected using ';
+         msg += 'PVC (' + port + '/' + vpi + '/' + vci + ') with Bridge protocol.';
+         break;
+      default:
+         msg = 'DSL Router is trying ';
+         msg += 'PVC (' + port + '/' + vpi + '/' + vci + ').<br><br>';
+         msg += 'Please wait...';
+         break;
+      }
+   msg += '<br><br><br>';
+   document.writeln(msg);
+// done hiding -->
+</script>
+<br><br>
+<center>
+<input type='button' onClick='btnCancel()' value='Cancel'>
+</center>
+</blockquote>
+</body>
+</html>

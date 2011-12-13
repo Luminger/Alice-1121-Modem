@@ -1,0 +1,59 @@
+<html>
+   <head>
+      <meta HTTP-EQUIV='Pragma' CONTENT='no-cache'>
+      <link rel="stylesheet" href='stylemain.css' type='text/css'>
+         <link rel="stylesheet" href='colors.css' type='text/css'>
+            <script language="javascript" src="util.js"></script>
+            <script language="javascript">
+<!-- hide
+
+function frmLoad() {
+   var addr = '<%ejGetOther(dmzHost)%>';
+
+   with ( document.forms[0] ) {
+      dmzAddr.value = addr;
+   }
+}
+
+function btnApply() {
+   var loc = 'scdmz.cmd?';
+   with ( document.forms[0] ) {
+      if ( dmzAddr.value != '' &&
+           isValidIpAddress(dmzAddr.value) == false ) {
+         alert('DMZ host address "' + dmzAddr.value + '" is invalid IP address.');
+         return;
+      }
+      loc += 'address=' + dmzAddr.value;
+   }
+   var code = 'location="' + loc + '"';
+   eval(code);
+}
+
+// done hiding -->
+</script>
+   </head>
+   <body onLoad='frmLoad()'>
+      <blockquote>
+         <form>
+            <b>NAT -- DMZ Host</b><br>
+            <br>
+            The DSL router will forward IP packets from the WAN that do not belong to any 
+            of the applications configured in the Virtual Servers table to the DMZ host 
+            computer.<br>
+            <br>
+            Enter the computer's IP address and click "Apply" to activate the DMZ host.<br>
+            <br>
+            Clear the IP address field and click "Apply" to deactivate the DMZ host.<br>
+            <br>
+            <table border="0" cellpadding="0" cellspacing="0">
+               <tr>
+                  <td width="140">DMZ Host IP Address:</td>
+                  <td><input type='text' name='dmzAddr'></td>
+               </tr>
+            </table>
+            <br>
+            <center><input type='button' onClick='btnApply()' value='Save/Apply'></center>
+         </form>
+      </blockquote>
+   </body>
+</html>

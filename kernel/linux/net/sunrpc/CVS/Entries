@@ -1,0 +1,22 @@
+/.cvsignore/1.10/Fri Feb 20 17:35:38 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.11/Thu Mar 11 16:47:00 2004/-ko/Tlinux_2_6_8_1
+/auth.c/1.19/Thu Mar 11 16:47:00 2004/-ko/Tlinux_2_6_8_1
+/auth_null.c/1.12/Wed Jun  4 16:08:09 2003/-ko/Tlinux_2_6_8_1
+/auth_unix.c/1.19/Mon Apr 12 20:23:41 2004/-ko/Tlinux_2_6_8_1
+/cache.c/1.15/Fri Aug 13 07:18:56 2004/-ko/Tlinux_2_6_8_1
+/clnt.c/1.49/Sun Jun  6 02:12:58 2004/-ko/Tlinux_2_6_8_1
+/pmap_clnt.c/1.14/Fri Jul  9 02:16:53 2004/-ko/Tlinux_2_6_8_1
+/rpc_pipe.c/1.14/Tue Jun 29 20:42:11 2004/-ko/Tlinux_2_6_8_1
+/sched.c/1.52/Fri Apr 23 15:54:24 2004/-ko/Tlinux_2_6_8_1
+/stats.c/1.13/Wed Jun 30 17:26:51 2004/-ko/Tlinux_2_6_8_1
+/sunrpc_syms.c/1.31/Fri Apr 23 15:54:24 2004/-ko/Tlinux_2_6_8_1
+/svc.c/1.30/Tue Jul 20 20:21:28 2004/-ko/Tlinux_2_6_8_1
+/svcauth.c/1.12/Wed Jun  9 14:12:16 2004/-ko/Tlinux_2_6_8_1
+/svcauth_des.c/1.2/Fri Aug 15 15:14:41 2003/-ko/Tlinux_2_6_8_1
+/svcauth_unix.c/1.13/Tue Jul 20 20:21:28 2004/-ko/Tlinux_2_6_8_1
+/svcsock.c/1.58/Tue Jul 20 20:21:28 2004/-ko/Tlinux_2_6_8_1
+/sysctl.c/1.18/Fri Aug 13 07:18:56 2004/-ko/Tlinux_2_6_8_1
+/timer.c/1.6/Sun Jun  6 02:12:58 2004/-ko/Tlinux_2_6_8_1
+/xdr.c/1.16/Tue Jul 20 20:21:28 2004/-ko/Tlinux_2_6_8_1
+/xprt.c/1.70/Fri Aug  6 00:33:33 2004/-ko/Tlinux_2_6_8_1
+D/auth_gss////

@@ -1,0 +1,12 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:34 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.8/Sun Jun  6 02:12:44 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.8/Sun Jun  6 02:12:44 2004/-ko/Tlinux_2_6_8_1
+/README/1.1/Tue Nov  6 00:55:06 2001/-ko/Tlinux_2_6_8_1
+/README.ioctl/1.2/Thu Oct 31 16:35:50 2002/-ko/Tlinux_2_6_8_1
+/i2o_block.c/1.32/Sat Jun 26 15:15:15 2004/-ko/Tlinux_2_6_8_1
+/i2o_config.c/1.12/Tue Jul 20 20:21:20 2004/-ko/Tlinux_2_6_8_1
+/i2o_core.c/1.17/Fri Jul  9 02:16:48 2004/-ko/Tlinux_2_6_8_1
+/i2o_lan.h/1.2/Fri Nov  1 22:08:32 2002/-ko/Tlinux_2_6_8_1
+/i2o_proc.c/1.7/Tue Jul 20 20:21:20 2004/-ko/Tlinux_2_6_8_1
+/i2o_scsi.c/1.17/Sat Jun 26 15:15:15 2004/-ko/Tlinux_2_6_8_1
+D

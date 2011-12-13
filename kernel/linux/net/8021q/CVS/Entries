@@ -1,0 +1,8 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:37 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.4/Fri Aug 15 15:14:40 2003/-ko/Tlinux_2_6_8_1
+/vlan.c/1.18/Sat Aug 14 16:16:44 2004/-ko/Tlinux_2_6_8_1
+/vlan.h/1.9/Sat Aug 14 16:16:44 2004/-ko/Tlinux_2_6_8_1
+/vlan_dev.c/1.15/Sat Aug 14 16:16:44 2004/-ko/Tlinux_2_6_8_1
+/vlanproc.c/1.13/Fri Apr 23 15:54:23 2004/-ko/Tlinux_2_6_8_1
+/vlanproc.h/1.2/Fri Aug 15 15:14:40 2003/-ko/Tlinux_2_6_8_1
+D

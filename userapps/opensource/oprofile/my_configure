@@ -1,0 +1,1 @@
+./configure --build=i386-linux --host=mips-linux --target=mips-linux --with-kernel-support --with-linux=/home/troy/data/94350-fpga-2.6.8-smp/xsettop --with-module-dir=/home/troy/data/94350-fpga-2.6.8-smp/romfs/lib/modules/2.6.8.1

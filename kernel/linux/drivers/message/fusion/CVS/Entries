@@ -1,0 +1,19 @@
+/.cvsignore/1.7/Fri Feb 20 17:35:34 2004/-ko/Tlinux_2_6_8_1
+/Kconfig/1.6/Sun Jun  6 02:12:44 2004/-ko/Tlinux_2_6_8_1
+/Makefile/1.13/Fri Apr 23 15:54:13 2004/-ko/Tlinux_2_6_8_1
+/ascq_tbl.c/1.1/Thu Aug 23 22:24:31 2001/-ko/Tlinux_2_6_8_1
+/ascq_tbl.sh/1.1/Thu Aug 23 22:24:31 2001/-ko/Tlinux_2_6_8_1
+/isense.c/1.9/Sat Jun 26 15:15:15 2004/-ko/Tlinux_2_6_8_1
+/isense.h/1.1/Thu Aug 23 22:24:31 2001/-ko/Tlinux_2_6_8_1
+/linux_compat.h/1.13/Mon Jun 28 21:04:13 2004/-ko/Tlinux_2_6_8_1
+/mptbase.c/1.21/Mon Jun 28 21:04:13 2004/-ko/Tlinux_2_6_8_1
+/mptbase.h/1.18/Mon Jun 28 21:04:13 2004/-ko/Tlinux_2_6_8_1
+/mptctl.c/1.22/Mon Jun 28 21:04:13 2004/-ko/Tlinux_2_6_8_1
+/mptctl.h/1.11/Sat Jun 26 15:15:15 2004/-ko/Tlinux_2_6_8_1
+/mptlan.c/1.16/Mon Jun 28 21:04:13 2004/-ko/Tlinux_2_6_8_1
+/mptlan.h/1.8/Wed Jun  4 16:08:05 2003/-ko/Tlinux_2_6_8_1
+/mptscsih.c/1.31/Tue Jul 20 20:21:20 2004/-ko/Tlinux_2_6_8_1
+/mptscsih.h/1.20/Sat Jun 26 15:15:15 2004/-ko/Tlinux_2_6_8_1
+/scsi3.h/1.5/Mon Apr 12 20:23:31 2004/-ko/Tlinux_2_6_8_1
+/scsiops.c/1.1/Thu Aug 23 22:24:32 2001/-ko/Tlinux_2_6_8_1
+D/lsi////

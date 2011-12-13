@@ -1,0 +1,25 @@
+/Makefile/1.8/Fri Jul  9 02:16:49 2004/-ko/Tlinux_2_6_8_1
+/airq.c/1.5/Wed Jun  9 14:12:10 2004/-ko/Tlinux_2_6_8_1
+/airq.h/1.3/Thu Jun  5 12:25:49 2003/-ko/Tlinux_2_6_8_1
+/blacklist.c/1.9/Wed Jun 16 12:09:37 2004/-ko/Tlinux_2_6_8_1
+/blacklist.h/1.1/Mon Oct 28 23:48:11 2002/-ko/Tlinux_2_6_8_1
+/ccwgroup.c/1.11/Wed Jun  9 14:12:10 2004/-ko/Tlinux_2_6_8_1
+/chsc.c/1.22/Fri Aug 13 07:18:54 2004/-ko/Tlinux_2_6_8_1
+/chsc.h/1.10/Fri Jul  9 02:16:49 2004/-ko/Tlinux_2_6_8_1
+/cio.c/1.16/Fri Jul  9 02:16:49 2004/-ko/Tlinux_2_6_8_1
+/cio.h/1.7/Fri Aug 13 07:18:54 2004/-ko/Tlinux_2_6_8_1
+/cio_debug.h/1.3/Sun Jun  1 12:07:42 2003/-ko/Tlinux_2_6_8_1
+/cmf.c/1.2/Fri Jul  9 02:16:49 2004/-ko/Tlinux_2_6_8_1
+/css.c/1.12/Fri Jul  9 02:16:49 2004/-ko/Tlinux_2_6_8_1
+/css.h/1.8/Wed Jun  9 14:12:10 2004/-ko/Tlinux_2_6_8_1
+/device.c/1.17/Wed Jun 16 12:09:37 2004/-ko/Tlinux_2_6_8_1
+/device.h/1.10/Mon May 10 14:25:33 2004/-ko/Tlinux_2_6_8_1
+/device_fsm.c/1.19/Fri Aug 13 07:18:54 2004/-ko/Tlinux_2_6_8_1
+/device_id.c/1.7/Fri Jul  9 02:16:49 2004/-ko/Tlinux_2_6_8_1
+/device_ops.c/1.13/Fri Aug 13 07:18:54 2004/-ko/Tlinux_2_6_8_1
+/device_pgid.c/1.9/Fri Jul  9 02:16:49 2004/-ko/Tlinux_2_6_8_1
+/device_status.c/1.9/Fri Aug 13 07:18:54 2004/-ko/Tlinux_2_6_8_1
+/ioasm.h/1.3/Wed Jun  4 16:08:06 2003/-ko/Tlinux_2_6_8_1
+/qdio.c/1.17/Fri Aug 13 07:18:54 2004/-ko/Tlinux_2_6_8_1
+/qdio.h/1.10/Fri Aug 13 07:18:54 2004/-ko/Tlinux_2_6_8_1
+D
