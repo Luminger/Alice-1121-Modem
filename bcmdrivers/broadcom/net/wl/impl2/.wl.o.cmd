@@ -1,0 +1,1 @@
+cmd_/home/user/bcm963xx/bcmdrivers/broadcom/net/wl/bcm96338/wl.o := /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/mips-linux-uclibc-ld  --oformat elf32-tradbigmips  -r -o /home/user/bcm963xx/bcmdrivers/broadcom/net/wl/bcm96338/wl.o /home/user/bcm963xx/bcmdrivers/broadcom/net/wl/bcm96338/wl_dep.o

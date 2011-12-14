@@ -118,7 +118,7 @@ BUILD_IPTABLES=dynamic
 BUILD_EBTABLES=dynamic
 BUILD_TOD=dynamic
 # BUILD_IPROUTE2 is not set
-BUILD_PPPD=dynamic
+# BUILD_PPPD=dynamic
 # BUILD_REAIM is not set
 # BRCM_KERNEL_NETQOS is not set
 BUILD_VCONFIG=dynamic

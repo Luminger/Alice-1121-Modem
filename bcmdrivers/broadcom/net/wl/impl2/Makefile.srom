@@ -16,12 +16,9 @@
 #:>
 ifeq ($(strip $(BRCM_CHIP)),6338)
 EXTRA_CFLAGS	+= -DBCMSDIO
-ifeq ($(findstring WS2,$(strip $(PROFILE))),WS2)
-EXTRA_CFLAGS	+= -DBCMNOSWITCH
-endif
 endif
 
-$(obj)/shared/bcm4306_map.o $(obj)/shared/bcm4318_map.o $(obj)/shared/bcm4321_map.o $(obj)/shared/bcm4312_map.o:
+$(obj)/shared/bcm4306_map.o $(obj)/shared/bcm4318_map.o $(obj)/shared/bcm4321_map.o:
 	rm -f $(obj)/shared/$*.bin
 	$(CC) $(CFLAGS) $(EXTRA_CFLAGS) -I$(obj)/include -c -o $@ $*.c		
 	$(OBJCOPY) -j .data -O binary $@ $*.bin

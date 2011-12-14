@@ -815,7 +815,6 @@ SUBDIRS_OPENSOURCE = $(OPENSOURCE_DIR)/atm2684/pvc2684ctl \
         $(OPENSOURCE_DIR)/dproxy-nexgen \
         $(OPENSOURCE_DIR)/pptp \
         $(OPENSOURCE_DIR)/busybox \
-        $(OPENSOURCE_DIR)/pppmppe/pppdcall \
         $(OPENSOURCE_DIR)/oprofile
         
 
@@ -857,7 +856,7 @@ SUBDIRS_APP = $(SUBDIRS_BROADCOM) $(SUBDIRS_OPENSOURCE)
 SUBDIRS = $(foreach dir, $(SUBDIRS_APP), $(shell if [ -d "$(dir)" ]; then echo $(dir); fi))
 
 OPENSOURCE_APPS = ipsec-tools pvc2684ctl pvc2684d brctl pppd udhcp iptables ebtables ip \
-                  reaim tc libosip2 libusb siproxd snmp zebra bftpd radvd dhcpv6 busybox oprofile dproxy UrlFilter pptp pppdcall
+                  reaim tc libosip2 libusb siproxd snmp zebra bftpd radvd dhcpv6 busybox oprofile dproxy UrlFilter pptp
 
 BROADCOM_APPS = nvram bcmcrypto bcmshared bcmssl nas wlctl cfm upnp vodsl atmctl adslctl netctl dnsprobe dynahelper dnsspoof \
                 igmp dhcpr diagapp sntp ddnsd ilmi ippd hotplug ethctl epittcp snmp ses \
@@ -1557,8 +1556,6 @@ endif
 #zcy add
 pptp:
 	$(MAKE) -C $(OPENSOURCE_DIR)/pptp
-pppdcall:
-	$(MAKE) -C $(OPENSOURCE_DIR)/pppmppe/pppdcall
 ifneq ($(strip $(BUILD_LIBCREDUCTION)),)
 libcreduction:
 	$(MAKE) -C $(OPENSOURCE_DIR)/libcreduction install

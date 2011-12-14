@@ -1,0 +1,1 @@
+cmd_/home/user/bcm963xx/bcmdrivers/broadcom/net/wl/bcm96338/built-in.o :=  rm -f /home/user/bcm963xx/bcmdrivers/broadcom/net/wl/bcm96338/built-in.o; /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/mips-linux-uclibc-ar rcs /home/user/bcm963xx/bcmdrivers/broadcom/net/wl/bcm96338/built-in.o

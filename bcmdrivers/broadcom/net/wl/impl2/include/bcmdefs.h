@@ -132,12 +132,9 @@ extern bool bcmreclaimed;
  *    regval = SFIELD(regval, <NAME>, 1);
  *    W_REG(osh, &regs->regfoo, regval);
  */
-#define BITFIELD_MASK(width) \
-		((1 << (width)) - 1)
-#define GFIELD(val, field) \
-		(((val) >> field ## _S) & field ## _M)
-#define SFIELD(val, field, bits) \
-		(((val) & (~(field ## _M << field ## _S))) | ((bits) << field ## _S))
+#define BITFIELD_MASK(width) ((1 << width)-1)
+#define GFIELD(val, field) ((val >> field ## _S) & field ## _M)
+#define SFIELD(val, field, bits) ((val & (~(field ## _M << field ## _S))) | (bits << field ## _S))
 
 /* define BCMSMALL to remove misc features for memory constrained enviroments */
 #ifdef BCMSMALL
