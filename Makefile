@@ -803,7 +803,6 @@ SUBDIRS_OPENSOURCE = $(OPENSOURCE_DIR)/atm2684/pvc2684ctl \
         $(OPENSOURCE_DIR)/ebtables \
         $(OPENSOURCE_DIR)/reaim  \
         $(OPENSOURCE_DIR)/iproute2  \
-        $(OPENSOURCE_DIR)/libosip2 \
         $(OPENSOURCE_DIR)/libusb \
         $(OPENSOURCE_DIR)/net-snmp  \
         $(OPENSOURCE_DIR)/ftpd \
@@ -854,7 +853,7 @@ SUBDIRS_APP = $(SUBDIRS_BROADCOM) $(SUBDIRS_OPENSOURCE)
 SUBDIRS = $(foreach dir, $(SUBDIRS_APP), $(shell if [ -d "$(dir)" ]; then echo $(dir); fi))
 
 OPENSOURCE_APPS = ipsec-tools pvc2684ctl pvc2684d brctl pppd udhcp iptables ebtables ip \
-                  reaim tc libosip2 libusb snmp bftpd radvd dhcpv6 busybox oprofile dproxy UrlFilter pptp
+                  reaim tc libusb snmp bftpd radvd dhcpv6 busybox oprofile dproxy UrlFilter pptp
 
 BROADCOM_APPS = nvram bcmcrypto bcmshared bcmssl nas wlctl cfm upnp vodsl atmctl adslctl netctl dnsprobe dynahelper dnsspoof \
                 igmp dhcpr diagapp sntp ddnsd ilmi ippd hotplug ethctl epittcp snmp ses \
