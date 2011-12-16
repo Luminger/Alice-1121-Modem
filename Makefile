@@ -1483,19 +1483,6 @@ else
 dhcpr:
 endif
 
-ifneq ($(strip $(BUILD_IPTABLES)),)
-ifneq ($(strip $(BUILD_TOD)),)
-UrlFilter:
-	$(MAKE) -C $(OPENSOURCE_DIR)/iptables/libipq
-	$(MAKE) -C $(OPENSOURCE_DIR)/urlfilter $(BUILD_TOD)
-else
-UrlFilter:
-endif
-else
-UrlFilter:
-	@echo Warning: You need to enable iptables!!!!!
-endif
-
 ifeq ($(strip $(BUILD_LIBUSB)),y)
 libusb:
 	cd $(OPENSOURCE_DIR);   (tar xkfj libusb.tar.bz2 2> /dev/null || true)
