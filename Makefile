@@ -805,7 +805,6 @@ SUBDIRS_OPENSOURCE = $(OPENSOURCE_DIR)/atm2684/pvc2684ctl \
         $(OPENSOURCE_DIR)/iproute2  \
         $(OPENSOURCE_DIR)/libosip2 \
         $(OPENSOURCE_DIR)/libusb \
-        $(OPENSOURCE_DIR)/siproxd \
         $(OPENSOURCE_DIR)/net-snmp  \
         $(OPENSOURCE_DIR)/ftpd \
         $(OPENSOURCE_DIR)/libcreduction \
@@ -855,7 +854,7 @@ SUBDIRS_APP = $(SUBDIRS_BROADCOM) $(SUBDIRS_OPENSOURCE)
 SUBDIRS = $(foreach dir, $(SUBDIRS_APP), $(shell if [ -d "$(dir)" ]; then echo $(dir); fi))
 
 OPENSOURCE_APPS = ipsec-tools pvc2684ctl pvc2684d brctl pppd udhcp iptables ebtables ip \
-                  reaim tc libosip2 libusb siproxd snmp bftpd radvd dhcpv6 busybox oprofile dproxy UrlFilter pptp
+                  reaim tc libosip2 libusb snmp bftpd radvd dhcpv6 busybox oprofile dproxy UrlFilter pptp
 
 BROADCOM_APPS = nvram bcmcrypto bcmshared bcmssl nas wlctl cfm upnp vodsl atmctl adslctl netctl dnsprobe dynahelper dnsspoof \
                 igmp dhcpr diagapp sntp ddnsd ilmi ippd hotplug ethctl epittcp snmp ses \
@@ -1153,21 +1152,6 @@ openssl:
 	$(MAKE) -C $(OPENSOURCE_DIR)/openssl dynamic
 else
 openssl:
-endif
-
-
-ifneq ($(strip $(BUILD_SIPROXD)),)
-siproxd:
-	cd $(OPENSOURCE_DIR);   (tar xkfj siproxd.tar.bz2 2> /dev/null || true)
-	$(MAKE) -C $(OPENSOURCE_DIR)/siproxd $(BUILD_SIPROXD)
-libosip2:
-	cd $(OPENSOURCE_DIR);   (tar xkfj libosip2.tar.bz2 2> /dev/null || true)
-	$(MAKE) -C $(OPENSOURCE_DIR)/libosip2
-else
-siproxd:
-
-libosip2:
-
 endif
 
 ifneq ($(strip $(BUILD_SNMP)),)
