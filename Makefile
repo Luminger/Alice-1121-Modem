@@ -565,10 +565,8 @@ export BUILD_WL_DEFAULT
 export BUILD_WL_IMPL3
 
 ifeq ($(strip $(BRCM_IKOS)),y)
-BUSYBOX_CONFIG=ikos.config
 FS_COMPRESSION=-noD
 else
-BUSYBOX_CONFIG=brcm.config
 FS_COMPRESSION=-lzma
 endif
 
@@ -795,22 +793,11 @@ endif
 export OPENSOURCE_DIR=$(USERAPPS_DIR)/opensource
 SUBDIRS_OPENSOURCE = $(OPENSOURCE_DIR)/atm2684/pvc2684ctl \
         $(OPENSOURCE_DIR)/openssl \
-        $(OPENSOURCE_DIR)/ipsec-tools \
         $(OPENSOURCE_DIR)/bridge-utils \
-        $(OPENSOURCE_DIR)/ppp/pppoe \
-        $(OPENSOURCE_DIR)/udhcp \
         $(OPENSOURCE_DIR)/iptables \
         $(OPENSOURCE_DIR)/ebtables \
-        $(OPENSOURCE_DIR)/reaim  \
         $(OPENSOURCE_DIR)/iproute2  \
         $(OPENSOURCE_DIR)/libusb \
-        $(OPENSOURCE_DIR)/net-snmp  \
-        $(OPENSOURCE_DIR)/ftpd \
-        $(OPENSOURCE_DIR)/libcreduction \
-        $(OPENSOURCE_DIR)/radvd \
-        $(OPENSOURCE_DIR)/dhcpv6 \
-        $(OPENSOURCE_DIR)/dproxy-nexgen \
-        $(OPENSOURCE_DIR)/pptp \
         $(OPENSOURCE_DIR)/busybox \
         $(OPENSOURCE_DIR)/oprofile
         
@@ -840,7 +827,6 @@ SUBDIRS_BROADCOM = \
 	$(BROADCOM_DIR)/ethctl \
         $(BROADCOM_DIR)/hotplug \
         $(BROADCOM_DIR)/epittcp \
-        $(BROADCOM_DIR)/snmp \
         $(BROADCOM_DIR)/tr69c \
         $(BROADCOM_DIR)/tr64 \
         $(BROADCOM_DIR)/ses \
@@ -852,11 +838,11 @@ SUBDIRS_BROADCOM = \
 SUBDIRS_APP = $(SUBDIRS_BROADCOM) $(SUBDIRS_OPENSOURCE)
 SUBDIRS = $(foreach dir, $(SUBDIRS_APP), $(shell if [ -d "$(dir)" ]; then echo $(dir); fi))
 
-OPENSOURCE_APPS = ipsec-tools pvc2684ctl pvc2684d brctl pppd udhcp iptables ebtables ip \
-                  reaim tc libusb snmp bftpd radvd dhcpv6 busybox oprofile dproxy UrlFilter pptp
+OPENSOURCE_APPS = pvc2684ctl pvc2684d brctl iptables ebtables ip \
+                  tc libusb busybox oprofile
 
 BROADCOM_APPS = nvram bcmcrypto bcmshared bcmssl nas wlctl cfm upnp vodsl atmctl adslctl netctl dnsprobe dynahelper dnsspoof \
-                igmp dhcpr diagapp sntp ddnsd ilmi ippd hotplug ethctl epittcp snmp ses \
+                igmp dhcpr diagapp sntp ddnsd ippd hotplug ethctl epittcp ses \
                 hmi2proxy relayctl vdslctl lld2d wsccmd
 LIBC_OPTIMIZATION = libcreduction
 
@@ -1074,21 +1060,6 @@ else
 ebtables:
 endif
 
-ifneq ($(strip $(BUILD_PPPD)),)
-pppd:
-	$(MAKE) -C $(OPENSOURCE_DIR)/ppp/pppoe $(BUILD_PPPD)
-else
-pppd:
-endif
-
-ifneq ($(strip $(BUILD_REAIM)),)
-reaim:
-	cd $(OPENSOURCE_DIR);   (tar xkfj reaim.tar.bz2 2> /dev/null || true)
-	$(MAKE) -C $(OPENSOURCE_DIR)/reaim $(BUILD_REAIM)
-else
-reaim:
-endif
-
 ifneq ($(strip $(BRCM_KERNEL_NETQOS)),)
 tc:
 	cd $(OPENSOURCE_DIR);   (tar xkfj iproute2.tar.bz2 2> /dev/null || true)
@@ -1117,13 +1088,6 @@ ifneq ($(strip $(BUILD_ETHWAN)),)
 export BUILD_ETHWAN=y
 endif
 
-ifneq ($(strip $(BUILD_UDHCP)),)
-udhcp:
-	$(MAKE) -C $(OPENSOURCE_DIR)/udhcp $(BUILD_UDHCP)
-else
-udhcp:
-endif
-
 # UPNP is dependent on iptables
 ifneq ($(strip $(BUILD_IPTABLES)),)
 ifneq ($(strip $(BUILD_UPNP)),)
@@ -1135,14 +1099,6 @@ endif
 else
 upnp:
 	@echo Warning: You need to build iptables first !!!!!
-endif
-
-ifneq ($(strip $(BUILD_IPSEC_TOOLS)),)
-ipsec-tools:
-	cd $(OPENSOURCE_DIR);   (tar xkfj ipsec-tools.tar.bz2 2> /dev/null || true)
-	$(MAKE) -C $(OPENSOURCE_DIR)/ipsec-tools $(BUILD_IPSEC_TOOLS)
-else
-ipsec-tools:
 endif
 
 ifneq ($(strip $(BUILD_CERT)),)
@@ -1267,18 +1223,7 @@ ifneq ($(strip $(BUILD_SNMP_LAYER_DEBUG)),)
 export BUILD_SNMP_LAYER_DEBUG=y
 endif
 endif
-
-snmp:
-ifneq ($(strip $(BRCM_SNMP)),)
-##	$(MAKE) -C $(BROADCOM_DIR)/snmp $(BUILD_SNMP)
-else
-	cd $(OPENSOURCE_DIR);   (tar xkfj net-snmp.tar.bz2 2> /dev/null || true)
-	$(MAKE) -C $(OPENSOURCE_DIR)/net-snmp $(BUILD_SNMP)
 endif
-else
-snmp:
-endif
-
 
 ifeq ($(strip $(BUILD_SQUASH_HIGH)),y)
 export BUILD_SQUASH_HIGH=y
@@ -1303,14 +1248,6 @@ endif
 
 ifneq ($(strip $(BUILD_4_LEVEL_QOS)),)
 export BUILD_4_LEVEL_QOS=y
-endif
-
-ifneq ($(strip $(BUILD_ILMI)),)
-ilmi:
-	cd $(OPENSOURCE_DIR);   (tar xkfj net-snmp.tar.bz2 2> /dev/null || true)
-	$(MAKE) -C $(BROADCOM_DIR)/ilmi $(BUILD_ILMI)
-else
-ilmi:
 endif
 
 ifneq ($(strip $(BUILD_VODSL)),)
@@ -1444,20 +1381,20 @@ else
 dnsspoof:
 endif
 
-ifneq ($(strip $(BUILD_DPROXY)),)
-dproxy:
-	cd $(OPENSOURCE_DIR);   (tar xkfj dproxy-nexgen.tar.bz2 2> /dev/null || true)
-	$(MAKE) -C $(OPENSOURCE_DIR)/dproxy-nexgen $(BUILD_DPROXY)
-else
-dproxy:
-endif
-
 ifneq ($(strip $(BUILD_IGMP)),)
 igmp:
 	$(MAKE) -C $(BROADCOM_DIR)/igmp $(BUILD_IGMP)
 else
 igmp:
 endif
+
+ifneq ($(strip $(BUILD_LIBCREDUCTION)),)
+libcreduction:
+	$(MAKE) -C $(OPENSOURCE_DIR)/libcreduction install
+else
+libcreduction:
+endif
+
 
 ifneq ($(strip $(BUILD_DHCPR)),)
 dhcpr:
@@ -1501,27 +1438,10 @@ endif
 
 ifneq ($(strip $(BUILD_BUSYBOX)),)
 busybox:
-	cd $(OPENSOURCE_DIR); (tar xkfj busybox.tar.bz2 2> /dev/null || true)
-#	$(MAKE) -C $(OPENSOURCE_DIR)/busybox $(BUILD_BUSYBOX)
-	cd $(OPENSOURCE_DIR)/busybox; cp -f $(BUSYBOX_CONFIG) .config
-#dare add trace and ping
-ifneq ($(strip $(DARE_TRACE_PING)),)
-	cd $(OPENSOURCE_DIR)/busybox; sed 's/# CONFIG_TRACEROUTE is not set/CONFIG_TRACEROUTE=y\n# CONFIG_FEATURE_TRACEROUTE_VERBOSE is not set/' .config > brcmtmp.config
-	cd $(OPENSOURCE_DIR)/busybox; cp -f brcmtmp.config .config
-endif
+	cd $(OPENSOURCE_DIR)/busybox; cp -f brcm.config .config
 	$(MAKE) -C $(OPENSOURCE_DIR)/busybox install
 else
 busybox:
-endif
-
-#zcy add
-pptp:
-	$(MAKE) -C $(OPENSOURCE_DIR)/pptp
-ifneq ($(strip $(BUILD_LIBCREDUCTION)),)
-libcreduction:
-	$(MAKE) -C $(OPENSOURCE_DIR)/libcreduction install
-else
-libcreduction:
 endif
 
 ifneq ($(strip $(BUILD_DIAGAPP)),)
@@ -1529,14 +1449,6 @@ diagapp:
 	$(MAKE) -C $(BROADCOM_DIR)/diagapp $(BUILD_DIAGAPP)
 else
 diagapp:
-endif
-
-ifneq ($(strip $(BUILD_FTPD)),)
-bftpd:
-	cd $(OPENSOURCE_DIR);   (tar xkfj ftpd.tar.bz2 2> /dev/null || true)
-	$(MAKE) -C $(OPENSOURCE_DIR)/ftpd $(BUILD_FTPD)
-else
-bftpd:
 endif
 
 ifneq ($(strip $(BUILD_DDNSD)),)
@@ -1625,22 +1537,6 @@ bcmssl:
 	$(MAKE) -C $(BROADCOM_DIR)/bcmssl
 else
 bcmssl:
-endif
-
-ifneq ($(strip $(BUILD_IPV6)),)
-radvd: 
-	cd $(OPENSOURCE_DIR);   (tar xkjf radvd.tar.bz2 2> /dev/null || true)
-	$(MAKE) -C $(OPENSOURCE_DIR)/radvd
-else
-radvd:
-endif
-
-ifneq ($(strip $(BUILD_IPV6)),)
-dhcpv6: 
-	cd $(OPENSOURCE_DIR);   (tar xkjf dhcpv6.tar.bz2 2> /dev/null || true)
-	$(MAKE) -C $(OPENSOURCE_DIR)/dhcpv6
-else
-dhcpv6:
 endif
 
 ifneq ($(strip $(BUILD_IPV6)),)

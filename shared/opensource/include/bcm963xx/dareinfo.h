@@ -2,7 +2,7 @@
 #define DARE_SW_VER "THR-0K-004"
 #define DARE_SVN_URL ""
 #define DARE_SVN_VER ""
-#define DARE_BUILD_TIME "Wed Dec 14 18:50:04 CET 2011"
+#define DARE_BUILD_TIME "Sat Dec 17 14:44:52 CET 2011"
 #define DARE_SOFTWARE_VERSION ""
 #define DARE_HARDWARE_VERSION ""
 #define DARE_MANUFACTURER ""

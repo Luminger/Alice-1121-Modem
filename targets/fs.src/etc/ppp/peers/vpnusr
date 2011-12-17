@@ -1,9 +1,0 @@
-remotename vpnusr
-ipparam vpnusr
-pty "pptp 192.168.0.1 --nolaunchpppd --nobuffer"
-persist
-lcp-echo-interval 30
-name a
-refuse-eap
-noauth
-unit 0

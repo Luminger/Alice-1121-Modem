@@ -117,21 +117,21 @@ BUILD_CFM_SSHD=y
 BUILD_IPTABLES=dynamic
 BUILD_EBTABLES=dynamic
 BUILD_TOD=dynamic
-# BUILD_IPROUTE2 is not set
+BUILD_IPROUTE2=dynamic
 # BUILD_PPPD=dynamic
 # BUILD_REAIM is not set
 # BRCM_KERNEL_NETQOS is not set
 BUILD_VCONFIG=dynamic
 # BUILD_SUPERDMZ is not set
-QOS_L3=y
+#QOS_L3=y
 # QOS_L4 is not set
 # BUILD_ETHWAN is not set
-DRELAY_DNSPROBE=y
+#DRELAY_DNSPROBE=y
 # DRELAY_DPROXY is not set
-BUILD_DNSPROBE=dynamic
-BUILD_DPROXY=
+# BUILD_DNSPROBE=dynamic
+#BUILD_DPROXY=
 # BUILD_DYNAHELPER is not set
-BUILD_DNSSPOOF=dynamic
+#BUILD_DNSSPOOF=dynamic
 BUILD_IGMP=dynamic
 BUILD_UDHCP=dynamic
 BUILD_DHCPR=dynamic
@@ -144,7 +144,7 @@ BUILD_ADSLCTL=dynamic
 BUILD_NETCTL=dynamic
 BUILD_WLCTL=dynamic
 BUILD_NAS=dynamic
-BUILD_SNTP=dynamic
+#BUILD_SNTP=dynamic
 BUILD_EPITTCP=dynamic
 # WLSETUP_SES is not set
 WLSETUP_WPS=y
@@ -154,11 +154,11 @@ BUILD_WPS_BTN=dynamic
 BUILD_LLTD=dynamic
 BUILD_WSC=dynamic
 BUILD_NVRAM=dynamic
-BUILD_DDNSD=dynamic
-BUILD_SNMP=dynamic
-BRCM_SNMP=y
-BUILD_SNMP_SET=y
-BUILD_SNMP_UDP=y
+#BUILD_DDNSD=dynamic
+#BUILD_SNMP=dynamic
+#BRCM_SNMP=y
+#BUILD_SNMP_SET=y
+#BUILD_SNMP_UDP=y
 # MGMT_TR69C is not set
 MGMT_TR69C_BCM_SSL=y
 # MGMT_TR69C_SSL is not set
@@ -172,16 +172,16 @@ BRCM_CERT_FILE=""
 # BUILD_TR69_QUEUED_TRANSFERS is not set
 # BUILD_TR64 is not set
 # BUILD_VODSL is not set
-BUILD_ZEBRA=dynamic
+#BUILD_ZEBRA=dynamic
 BUILD_LIBCREDUCTION=y
 # BUILD_SOAP is not set
 # BUILD_IPPD is not set
 BUILD_WANVLANMUX=y
 # BUILD_MULTISUBNET is not set
 # BUILD_DIAGAPP is not set
-BUILD_SIPROXD=dynamic
-BUILD_IPSEC_TOOLS=dynamic
-BUILD_CERT=dynamic
+#BUILD_SIPROXD=dynamic
+#BUILD_IPSEC_TOOLS=dynamic
+#BUILD_CERT=dynamic
 # BUILD_LIBUSB is not set
 
 #

@@ -288,8 +288,10 @@ CONFIG_PREVENT_FIRMWARE_BUILD=y
 #
 CONFIG_MTD=y
 # CONFIG_MTD_DEBUG is not set
-# CONFIG_MTD_PARTITIONS is not set
+CONFIG_MTD_PARTITIONS=y
 # CONFIG_MTD_CONCAT is not set
+# CONFIG_MTD_REDBOOT_PARTS is not set
+# CONFIG_MTD_CMDLINE_PARTS is not set
 
 #
 # User Modules And Translation Layers

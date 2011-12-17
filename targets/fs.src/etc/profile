@@ -31,6 +31,6 @@ if [ "$firsttime" = "/var/udhcpd/udhcpd.lease*" ]; then
  test -e /lib/modules/$KERNELVER/extra/p8021ag.ko && insmod /lib/modules/$KERNELVER/extra/p8021ag.ko
  test -e /lib/modules/$KERNELVER/extra/isdn.ko && insmod /lib/modules/$KERNELVER/extra/isdn.ko
  test -e /lib/modules/$KERNELVER/kernel/drivers/isdn/capi/capi.ko && insmod /lib/modules/$KERNELVER/kernel/drivers/isdn/capi/capi.ko 
- cfm
+ #cfm
 fi
 
