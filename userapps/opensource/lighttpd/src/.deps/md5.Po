@@ -1,0 +1,60 @@
+md5.o md5.o: md5.c ../config.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/string.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/features.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/uClibc_config.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/sys/cdefs.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/include/stddef.h \
+  md5.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/include/limits.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/include/syslimits.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/limits.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/posix1_lim.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/local_lim.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/linux/limits.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/posix2_lim.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/xopen_lim.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/stdio_lim.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/stdint.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/wchar.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/wordsize.h \
+  /opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/inttypes.h
+
+../config.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/string.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/features.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/uClibc_config.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/sys/cdefs.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/include/stddef.h:
+
+md5.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/include/limits.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/include/syslimits.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/limits.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/posix1_lim.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/local_lim.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/linux/limits.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/posix2_lim.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/xopen_lim.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/stdio_lim.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/stdint.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/wchar.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/bits/wordsize.h:
+
+/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502/bin/../lib/gcc/mips-linux-uclibc/3.4.2/../../../../mips-linux-uclibc/sys-include/inttypes.h:

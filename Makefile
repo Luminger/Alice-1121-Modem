@@ -99,6 +99,8 @@ TOOLCHAIN=/usr/crossdev/mips
 CROSS_COMPILE = $(TOOLCHAIN)/bin/mips-linux-
 endif
 
+export CROSS_COMPILE
+
 AR              = $(CROSS_COMPILE)ar
 AS              = $(CROSS_COMPILE)as
 LD              = $(CROSS_COMPILE)ld
@@ -799,6 +801,10 @@ SUBDIRS_OPENSOURCE = $(OPENSOURCE_DIR)/atm2684/pvc2684ctl \
         $(OPENSOURCE_DIR)/iproute2  \
         $(OPENSOURCE_DIR)/libusb \
         $(OPENSOURCE_DIR)/busybox \
+        $(OPENSOURCE_DIR)/lua \
+        $(OPENSOURCE_DIR)/cgilua \
+        $(OPENSOURCE_DIR)/lighttpd \
+        $(OPENSOURCE_DIR)/mtd \
         $(OPENSOURCE_DIR)/oprofile
         
 
@@ -838,8 +844,7 @@ SUBDIRS_BROADCOM = \
 SUBDIRS_APP = $(SUBDIRS_BROADCOM) $(SUBDIRS_OPENSOURCE)
 SUBDIRS = $(foreach dir, $(SUBDIRS_APP), $(shell if [ -d "$(dir)" ]; then echo $(dir); fi))
 
-OPENSOURCE_APPS = pvc2684ctl pvc2684d brctl iptables ebtables ip \
-                  tc libusb busybox oprofile
+OPENSOURCE_APPS = pvc2684ctl pvc2684d brctl iptables ebtables ip lua cgilua lighttpd mtd busybox oprofile
 
 BROADCOM_APPS = nvram bcmcrypto bcmshared bcmssl nas wlctl cfm upnp vodsl atmctl adslctl netctl dnsprobe dynahelper dnsspoof \
                 igmp dhcpr diagapp sntp ddnsd ippd hotplug ethctl epittcp ses \
@@ -1060,13 +1065,22 @@ else
 ebtables:
 endif
 
-ifneq ($(strip $(BRCM_KERNEL_NETQOS)),)
-tc:
-	cd $(OPENSOURCE_DIR);   (tar xkfj iproute2.tar.bz2 2> /dev/null || true)
-	$(MAKE) -C $(OPENSOURCE_DIR)/iproute2 dynamic
-else
-tc:
-endif
+
+lua:
+	$(MAKE) -C $(OPENSOURCE_DIR)/lua posix
+	cp $(OPENSOURCE_DIR)/lua/src/lua $(INSTALL_DIR)/bin/
+	#$(MAKE) -C $(OPENSOURCE_DIR)/lua "INSTALL_TOP=$(INSTALL_DIR)/usr" install
+
+cgilua:
+	$(MAKE) -C $(OPENSOURCE_DIR)/cgilua PREFIX=$(INSTALL_DIR) install
+
+lighttpd:
+	cd $(OPENSOURCE_DIR)/lighttpd; ./configure --target=mips-linux-uclibc --prefix=$(INSTALL_DIR) --host=x86_64-linux --without-pcre --without-zlib --without-bzip2 --enable-shared
+	$(MAKE) -C $(OPENSOURCE_DIR)/lighttpd
+
+mtd:
+	$(MAKE) -C $(OPENSOURCE_DIR)/mtd CC=$(CC) CFLAGS=-I../../../kernel/linux/include/
+	cp $(OPENSOURCE_DIR)/mtd/mtd $(INSTALL_DIR)/sbin/
 
 ifneq ($(strip $(BUILD_IPROUTE2)),)
 ip:
@@ -1244,10 +1258,6 @@ signature:
 else
 signature:
 	cd $(INC_BRCMSHARED_PUB_PATH)/$(BRCM_BOARD)/; cp -f bcmTag.h.bak bcmTag.h
-endif
-
-ifneq ($(strip $(BUILD_4_LEVEL_QOS)),)
-export BUILD_4_LEVEL_QOS=y
 endif
 
 ifneq ($(strip $(BUILD_VODSL)),)

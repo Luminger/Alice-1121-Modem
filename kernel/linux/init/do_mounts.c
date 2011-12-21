@@ -279,6 +279,7 @@ void __init mount_block_root(char *name, int flags)
 	char b[BDEVNAME_SIZE];
 
 	get_fs_names(fs_names);
+
 retry:
 	for (p = fs_names; *p; p += strlen(p)+1) {
 		int err = do_mount_root(name, p, flags, root_mount_data);

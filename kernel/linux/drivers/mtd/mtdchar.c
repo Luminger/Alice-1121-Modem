@@ -99,16 +99,22 @@ static int mtd_open(struct inode *inode, struct file *file)
 	DEBUG(MTD_DEBUG_LEVEL0, "MTD_open\n");
 
 	if (devnum >= MAX_MTD_DEVICES)
+        {
 		return -ENODEV;
+	}
 
 	/* You can't open the RO devices RW */
 	if ((file->f_mode & 2) && (minor & 1))
+	{
 		return -EACCES;
+	}
 
 	mtd = get_mtd_device(NULL, devnum);
 	
 	if (!mtd)
+	{
 		return -ENODEV;
+	}
 	
 	if (MTD_ABSENT == mtd->type) {
 		put_mtd_device(mtd);

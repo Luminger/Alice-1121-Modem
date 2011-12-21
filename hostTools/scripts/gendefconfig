@@ -183,7 +183,8 @@ fi
 # CFI only used by JFFS2
 if [ "$BRCM_KERNEL_ROOTFS" = "squashfs" -o "$BRCM_KERNEL_ROOTFS" = "cramfs" ]; then
  
- SEDCMD="$SEDCMD -e 's/# CONFIG_MTD_BLOCK_RO is not set/CONFIG_MTD_BLOCK_RO=y/'"
+ #SEDCMD="$SEDCMD -e 's/# CONFIG_MTD_BLOCK_RO is not set/CONFIG_MTD_BLOCK_RO=y/'"
+ SEDCMD="$SEDCMD -e 's/# CONFIG_MTD_BLOCK is not set/CONFIG_MTD_BLOCK=y/'"
  SEDCMD="$SEDCMD -e 's/# CONFIG_MTD_BCM963XX is not set/CONFIG_MTD_BCM963XX=y/'"
  SEDCMD="$SEDCMD -e 's/# CONFIG_MTD_ROM is not set/CONFIG_MTD_ROM=y/'"
  SEDCMD="$SEDCMD -e 's/# CONFIG_MTD_COMPLEX_MAPPINGS is not set/CONFIG_MTD_COMPLEX_MAPPINGS=y/'"
@@ -226,8 +227,9 @@ if [ "$BRCM_KERNEL_ROOTFS" = "nfs" ]; then
   SEDCMD="$SEDCMD -e 's/# CONFIG_LOCKD is not set/CONFIG_LOCKD=y/'"
 elif [ "$BRCM_KERNEL_ROOTFS" = "jffs2" ]; then
   SEDCMD="$SEDCMD -e 's/# CONFIG_ROOTFS_JFFS2 is not set/CONFIG_ROOTFS_JFFS2=y/'"
-  #ROOTDEV="root=/dev/mtdblock2 ro"
-  ROOTDEV="root=31:2 ro noinitrd"
+  #ROOTDEV="root=/dev/mtdblock1 ro noinitrd"
+  #ROOTDEV="root=31:2 ro noinitrd"
+  ROOTDEV="root=31:2 rootfstype=squashfs,jffs2 noinitrd"
   SEDCMD="$SEDCMD -e 's?# CONFIG_ROOT_FLASHFS is not set?CONFIG_ROOT_FLASHFS=\"$ROOTDEV\"?'"
   SEDCMD="$SEDCMD -e 's/# CONFIG_JFFS2_FS is not set/CONFIG_JFFS2_FS=y/'"
   SEDCMD="$SEDCMD -e 's/# CONFIG_JFFS2_FS_DEBUG/CONFIG_JFFS2_FS_DEBUG/'"
@@ -245,7 +247,8 @@ else
   fi  
 
   #ROOTDEV="root=/dev/mtdblock0 ro noinitrd"
-  ROOTDEV="root=31:0 ro noinitrd"
+  #ROOTDEV="root=/dev/mtd2 ro noinitrd"
+  ROOTDEV="root=31:2 rootfstype=squashfs"
   SEDCMD="$SEDCMD -e 's?# CONFIG_ROOT_FLASHFS is not set?CONFIG_ROOT_FLASHFS=\"$ROOTDEV\"?'"
 fi
 

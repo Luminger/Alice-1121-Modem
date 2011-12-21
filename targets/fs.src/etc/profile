@@ -1,6 +1,6 @@
 # /etc/profile: system-wide .profile file for the Bourne shells
 
-PATH=/bin:/sbin:/usr/bin
+PATH=/bin:/sbin:/usr/bin:/usr/local/share/lua/5.2/
 KERNELVER=2.6.8.1
 export PATH
 echo
@@ -12,8 +12,7 @@ if [ "$firsttime" = "/var/udhcpd/udhcpd.lease*" ]; then
 # create directory in /var mounted for TMPFS
  mkdir -p /var/log /var/run /var/state/dhcp /var/ppp /var/udhcpd /var/zebra /var/siproxd /var/cache /var/webs
  echo > /var/udhcpd/udhcpd.leases
- ifconfig lo 127.0.0.1 netmask 255.0.0.0 broadcast 127.255.255.255 up
-# /etc/modules_install /lib/modules/$KERNELVER/extra
+
  test -e /lib/modules/$KERNELVER/extra/profdrvdd.ko && insmod /lib/modules/$KERNELVER/extra/profdrvdd.ko
  test -e /lib/modules/$KERNELVER/extra/bcmxtmcfg.ko && insmod /lib/modules/$KERNELVER/extra/bcmxtmcfg.ko
  test -e /lib/modules/$KERNELVER/extra/atmapi.ko && insmod /lib/modules/$KERNELVER/extra/atmapi.ko
@@ -23,14 +22,31 @@ if [ "$firsttime" = "/var/udhcpd/udhcpd.lease*" ]; then
  test -e /lib/modules/$KERNELVER/extra/blaa_dd.ko && insmod /lib/modules/$KERNELVER/extra/blaa_dd.ko
  test -e /lib/modules/$KERNELVER/kernel/net/atm/br2684.ko && insmod /lib/modules/$KERNELVER/kernel/net/atm/br2684.ko
  test -e /lib/modules/$KERNELVER/extra/bcmprocfs.ko && insmod /lib/modules/$KERNELVER/extra/bcmprocfs.ko
-# test -e /lib/modules/$KERNELVER/extra/bcm_enet.ko && insmod /lib/modules/$KERNELVER/extra/bcm_enet.ko
-# test -e /lib/modules/$KERNELVER/extra/bcm_usb.ko && insmod /lib/modules/$KERNELVER/extra/bcm_usb.ko
+ test -e /lib/modules/$KERNELVER/extra/bcm_enet.ko && insmod /lib/modules/$KERNELVER/extra/bcm_enet.ko
+ test -e /lib/modules/$KERNELVER/extra/bcm_usb.ko && insmod /lib/modules/$KERNELVER/extra/bcm_usb.ko
  test -e /lib/modules/$KERNELVER/extra/wl.ko && insmod /lib/modules/$KERNELVER/extra/wl.ko
  test -e /lib/modules/$KERNELVER/extra/dspdd.ko && insmod /lib/modules/$KERNELVER/extra/dspdd.ko
  test -e /lib/modules/$KERNELVER/extra/endpointdd.ko && insmod /lib/modules/$KERNELVER/extra/endpointdd.ko
  test -e /lib/modules/$KERNELVER/extra/p8021ag.ko && insmod /lib/modules/$KERNELVER/extra/p8021ag.ko
  test -e /lib/modules/$KERNELVER/extra/isdn.ko && insmod /lib/modules/$KERNELVER/extra/isdn.ko
  test -e /lib/modules/$KERNELVER/kernel/drivers/isdn/capi/capi.ko && insmod /lib/modules/$KERNELVER/kernel/drivers/isdn/capi/capi.ko 
- #cfm
+
+ ip link set lo up
+ ip addr add 127.0.0.1/8 dev lo
+
+ ip link set eth0 up
+ ip addr add 192.168.1.1/24 dev eth0
+
+ #mtd unlock /dev/mtd3
+
+ # setup the jffs2 partition
+ #FIRSTBOOT=`nvram get first_boot`
+ #if [ "$FIRSTBOOT" -ne "0" ]
+ #then
+ #    mtd erase /dev/mtd3
+ #    nvram set first_boot=0
+ #fi
+ #mount -t jffs2 /dev/mtdblock3 /overlay
+ 
 fi
 

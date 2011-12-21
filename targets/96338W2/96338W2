@@ -89,6 +89,7 @@ BRCM_KERNEL_CRYPTO_AES=y
 BRCM_ROOTFS_SQUASHFS=y
 # BRCM_ROOTFS_CRAMFS is not set
 # BRCM_ROOTFS_NFS is not set
+# BRCM_ROOTFS_JFFS2 is not set
 BRCM_KERNEL_ROOTFS=squashfs
 # BUILD_SQUASH_HIGH is not set
 # BUILD_SQUASH_NORMAL is not set
@@ -105,11 +106,11 @@ BRCM_UCLIBC=y
 #
 BUILD_PVC2684CTL=dynamic
 BUILD_BRCTL=dynamic
-BUILD_CFM=dynamic
+# BUILD_CFM is not set
 # BUILD_CFM_MENU is not set
-BUILD_CFM_CLI=y
-BUILD_CFM_TELNETD=y
-BUILD_CFM_SSHD=y
+# BUILD_CFM_CLI is not set
+# BUILD_CFM_TELNETD is not set
+# BUILD_CFM_SSHD is not set
 # BUILD_SSHD_MIPS_GENKEY is not set
 # WEB_POPUP is not set
 # HTTPS_SUPPORT is not set

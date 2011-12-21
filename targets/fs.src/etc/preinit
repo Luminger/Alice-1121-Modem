@@ -1,0 +1,46 @@
+#!/bin/sh -x
+
+PATH=/sbin:/bin:/usr/bin:/usr/sbin
+export PATH
+
+# variables
+KERNELVER=2.6.8.1
+NVRAM_FIRST_BOOT="first_boot"
+JFFS2_MTD_CHAR="/dev/mtd3"
+JFFS2_MTD_BLOCK="/dev/mtdblock3"
+STORAGE_MOUNTPOINT="/storage"
+MINI_FO_DIR="$STORAGE_MOUNTPOINT/mini_fo"
+NEW_ROOT="/rw"
+
+exec /sbin/init
+
+# mount proc, we will need it ;)
+echo "Mounting /proc..."
+mount -t proc proc /proc
+
+# it's a good idea to unlock the flash first
+mtd unlock $JFFS2_MTD_CHAR
+#mtd erase $JFFS2_MTD_CHAR
+
+# setup the jffs2 partition
+#FIRSTBOOT=`nvram get $NVRAM_FIRST_BOOT`
+#if [ "$FIRSTBOOT" -ne "0" ]
+#then
+#    echo "First boot, erasing jffs2 partition..."
+#    mtd erase $JFFS2_MTD_CHAR
+#    nvram set $NVRAM_FIRST_BOOT=0
+#fi
+
+echo "Mounting jffs2 partition..."
+mount -t jffs2 $JFFS2_MTD_BLOCK $STORAGE_MOUNTPOINT
+
+#echo "Inserting mini_fo.ko into kernel..."
+#insmod /lib/modules/$KERNELVER/kernel/fs/mini_fo/mini_fo.ko
+
+mkdir $MINI_FO_DIR
+
+echo "Mounting mini_fo..."
+mount -t mini_fo -o base=/,sto=$MINI_FO_DIR mini_fo $NEW_ROOT
+exec /usr/sbin/chroot $NEW_ROOT sh
+#exec /usr/sbin/chroot $NEW_ROOT /sbin/init
+

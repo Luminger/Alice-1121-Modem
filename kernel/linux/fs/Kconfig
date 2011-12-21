@@ -4,6 +4,9 @@
 
 menu "File systems"
 
+config MINI_FO
+       tristate "Mini fanout overlay filesystem"
+
 config EXT2_FS
 	tristate "Second extended fs support"
 	help

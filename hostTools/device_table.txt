@@ -89,6 +89,23 @@
 /dev/mtdblock6    b  640         0     0     31       6        0        0     -
 /dev/mtdblock7    b  640         0     0     31       7        0        0     -
 
+/dev/mtd0         c  640         0     0     90       0        0        0     -
+/dev/mtd0ro       c  640         0     0     90       1        0        0     -
+/dev/mtd1         c  640         0     0     90       2        0        0     -
+/dev/mtd1ro       c  640         0     0     90       3        0        0     -
+/dev/mtd2         c  640         0     0     90       4        0        0     -
+/dev/mtd2ro       c  640         0     0     90       5        0        0     -
+/dev/mtd3         c  640         0     0     90       6        0        0     -
+/dev/mtd3ro       c  640         0     0     90       7        0        0     -
+/dev/mtd4         c  640         0     0     90       8        0        0     -
+/dev/mtd4ro       c  640         0     0     90       9        0        0     -
+/dev/mtd5         c  640         0     0     90       10       0        0     -
+/dev/mtd5ro       c  640         0     0     90       11       0        0     -
+/dev/mtd6         c  640         0     0     90       12       0        0     -
+/dev/mtd6ro       c  640         0     0     90       13       0        0     -
+/dev/mtd7         c  640         0     0     90       14       0        0     -
+/dev/mtd7ro       c  640         0     0     90       15       0        0     -
+
 # USB Mass Storage Devices
 /dev/sda0         b  640         0     0      8       0        0        0     -
 /dev/sda1         b  640         0     0      8       1        0        0     -

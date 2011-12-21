@@ -57,3 +57,20 @@ mknod $ROOTFS/dev/mtdblock4 b 31 4
 mknod $ROOTFS/dev/mtdblock5 b 31 5
 mknod $ROOTFS/dev/mtdblock6 b 31 6
 mknod $ROOTFS/dev/mtdblock7 b 31 7
+
+mknod $ROOTFS/dev/mtd0 b 90 0
+mknod $ROOTFS/dev/mtd0ro b 90 1
+mknod $ROOTFS/dev/mtd1 b 90 2
+mknod $ROOTFS/dev/mtd1ro b 90 3
+mknod $ROOTFS/dev/mtd2 b 90 4
+mknod $ROOTFS/dev/mtd2ro b 90 5
+mknod $ROOTFS/dev/mtd3 b 90 6
+mknod $ROOTFS/dev/mtd3ro b 90 7
+mknod $ROOTFS/dev/mtd4 b 90 8
+mknod $ROOTFS/dev/mtd4ro b 90 9
+mknod $ROOTFS/dev/mtd5 b 90 10
+mknod $ROOTFS/dev/mtd5ro b 90 11
+mknod $ROOTFS/dev/mtd6 b 90 12
+mknod $ROOTFS/dev/mtd6ro b 90 13
+mknod $ROOTFS/dev/mtd7 b 90 14
+mknod $ROOTFS/dev/mtd7ro b 90 15

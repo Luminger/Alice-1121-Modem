@@ -1,3 +1,4 @@
+/dev/mtdblock2  /       squashfs ro             0       0
 proc		/proc	proc	defaults	0	0
 tmpfs		/var	tmpfs	size=320k	0	0
 /dev/sda1	/mnt	vfat	noauto		0	0
