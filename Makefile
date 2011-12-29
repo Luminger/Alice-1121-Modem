@@ -83,21 +83,8 @@ endif
 # Define Toolchain
 #
 ###########################################
-ifeq ($(strip $(BRCM_UCLIBC)),y)
-NTC=1
-ifeq ($(strip $(NTC)),1)
-ifndef TOOLCHAIN
-TOOLCHAIN=/opt/toolchains/uclibc-crosstools_gcc-3.4.2_uclibc-20050502
-endif
-CROSS_COMPILE = $(TOOLCHAIN)/bin/mips-linux-uclibc-
-else
-TOOLCHAIN=/opt/toolchains/uclibc
-CROSS_COMPILE = $(TOOLCHAIN)/bin/mips-uclibc-
-endif
-else
-TOOLCHAIN=/usr/crossdev/mips
-CROSS_COMPILE = $(TOOLCHAIN)/bin/mips-linux-
-endif
+TOOLCHAIN=$(BUILD_DIR)/toolchain/uclibc-crosstools_gcc-3.4.2_uclibc-20050502
+CROSS_COMPILE=$(TOOLCHAIN)/bin/mips-linux-uclibc-
 
 export CROSS_COMPILE
 
@@ -803,7 +790,6 @@ SUBDIRS_OPENSOURCE = $(OPENSOURCE_DIR)/atm2684/pvc2684ctl \
         $(OPENSOURCE_DIR)/busybox \
         $(OPENSOURCE_DIR)/lua \
         $(OPENSOURCE_DIR)/cgilua \
-        $(OPENSOURCE_DIR)/lighttpd \
         $(OPENSOURCE_DIR)/mtd \
         $(OPENSOURCE_DIR)/oprofile
         
@@ -844,7 +830,7 @@ SUBDIRS_BROADCOM = \
 SUBDIRS_APP = $(SUBDIRS_BROADCOM) $(SUBDIRS_OPENSOURCE)
 SUBDIRS = $(foreach dir, $(SUBDIRS_APP), $(shell if [ -d "$(dir)" ]; then echo $(dir); fi))
 
-OPENSOURCE_APPS = pvc2684ctl pvc2684d brctl iptables ebtables ip lua cgilua lighttpd mtd busybox oprofile
+OPENSOURCE_APPS = pvc2684ctl pvc2684d brctl iptables ebtables ip lua cgilua mtd busybox oprofile
 
 BROADCOM_APPS = nvram bcmcrypto bcmshared bcmssl nas wlctl cfm upnp vodsl atmctl adslctl netctl dnsprobe dynahelper dnsspoof \
                 igmp dhcpr diagapp sntp ddnsd ippd hotplug ethctl epittcp ses \
@@ -1073,10 +1059,6 @@ lua:
 
 cgilua:
 	$(MAKE) -C $(OPENSOURCE_DIR)/cgilua PREFIX=$(INSTALL_DIR) install
-
-lighttpd:
-	cd $(OPENSOURCE_DIR)/lighttpd; ./configure --target=mips-linux-uclibc --prefix=$(INSTALL_DIR) --host=x86_64-linux --without-pcre --without-zlib --without-bzip2 --enable-shared
-	$(MAKE) -C $(OPENSOURCE_DIR)/lighttpd
 
 mtd:
 	$(MAKE) -C $(OPENSOURCE_DIR)/mtd CC=$(CC) CFLAGS=-I../../../kernel/linux/include/
