@@ -1,1 +1,0 @@
-opd_perfmon.o opd_perfmon.o: opd_perfmon.c

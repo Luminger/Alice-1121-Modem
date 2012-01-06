@@ -58,11 +58,8 @@ RUN_NOISE=0
 #
 ###########################################
 BRCM_BOARD=bcm963xx
-LAST_PROFILE=$(shell find targets -name vmlinux | sed -e "s?targets/??" -e "s?/.*??" -e "q")
-ifeq ($(strip $(PROFILE)),)
-PROFILE=$(LAST_PROFILE)
+PROFILE=96338W2
 export PROFILE
-endif
 
 ifneq ($(strip $(PROFILE)),)
 include $(TARGETS_DIR)/$(PROFILE)/$(PROFILE)
@@ -790,8 +787,7 @@ SUBDIRS_OPENSOURCE = $(OPENSOURCE_DIR)/atm2684/pvc2684ctl \
         $(OPENSOURCE_DIR)/busybox \
         $(OPENSOURCE_DIR)/lua \
         $(OPENSOURCE_DIR)/cgilua \
-        $(OPENSOURCE_DIR)/mtd \
-        $(OPENSOURCE_DIR)/oprofile
+        $(OPENSOURCE_DIR)/mtd
         
 
 #In future, we need to add soap when it
@@ -830,7 +826,7 @@ SUBDIRS_BROADCOM = \
 SUBDIRS_APP = $(SUBDIRS_BROADCOM) $(SUBDIRS_OPENSOURCE)
 SUBDIRS = $(foreach dir, $(SUBDIRS_APP), $(shell if [ -d "$(dir)" ]; then echo $(dir); fi))
 
-OPENSOURCE_APPS = pvc2684ctl pvc2684d brctl iptables ebtables ip lua cgilua mtd busybox oprofile
+OPENSOURCE_APPS = pvc2684ctl pvc2684d brctl iptables ebtables ip lua cgilua mtd busybox
 
 BROADCOM_APPS = nvram bcmcrypto bcmshared bcmssl nas wlctl cfm upnp vodsl atmctl adslctl netctl dnsprobe dynahelper dnsspoof \
                 igmp dhcpr diagapp sntp ddnsd ippd hotplug ethctl epittcp ses \
@@ -1539,14 +1535,6 @@ else
 ip:
 endif
 
-ifneq ($(strip $(BUILD_OPROFILE)),)
-oprofile:
-	cd $(OPENSOURCE_DIR);   (tar xkfj oprofile.tar.bz2 2> /dev/null || true)
-	$(MAKE) -C $(OPENSOURCE_DIR)/oprofile
-else
-oprofile:
-endif
-
 hosttools:
 	$(MAKE) -C $(HOSTTOOLS_DIR)
 
@@ -1721,7 +1709,7 @@ kernel_clean: sanity_check
 	rm -rf $(XCHANGE_DIR)/dslx/lib/LinuxKernel
 	rm -rf $(XCHANGE_DIR)/dslx/obj/LinuxKernel
 
-app_clean: sanity_check app_expand_before_clean fssrc_clean wsc_clean
+app_clean: sanity_check fssrc_clean wsc_clean
 	$(MAKE) subdirs TGT=clean
 	rm -rf $(XCHANGE_DIR)/dslx/lib/LinuxUser
 	rm -rf $(XCHANGE_DIR)/dslx/obj/LinuxUser
@@ -1739,11 +1727,6 @@ wsc_clean:
 	if [ -e $(BROADCOM_DIR)/wsc/Wsccmd/src/linux/common.mk ]; then \
 		$(MAKE) -C $(BROADCOM_DIR)/wsc/Wsccmd/src/linux clean; \
 	fi
-
-app_expand_before_clean:
-	# these archives need to be expended before cleaning - put makefile structures there there for cleaning
-	# OProfile
-	(tar xkfj $(OPENSOURCE_DIR)/oprofile.tar.bz2 -C $(OPENSOURCE_DIR) 2> /dev/null || true)
 
 target_clean: sanity_check
 	rm -f $(PROFILE_DIR)/rootfs.img
